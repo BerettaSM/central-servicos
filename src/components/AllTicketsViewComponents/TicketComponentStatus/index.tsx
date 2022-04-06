@@ -3,6 +3,7 @@ import React from 'react';
 import {
     Container,
     CurrentAttendantIcon,
+    StandByIcon,
     Wrapper
 } from './styles';
 
@@ -21,6 +22,8 @@ const StatusArea: React.FC<TicketComponentStatusData> = (props) => {
                           :priorityStatus === 3 ? "Alta"
                           :priorityStatus === 2 ? "Média" : "Baixa";
 
+    const attendantString = currentAttendant ? currentAttendant : "Aguardando Atendimento";
+
     const deadlineString = deadlineStatus === 2 ? "Atrasado" : "No Prazo";
 
     return (
@@ -30,8 +33,8 @@ const StatusArea: React.FC<TicketComponentStatusData> = (props) => {
                 <span>{priorityString}</span>
             </Wrapper>
             <Wrapper>
-                <CurrentAttendantIcon />
-                <span>{currentAttendant}</span>
+                {currentAttendant ? <CurrentAttendantIcon /> : <StandByIcon />}
+                <span>{attendantString}</span>
             </Wrapper>
             <Wrapper>
                 <DeadlineIcon deadlineStatus={deadlineStatus} />

@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 import {  Clock } from 'styled-icons/bootstrap';
+import { User } from 'styled-icons/boxicons-solid';
 
-export const CurrentAttendantIcon = styled(Clock)`
+export const CurrentAttendantIcon = styled(User)`
+    width: 14px;
+`;
+
+export const StandByIcon = styled(Clock)`
     width: 14px;
 `;
 

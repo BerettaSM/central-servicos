@@ -10,11 +10,15 @@ const TicketComponent_Details: React.FC<TicketComponentDetailsData> = (props) =>
 
     const { _id, status, ticketTitle, userName, openDate, dueDate } = props.data;
 
+    const statusString = status === 1 ? "Ticket Aberto"
+                        :status === 2 ? "Ticket em Andamento"
+                        :status === 3 ? "Ticket Fechado" : "Ticket Cancelado";
+
     return (
         <Container>
             <Wrapper>
                 <span>#{_id}</span>
-                <span>{status}</span>
+                <span>{statusString}</span>
             </Wrapper>
             <Wrapper>
                 <span>{ticketTitle}</span>

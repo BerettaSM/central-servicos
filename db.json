@@ -3,7 +3,7 @@
     "results": [
       {
           "_id": 12361,
-          "status": "Ticket Aberto",
+          "status": 1,
           "ticketTitle": "Não exibe o relatório do dia de hoje",
           "userName": "Marcie Savage",
           "openDate": "18/03/2022 11:09",
@@ -14,7 +14,7 @@
         },
         {
           "_id": 12703,
-          "status": "Ticket Cancelado",
+          "status": 4,
           "ticketTitle": "Não exibe o relatório do dia de hoje",
           "userName": "Gray Blanchard",
           "openDate": "07/02/2022 04:03",
@@ -25,7 +25,7 @@
         },
         {
           "_id": 13610,
-          "status": "Ticket Aberto",
+          "status": 1,
           "ticketTitle": "Deu um engano na falha do engano",
           "userName": "Mayer Hicks",
           "openDate": "08/01/2022 03:43",
@@ -36,7 +36,7 @@
         },
         {
           "_id": 12281,
-          "status": "Ticket em Andamento",
+          "status": 2,
           "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
           "userName": "Angelia Bryan",
           "openDate": "07/03/2022 04:58",
@@ -47,7 +47,7 @@
         },
         {
           "_id": 12768,
-          "status": "Ticket Fechado",
+          "status": 3,
           "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
           "userName": "Beverly Rojas",
           "openDate": "22/03/2022 09:43",
@@ -62,7 +62,7 @@
     "results" : [
       {
         "_id": 12361,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Marcie Savage",
         "openDate": "18/03/2022 11:09",
@@ -73,7 +73,7 @@
       },
       {
         "_id": 12703,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Gray Blanchard",
         "openDate": "07/02/2022 04:03",
@@ -84,7 +84,7 @@
       },
       {
         "_id": 13610,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Mayer Hicks",
         "openDate": "08/01/2022 03:43",
@@ -95,7 +95,7 @@
       },
       {
         "_id": 12281,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Angelia Bryan",
         "openDate": "07/03/2022 04:58",
@@ -106,7 +106,7 @@
       },
       {
         "_id": 12768,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Beverly Rojas",
         "openDate": "22/03/2022 09:43",
@@ -117,7 +117,7 @@
       },
       {
         "_id": 14608,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Baldwin Conley",
         "openDate": "08/03/2022 05:50",
@@ -128,7 +128,7 @@
       },
       {
         "_id": 13284,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Janet Kline",
         "openDate": "02/04/2022 06:18",
@@ -139,29 +139,29 @@
       },
       {
         "_id": 13079,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Lesa Odonnell",
         "openDate": "01/01/2022 12:07",
         "dueDate": "16/01/2022 10:16",
         "priorityStatus": 1,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 1
       },
       {
         "_id": 12113,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Slater Jensen",
         "openDate": "08/02/2022 01:57",
         "dueDate": "17/02/2022 04:05",
         "priorityStatus": 2,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 1
       },
       {
         "_id": 13213,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Lindsay Roberson",
         "openDate": "01/02/2022 10:06",
@@ -172,7 +172,7 @@
       },
       {
         "_id": 13490,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu falha no engano",
         "userName": "Humphrey Maynard",
         "openDate": "29/01/2022 09:07",
@@ -183,7 +183,7 @@
       },
       {
         "_id": 12288,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Patsy Hernandez",
         "openDate": "14/03/2022 11:26",
@@ -194,7 +194,7 @@
       },
       {
         "_id": 11114,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Robinson Mclaughlin",
         "openDate": "14/03/2022 02:28",
@@ -205,7 +205,7 @@
       },
       {
         "_id": 13869,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Pratt Christian",
         "openDate": "28/03/2022 05:52",
@@ -216,7 +216,7 @@
       },
       {
         "_id": 13605,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Cox Gray",
         "openDate": "17/01/2022 01:20",
@@ -227,7 +227,7 @@
       },
       {
         "_id": 14267,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Angelique Irwin",
         "openDate": "02/01/2022 05:18",
@@ -238,40 +238,40 @@
       },
       {
         "_id": 11964,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Sherry Potter",
         "openDate": "03/03/2022 12:49",
         "dueDate": "03/03/2022 01:49",
         "priorityStatus": 4,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 1
       },
       {
         "_id": 11991,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Danielle Decker",
         "openDate": "10/01/2022 07:30",
         "dueDate": "02/02/2022 11:48",
         "priorityStatus": 4,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 11825,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Cline Little",
         "openDate": "02/04/2022 03:12",
         "dueDate": "21/01/2022 04:19",
         "priorityStatus": 4,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 12053,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Leon Montoya",
         "openDate": "12/02/2022 09:53",
@@ -282,7 +282,7 @@
       },
       {
         "_id": 12612,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Ruth Warner",
         "openDate": "02/01/2022 10:10",
@@ -293,18 +293,18 @@
       },
       {
         "_id": 13002,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Concetta Perez",
         "openDate": "25/02/2022 10:21",
         "dueDate": "26/02/2022 01:46",
         "priorityStatus": 4,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 14237,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Kathrine Mullins",
         "openDate": "21/01/2022 10:15",
@@ -315,7 +315,7 @@
       },
       {
         "_id": 12761,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Hensley Donovan",
         "openDate": "12/03/2022 10:54",
@@ -326,18 +326,18 @@
       },
       {
         "_id": 13927,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Deu falha no engano",
         "userName": "Lenora Mosley",
         "openDate": "28/02/2022 10:01",
         "dueDate": "22/02/2022 09:04",
         "priorityStatus": 4,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 13573,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Polly Rivas",
         "openDate": "29/03/2022 07:51",
@@ -348,29 +348,29 @@
       },
       {
         "_id": 12798,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Yang Heath",
         "openDate": "11/01/2022 11:58",
         "dueDate": "04/02/2022 12:36",
         "priorityStatus": 3,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 1
       },
       {
         "_id": 14979,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Sadie Weiss",
         "openDate": "03/03/2022 04:34",
         "dueDate": "08/02/2022 02:08",
         "priorityStatus": 1,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 12831,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Norma Mclean",
         "openDate": "10/02/2022 12:05",
@@ -381,7 +381,7 @@
       },
       {
         "_id": 11310,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Deu falha no engano",
         "userName": "Michael Sparks",
         "openDate": "22/02/2022 12:10",
@@ -392,7 +392,7 @@
       },
       {
         "_id": 11026,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Ollie Bullock",
         "openDate": "27/01/2022 02:55",
@@ -403,7 +403,7 @@
       },
       {
         "_id": 14510,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Dominguez Soto",
         "openDate": "31/03/2022 01:14",
@@ -414,7 +414,7 @@
       },
       {
         "_id": 11233,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Muriel Crosby",
         "openDate": "06/03/2022 06:10",
@@ -425,7 +425,7 @@
       },
       {
         "_id": 11985,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Malone Ford",
         "openDate": "23/01/2022 12:53",
@@ -436,29 +436,29 @@
       },
       {
         "_id": 11603,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Sophia Durham",
         "openDate": "29/01/2022 11:38",
         "dueDate": "24/01/2022 03:36",
         "priorityStatus": 4,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 1
       },
       {
         "_id": 13605,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Ellen Combs",
         "openDate": "08/02/2022 09:55",
         "dueDate": "21/01/2022 01:15",
         "priorityStatus": 3,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 1
       },
       {
         "_id": 14130,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Lori Madden",
         "openDate": "04/03/2022 06:57",
@@ -469,7 +469,7 @@
       },
       {
         "_id": 12713,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Mcintosh Cortez",
         "openDate": "12/03/2022 09:01",
@@ -480,7 +480,7 @@
       },
       {
         "_id": 13958,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Deu uma falha no engano parte 2: O retorno",
         "userName": "Janice Mullen",
         "openDate": "16/01/2022 11:14",
@@ -491,7 +491,7 @@
       },
       {
         "_id": 11569,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Malinda Rodriquez",
         "openDate": "11/03/2022 09:26",
@@ -502,7 +502,7 @@
       },
       {
         "_id": 12644,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu falha no engano",
         "userName": "Holloway Ellison",
         "openDate": "19/01/2022 06:10",
@@ -513,7 +513,7 @@
       },
       {
         "_id": 11897,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Day Snider",
         "openDate": "22/01/2022 02:23",
@@ -524,7 +524,7 @@
       },
       {
         "_id": 13146,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Deu falha no engano",
         "userName": "Cristina Barton",
         "openDate": "28/02/2022 09:22",
@@ -535,7 +535,7 @@
       },
       {
         "_id": 14956,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Laurel Campbell",
         "openDate": "28/02/2022 08:20",
@@ -546,18 +546,18 @@
       },
       {
         "_id": 13468,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu falha no engano",
         "userName": "Marquez Leonard",
         "openDate": "01/02/2022 11:00",
         "dueDate": "03/01/2022 06:54",
         "priorityStatus": 1,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 12258,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Carver Navarro",
         "openDate": "22/02/2022 11:33",
@@ -568,7 +568,7 @@
       },
       {
         "_id": 13716,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Becky Hayden",
         "openDate": "15/01/2022 07:16",
@@ -579,7 +579,7 @@
       },
       {
         "_id": 13080,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Bowers Mercer",
         "openDate": "29/03/2022 05:19",
@@ -590,7 +590,7 @@
       },
       {
         "_id": 14327,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Morrison Strong",
         "openDate": "11/01/2022 04:22",
@@ -601,7 +601,7 @@
       },
       {
         "_id": 14400,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Mcfarland Buchanan",
         "openDate": "01/01/2022 07:31",
@@ -612,7 +612,7 @@
       },
       {
         "_id": 12784,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Vasquez Petersen",
         "openDate": "06/02/2022 09:27",
@@ -623,29 +623,29 @@
       },
       {
         "_id": 14074,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu falha no engano",
         "userName": "Kristine Moses",
         "openDate": "09/01/2022 12:58",
         "dueDate": "06/03/2022 01:00",
         "priorityStatus": 4,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 14503,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Kim Pratt",
         "openDate": "20/01/2022 07:24",
         "dueDate": "22/01/2022 12:21",
         "priorityStatus": 2,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 11958,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Deu falha no engano",
         "userName": "Pugh Yang",
         "openDate": "16/02/2022 10:37",
@@ -656,7 +656,7 @@
       },
       {
         "_id": 11799,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu um engano na falha do engano",
         "userName": "Bonita Rosa",
         "openDate": "19/03/2022 01:45",
@@ -667,29 +667,29 @@
       },
       {
         "_id": 11915,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Simone Stephenson",
         "openDate": "25/01/2022 06:12",
         "dueDate": "18/03/2022 08:15",
         "priorityStatus": 2,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 11465,
-        "status": "Ticket Aberto",
+        "status": 1,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Rosetta Dodson",
         "openDate": "18/03/2022 10:59",
         "dueDate": "29/03/2022 09:37",
         "priorityStatus": 1,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 14175,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Deu falha no engano",
         "userName": "Baxter Barber",
         "openDate": "29/01/2022 12:34",
@@ -700,7 +700,7 @@
       },
       {
         "_id": 11191,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Ana Rodgers",
         "openDate": "02/03/2022 10:05",
@@ -711,7 +711,7 @@
       },
       {
         "_id": 12473,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Figueroa Colon",
         "openDate": "14/01/2022 08:58",
@@ -722,18 +722,18 @@
       },
       {
         "_id": 14473,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Byers Hickman",
         "openDate": "08/01/2022 10:34",
         "dueDate": "22/03/2022 05:05",
         "priorityStatus": 1,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 12902,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Deu falha no engano",
         "userName": "Jenifer Hoffman",
         "openDate": "24/03/2022 07:09",
@@ -744,7 +744,7 @@
       },
       {
         "_id": 11537,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Ernestine Dejesus",
         "openDate": "09/01/2022 07:41",
@@ -755,7 +755,7 @@
       },
       {
         "_id": 14864,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Não exibe o relatório do dia de hoje",
         "userName": "Ladonna Dixon",
         "openDate": "17/03/2022 10:34",
@@ -766,7 +766,7 @@
       },
       {
         "_id": 11609,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Alta Mitchell",
         "openDate": "07/02/2022 07:52",
@@ -777,18 +777,18 @@
       },
       {
         "_id": 13000,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu falha no engano",
         "userName": "Madeline Wright",
         "openDate": "23/01/2022 11:02",
         "dueDate": "13/02/2022 10:15",
         "priorityStatus": 2,
-        "currentAttendant": "Aguardando Atendimento",
+        "currentAttendant": null,
         "deadlineStatus": 2
       },
       {
         "_id": 11757,
-        "status": "Ticket Cancelado",
+        "status": 4,
         "ticketTitle": "Deu falha no engano",
         "userName": "Pacheco Odom",
         "openDate": "23/02/2022 07:48",
@@ -799,7 +799,7 @@
       },
       {
         "_id": 14691,
-        "status": "Ticket Fechado",
+        "status": 3,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Wilder Ayala",
         "openDate": "29/01/2022 12:32",
@@ -810,7 +810,7 @@
       },
       {
         "_id": 11771,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Briggs Bartlett",
         "openDate": "03/03/2022 12:05",
@@ -821,7 +821,7 @@
       },
       {
         "_id": 14831,
-        "status": "Ticket em Andamento",
+        "status": 2,
         "ticketTitle": "Deu falha no engano",
         "userName": "Alisha Rios",
         "openDate": "21/01/2022 10:33",

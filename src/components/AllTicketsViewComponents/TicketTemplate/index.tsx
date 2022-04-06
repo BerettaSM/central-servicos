@@ -8,7 +8,7 @@ import UserPic from '../../shared/UserPic';
 import { Link } from 'react-router-dom';
 
 interface TicketData {
-  ticketData: any;
+  ticketData: object;
 }
 
 const TicketTemplate: React.FC<TicketData> = (props) => {
