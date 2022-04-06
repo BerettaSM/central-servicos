@@ -3,11 +3,11 @@ import React from 'react';
 import { Container, MessageContainer } from './styles';
 import MessageHeader from '../MessageHeader';
 
-interface Props {
+export interface MessageInterface {
     outgoingMessage?: boolean;
 }
 
-const MessageTemplate: React.FC<Props> = (props) => {
+const MessageTemplate: React.FC<MessageInterface> = (props) => {
     return (
         <Container outgoingMessage={props.outgoingMessage}>
             <MessageHeader />

@@ -10,37 +10,48 @@ export const Container = styled.div`
     justify-content: center;
     margin-left: 15px;
     width: 400px;
-    > div {
-        flex-direction: row;
-        margin: 3px 0;
-    }
-    > div:first-of-type  {
-        > span:first-of-type {
-            color: var(--THEME_COLOR_001);
-        }
-        > span:last-of-type {
-            font-weight: bold;
-            margin-left: 12px;
-        }
-    }
-    > div:nth-of-type(2) {
-        color: var(--THEME_COLOR_001);
-        font-weight: bold;
-    }
-    > div:last-of-type {
-        flex-direction: row;
-        > div > span {
-            margin: 0 12px 0 6px;   
-        }
-    }
+    
 `;
 
-export const Wrapper = styled.div`
+export const UpperWrapper = styled.div`
     display: flex;
+    flex-direction: row;
+    margin: 3px 0;
+
+    > span:first-of-type {
+        color: var(--THEME_COLOR_001);
+    }
+
+    > span:last-of-type {
+        font-weight: bold;
+        margin-left: 12px;
+    }
+
+`;
+
+export const MiddleWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin: 3px 0;
+    color: var(--THEME_COLOR_001);
+    font-weight: bold;
+`;
+
+export const BottomOuterWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin: 3px 0;
+`;
+
+export const BottomInnerWrapper = styled.div`
+    display: flex;
+    > span {
+        margin: 0 12px 0 6px;   
+    }
 `;
 
 export const OpenDateIcon = styled(CalendarAlt)`
-    height: 14px;
+    height: 12px;
 `;
 
 export const UserIcon = styled(User)`
@@ -48,5 +59,5 @@ export const UserIcon = styled(User)`
 `;
 
 export const DueDateIcon = styled(CalendarCheck)`
-    height: 14px;
+    height: 12px;
 `;

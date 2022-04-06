@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
-interface Props {
-    outgoingMessage?: boolean;
-}
+import { MessageInterface } from '.';
 
-export const Container = styled.div<Props>`
+export const Container = styled.div<MessageInterface>`
     background: var(--THEME_COLOR_003);
     color: var(--THEME_COLOR_005);
     font-size: 14px;
     padding: 12px;
     width: calc(100% - 63px);
 
-    ${(p: Props) => {
+    ${(p: MessageInterface) => {
         if(p.outgoingMessage) {
             return `
                 margin-left: 63px;

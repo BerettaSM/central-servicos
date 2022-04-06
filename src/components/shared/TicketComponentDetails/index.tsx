@@ -1,6 +1,15 @@
 import React from 'react';
 
-import { Container, DueDateIcon, Wrapper, OpenDateIcon, UserIcon } from './styles';
+import {
+    Container,
+    DueDateIcon,
+    OpenDateIcon,
+    UserIcon,
+    UpperWrapper,
+    MiddleWrapper,
+    BottomOuterWrapper,
+    BottomInnerWrapper
+} from './styles';
 
 interface TicketComponentDetailsData {
     data: any;
@@ -16,27 +25,27 @@ const TicketComponent_Details: React.FC<TicketComponentDetailsData> = (props) =>
 
     return (
         <Container>
-            <Wrapper>
+            <UpperWrapper>
                 <span>#{_id}</span>
                 <span>{statusString}</span>
-            </Wrapper>
-            <Wrapper>
+            </UpperWrapper>
+            <MiddleWrapper>
                 <span>{ticketTitle}</span>
-            </Wrapper>
-            <Wrapper>
-                <Wrapper>
+            </MiddleWrapper>
+            <BottomOuterWrapper>
+                <BottomInnerWrapper>
                     <UserIcon />
                     <span>{userName}</span>
-                </Wrapper>
-                <Wrapper>
+                </BottomInnerWrapper>
+                <BottomInnerWrapper>
                     <OpenDateIcon />
                     <span>{openDate}</span>
-                </Wrapper>
-                <Wrapper>
+                </BottomInnerWrapper>
+                <BottomInnerWrapper>
                     <DueDateIcon />
                     <span>{dueDate}</span>
-                </Wrapper>
-            </Wrapper>
+                </BottomInnerWrapper>
+            </BottomOuterWrapper>
         </Container>
     );
 }
