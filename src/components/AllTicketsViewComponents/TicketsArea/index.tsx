@@ -27,7 +27,7 @@ const TicketsArea: React.FC = () => {
       })
       .catch((error: any) => {
         console.log(error);
-      })
+      });
   }
 
   return (
