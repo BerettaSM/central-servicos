@@ -14,22 +14,14 @@ interface TicketData {
 const TicketTemplate: React.FC<TicketData> = (props) => {
   
   const { ticketData } = props;
-
-  const ticketComponentDetailsObject = Object.fromEntries(
-    Object.entries(ticketData).slice(0, 6)
-  );
-  
-  const ticketComponentStatusObject = Object.fromEntries(
-    Object.entries(ticketData).slice(6)
-  );
   
   return (
       <Link to={'/ticketdetail'} style={{ textDecoration: 'none'}}>
         <Container>
           <UserPic />
           <Wrapper>
-              <TicketComponentDetails data={ticketComponentDetailsObject} />
-              <TicketComponentStatus data={ticketComponentStatusObject} />
+              <TicketComponentDetails data={ticketData} />
+              <TicketComponentStatus data={ticketData} />
           </Wrapper>
         </Container>
       </Link>
