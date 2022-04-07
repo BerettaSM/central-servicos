@@ -8,20 +8,21 @@ import UserPic from '../../shared/UserPic';
 import { Link } from 'react-router-dom';
 
 interface TicketData {
-  ticketData: object;
+  data: any;
 }
 
 const TicketTemplate: React.FC<TicketData> = (props) => {
   
-  const { ticketData } = props;
+  const { data } = props;
+  const { _id } = data;
   
   return (
-      <Link to={'/ticketdetail'} style={{ textDecoration: 'none'}}>
+      <Link to={`/ticket-detail/${_id}`} style={{ textDecoration: 'none'}}>
         <Container>
           <UserPic />
           <Wrapper>
-              <TicketComponentDetails data={ticketData} />
-              <TicketComponentStatus data={ticketData} />
+              <TicketComponentDetails data={data} />
+              <TicketComponentStatus data={data} />
           </Wrapper>
         </Container>
       </Link>

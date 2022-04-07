@@ -22,7 +22,7 @@ const AllTicketsView: React.FC = () => {
         .then((res: any) => {
             let results = res.data.results;
             if (results) {
-            setDataFound(results);
+                setDataFound(results);
             }
         })
         .catch((error: any) => {
@@ -35,6 +35,7 @@ const AllTicketsView: React.FC = () => {
     const handleNextClick = () => {
 
         if(currentPage < lastPage)
+
             setCurrentPage(currentPage + 1);
 
     }
@@ -42,6 +43,7 @@ const AllTicketsView: React.FC = () => {
     const handlePrevClick = () => {
   
         if (currentPage > 1)
+        
             setCurrentPage(currentPage - 1);
       
     }
