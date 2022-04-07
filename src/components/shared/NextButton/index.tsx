@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import { Button, RightArrowIcon } from './styles';
 
 interface Props {
-  InnerText: string
+  innerText: string;
+  onClick?: MouseEventHandler;
 }
 
 const NextButton: React.FC<Props> = (props) => {
   return(
-    <Button>
-        <span>{props.InnerText}</span>
+    <Button onClick={props.onClick}>
+        <span>{props.innerText}</span>
         <RightArrowIcon />
     </Button>
   );

@@ -1,38 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { Api } from '../../../Api';
+import React from 'react';
 
 import { Container } from './styles';
 
 import TicketTemplate from '../TicketTemplate';
 
-const TicketsArea: React.FC = () => {
+interface DataFound{
+  data: object;
+}
 
-  const url = "/data";
-  const url2 = "/datasetwithfiveobjects"; // Testing only
-  const [dataFound, setDataFound] = useState([]);
+interface Pagination{
+  data: DataFound[];
+  currentPage: number;
+  maxTickets: number;
+}
 
-  useEffect(() => {
-    (async () => {
-      searchTicketData();
-    })()
-  }, []);
+const TicketsArea: React.FC<Pagination> = (props) => {
 
-  const searchTicketData = async () => {
-    await Api.get(url2)
-      .then((res: any) => {
-        let results = res.data.results;
-        if (results) {
-          setDataFound(results);
-        }
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-  }
+  const { data, currentPage, maxTickets } = props;
+
+  const pageEnd = currentPage * maxTickets;
+  const pageStart = pageEnd - maxTickets;
 
   return (
       <Container>
-        {dataFound.map( item => <TicketTemplate ticketData={item} />)}
+        {data
+          .slice(pageStart, pageEnd)
+          .map( item => <TicketTemplate ticketData={item} />)}
       </Container>
   );
 }

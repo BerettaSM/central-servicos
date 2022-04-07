@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import { Button, LeftArrowIcon } from './styles';
 
 interface Props {
-  InnerText: string
+  innerText: string;
+  onClick?: MouseEventHandler;
 }
 
 const PreviousButton: React.FC<Props> = (props) => {
   return(
-    <Button>
+    <Button onClick={props.onClick}>
         <LeftArrowIcon />
-        <span>{props.InnerText}</span>
+        <span>{props.innerText}</span>
     </Button>
   );
 }
