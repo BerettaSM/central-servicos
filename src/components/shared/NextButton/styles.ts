@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { NavigateNext } from 'styled-icons/material';
 
-export const Button = styled.div`
+import { BtnInterface } from '.';
+
+export const Button = styled.div<BtnInterface>`
     align-items: center;
     background: var(--THEME_COLOR_002);
     border: 1px solid var(--THEME_COLOR_002);
@@ -15,13 +17,34 @@ export const Button = styled.div`
     height: 40px;
     justify-content: end;
     width: 120px;
+    user-select: none;
     :hover {
         border: 1px solid var(--THEME_COLOR_001);
         color: var(--THEME_COLOR_001);
     }
+    ${(p: BtnInterface) => {
+        if (p.isDisabled){
+            return `
+                background: var(--THEME_COLOR_002);
+                color: var(--THEME_COLOR_006);
+                cursor: default;
+                : hover{
+                    border: 1px solid var(--THEME_COLOR_002);
+                    color: var(--THEME_COLOR_006);
+                }
+            `;
+        }
+    }};
 `;
-export const RightArrowIcon = styled(NavigateNext)`
+export const RightArrowIcon = styled(NavigateNext)<BtnInterface>`
     color: var(--THEME_COLOR_001);
     margin-right: 10px;
     width: 24px;
+    ${(p: BtnInterface) => {
+        if(p.isDisabled) {
+            return `
+                color: var(--THEME_COLOR_006);
+            `;
+        }
+    }};
 `;

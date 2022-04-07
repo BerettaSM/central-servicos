@@ -4,12 +4,8 @@ import { Container } from './styles';
 
 import TicketTemplate from '../TicketTemplate';
 
-interface DataFound{
-  data: object;
-}
-
 interface Pagination{
-  data: DataFound[];
+  data: object[];
   currentPage: number;
   maxTickets: number;
 }

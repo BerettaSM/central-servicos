@@ -25,6 +25,7 @@ export default createGlobalStyle`
         --THEME_COLOR_003: #FFFFFF;
         --THEME_COLOR_004: #64646C;
         --THEME_COLOR_005: #8C8C8E;
+        --THEME_COLOR_006: #bfbfbf;
 
         --PRIORITY_LOW: #25BE75;
         --PRIORITY_MEDIUM: #FED402;

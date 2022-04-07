@@ -2,26 +2,36 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Wrapper } from './styles';
-import Button1 from '../../../components/shared/PreviousButton';
-import Button2 from '../../../components/shared/NextButton';
+import PreviousButton from '../../../components/shared/PreviousButton';
+import NextButton from '../../../components/shared/NextButton';
 import AddButton from '../../../components/shared/AddButton';
 import ViewTitle from '../../../components/shared/ViewTitle';
 
-interface PageHandling {
+interface PaginationHandling {
   handleNextClick() : void;
   handlePrevClick() : void;
+  isPrevDisabled: boolean;
+  isNextDisabled: boolean;
 }
 
-const OptionsBar: React.FC<PageHandling> = (props) => {
+const OptionsBar: React.FC<PaginationHandling> = (props) => {
 
-
+  const { handleNextClick, handlePrevClick, isPrevDisabled, isNextDisabled } = props;
 
   return (
       <Container>
         <ViewTitle innerText='Todos os Tickets' />
         <Wrapper>
-          <Button1 innerText='Anterior' onClick={props.handlePrevClick} />
-          <Button2 innerText='Próximo' onClick={props.handleNextClick} />
+          <PreviousButton
+            innerText='Anterior'
+            onClick={handlePrevClick}
+            isDisabled={isPrevDisabled}
+          />
+          <NextButton
+            innerText='Próximo'
+            onClick={handleNextClick}
+            isDisabled={isNextDisabled}
+          />
           <Link to={'/newticket'} style={{ textDecoration: 'none'}}>
             <AddButton InnerText='Novo Ticket' />
           </Link>

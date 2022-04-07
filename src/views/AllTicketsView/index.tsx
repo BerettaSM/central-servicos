@@ -32,9 +32,6 @@ const AllTicketsView: React.FC = () => {
     
     const [ currentPage, setCurrentPage ] = useState(1);
 
-    const MAX_TICKETS_PER_PAGE = 6;
-    const lastPage = Math.ceil(dataFound.length / MAX_TICKETS_PER_PAGE);
-
     const handleNextClick = () => {
 
         if(currentPage < lastPage)
@@ -49,16 +46,26 @@ const AllTicketsView: React.FC = () => {
       
     }
 
+    const MAX_TICKETS_PER_PAGE = 8;
+    const lastPage = Math.ceil(dataFound.length / MAX_TICKETS_PER_PAGE);
+
+    const isPrevDisabled = currentPage === 1;
+    const isNextDisabled = currentPage === lastPage;
+
     return (
         <Layout>
             <OptionsBar 
                 handleNextClick={handleNextClick}
-                handlePrevClick={handlePrevClick} />
+                handlePrevClick={handlePrevClick}
+                isPrevDisabled={isPrevDisabled}
+                isNextDisabled={isNextDisabled}
+            />
             <FilterArea />
             <TicketsArea
                 data={dataFound}
                 currentPage={currentPage}
-                maxTickets={MAX_TICKETS_PER_PAGE} />
+                maxTickets={MAX_TICKETS_PER_PAGE}
+            />
         </Layout>
     );
 }
