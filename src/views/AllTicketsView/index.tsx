@@ -41,8 +41,8 @@ const AllTicketsView: React.FC = () => {
   
     const handlePrevClick = () => {
   
-      if (currentPage > 1)
-        setCurrentPage(currentPage - 1);
+        if (currentPage > 1)
+            setCurrentPage(currentPage - 1);
       
     }
 

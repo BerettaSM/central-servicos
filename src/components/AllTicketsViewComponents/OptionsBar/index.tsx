@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Wrapper } from './styles';
-import PreviousButton from '../../../components/shared/PreviousButton';
-import NextButton from '../../../components/shared/NextButton';
+import NavigationButton from '../../shared/NavigationButton';
 import AddButton from '../../../components/shared/AddButton';
 import ViewTitle from '../../../components/shared/ViewTitle';
 
@@ -22,13 +21,15 @@ const OptionsBar: React.FC<PaginationHandling> = (props) => {
       <Container>
         <ViewTitle innerText='Todos os Tickets' />
         <Wrapper>
-          <PreviousButton
+          <NavigationButton
             innerText='Anterior'
+            renderArrow='left'
             onClick={handlePrevClick}
             isDisabled={isPrevDisabled}
           />
-          <NextButton
+          <NavigationButton
             innerText='Próximo'
+            renderArrow='right'
             onClick={handleNextClick}
             isDisabled={isNextDisabled}
           />

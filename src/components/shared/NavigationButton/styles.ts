@@ -1,26 +1,32 @@
 import styled from 'styled-components';
 
-import { NavigateBefore } from 'styled-icons/material';
+import { NavigateBefore, NavigateNext } from 'styled-icons/material';
 
 import { BtnInterface } from '.';
 
 export const Button = styled.div<BtnInterface>`
+    display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
     background: var(--THEME_COLOR_002);
     border: 1px solid var(--THEME_COLOR_002);
     color: var(--THEME_COLOR_004);
+
     cursor: pointer;
+    user-select: none;
+
     border-radius: 8px;
-    display: flex;
-    flex-direction: row;
     font-size: 18px;
     height: 40px;
     width: 120px;
-    user-select: none;
+    
     :hover {
         border: 1px solid var(--THEME_COLOR_001);
         color: var(--THEME_COLOR_001);
     }
+    
     ${(p: BtnInterface) => {
         if (p.isDisabled){
             return `
@@ -31,20 +37,20 @@ export const Button = styled.div<BtnInterface>`
                     border: 1px solid var(--THEME_COLOR_002);
                     color: var(--THEME_COLOR_006);
                 }
+                > :first-child, > :last-child {
+                    color: var(--THEME_COLOR_006);
+                }
             `;
         }
     }};
 `;
 
-export const LeftArrowIcon = styled(NavigateBefore)<BtnInterface>`
+export const LeftArrowIcon = styled(NavigateBefore)`
     color: var(--THEME_COLOR_001);
-    margin-left: 10px;
+    width: 24px;  
+`;
+
+export const RightArrowIcon = styled(NavigateNext)`
+    color: var(--THEME_COLOR_001);
     width: 24px;
-    ${(p: BtnInterface) => {
-        if(p.isDisabled) {
-            return `
-                color: var(--THEME_COLOR_006);
-            `;
-        }
-    }};
 `;
