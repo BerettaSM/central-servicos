@@ -14,10 +14,9 @@ interface TicketData {
 const TicketTemplate: React.FC<TicketData> = (props) => {
   
   const { data } = props;
-  const { _id } = data;
   
   return (
-      <Link to={`/ticket-detail/${_id}`} style={{ textDecoration: 'none'}}>
+      <Link to={`/ticket-detail/${data._id}`} style={{ textDecoration: 'none'}}>
         <Container>
           <UserPic />
           <Wrapper>

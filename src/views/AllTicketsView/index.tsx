@@ -13,21 +13,21 @@ const AllTicketsView: React.FC = () => {
 
     useEffect(() => {
         (async () => {
-        searchTicketData();
+            searchTicketData();
         })()
     }, []);
 
     const searchTicketData = async () => {
         await Api.get(url)
-        .then((res: any) => {
-            let results = res.data.results;
-            if (results) {
-                setDataFound(results);
-            }
-        })
-        .catch((error: any) => {
-            console.log(error);
-        });
+            .then((res: any) => {
+                let results = res.data.results;
+                if (results) {
+                    setDataFound(results);
+                }
+            })
+            .catch((error: any) => {
+                console.log(error);
+            });
     }
     
     const [ currentPage, setCurrentPage ] = useState(1);
@@ -43,7 +43,7 @@ const AllTicketsView: React.FC = () => {
     const handlePrevClick = () => {
   
         if (currentPage > 1)
-        
+
             setCurrentPage(currentPage - 1);
       
     }
@@ -57,8 +57,8 @@ const AllTicketsView: React.FC = () => {
     return (
         <Layout>
             <OptionsBar 
-                handleNextClick={handleNextClick}
                 handlePrevClick={handlePrevClick}
+                handleNextClick={handleNextClick}
                 isPrevDisabled={isPrevDisabled}
                 isNextDisabled={isNextDisabled}
             />

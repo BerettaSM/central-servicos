@@ -11,7 +11,7 @@ const ViewsRoutes: React.FC = () => {
     return (
         <Routes>
             <Route path='/tickets' element={<AllTicketsView />} />
-            <Route path='/newticket' element={<NewTicketView />} />
+            <Route path='/new-ticket' element={<NewTicketView />} />
             <Route path='/ticket-detail/:_id' element={<TicketView />} />
         </Routes>
     );
