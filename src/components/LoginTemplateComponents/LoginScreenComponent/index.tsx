@@ -3,6 +3,7 @@ import React from 'react';
 import LargeButton from '../../shared/LargeButton';
 import InputComponentLogin from '../InputComponentLogin';
 import InputComponentPassword from '../InputComponentPassword';
+import ClickableSpan from '../../shared/ClickableSpan';
 
 import {
     Container,
@@ -22,7 +23,7 @@ const LoginScreenComponent: React.FC = () => {
 
             <LoginTitle>
 
-                <span>{ACTION_LOGIN}</span>
+                <span>{ACTION_LOGIN?.toUpperCase()}</span>
 
             </LoginTitle>
 
@@ -36,7 +37,7 @@ const LoginScreenComponent: React.FC = () => {
 
             </Wrapper>
 
-            <span>{ACTION_FORGOT_MY_PASSWORD}</span>
+            <ClickableSpan innerText={ACTION_FORGOT_MY_PASSWORD} />
 
             <span>{ACTION_INFORM_LOGIN_PASSWORD}</span>
 

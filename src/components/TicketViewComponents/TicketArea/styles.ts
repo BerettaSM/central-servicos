@@ -25,10 +25,6 @@ export const TopInnerWrapper = styled.div`
     
     width: 100%;
 
-    > span {
-        color: var(--THEME_COLOR_001);
-        cursor: pointer;
-    }
 `;
 
 export const MidWrapper = styled.div`

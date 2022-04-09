@@ -4,6 +4,7 @@ import UserPic from '../../../components/shared/UserPic';
 import TicketComponentDetails from '../../../components/shared/TicketComponentDetails';
 import DescriptionComponentSmall from '../../../components/shared/DescriptionComponentSmall';
 import AttendantPic from '../../../components/shared/AttendantPic';
+import ClickableSpan from '../../shared/ClickableSpan';
 import ColorBar from '../../../components/shared/ColorBar';
 
 import { 
@@ -43,7 +44,7 @@ const TicketArea: React.FC<TicketData> = (props) => {
 
                     <TicketComponentDetails data={data} />
 
-                    <span>{ACTION_ASSIGN_TO_ME}</span>
+                    <ClickableSpan innerText={ACTION_ASSIGN_TO_ME} />
 
                 </TopInnerWrapper>
 

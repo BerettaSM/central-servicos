@@ -18,10 +18,9 @@ export const Container = styled.div`
     }
 
     > span:first-of-type {
-        color: var(--THEME_COLOR_001);
-        cursor: pointer;
         justify-content: end;
         margin-right: 62px;
+        margin-left: auto;
     }
     
     > span:last-of-type {
