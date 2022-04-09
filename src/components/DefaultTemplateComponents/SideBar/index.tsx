@@ -11,6 +11,10 @@ import {
 
 const SideBar: React.FC = () => {
 
+  const NAVIGATION_HOME_PAGE     = process.env.REACT_APP_NAVIGATION_HOME_PAGE;
+  const NAVIGATION_TICKETS       = process.env.REACT_APP_NAVIGATION_TICKETS;
+  const NAVIGATION_ANNOUNCEMENTS = process.env.REACT_APP_NAVIGATION_ANNOUNCEMENTS;
+  
   return (
 
     <Container>
@@ -19,7 +23,7 @@ const SideBar: React.FC = () => {
 
         <HomeIcon />
 
-        <span>Página Inicial</span>
+        <span>{NAVIGATION_HOME_PAGE}</span>
 
       </SideBarOption>
 
@@ -29,7 +33,7 @@ const SideBar: React.FC = () => {
 
           <TicketsIcon />
 
-          <span>Tickets</span>
+          <span>{NAVIGATION_TICKETS}</span>
 
         </SideBarOption>
 
@@ -39,7 +43,7 @@ const SideBar: React.FC = () => {
 
         <AnnouncementsIcon />
 
-        <span>Mural de Avisos</span>
+        <span>{NAVIGATION_ANNOUNCEMENTS}</span>
 
       </SideBarOption>
 
