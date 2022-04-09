@@ -16,9 +16,9 @@ const StatusArea: React.FC<TicketData> = (props) => {
     const { priorityStatus, currentAttendant, deadlineStatus } = props.data;
 
     const PRIORITY_LOW = process.env.REACT_APP_PRIORITY_LOW;
-    const PRIORITY_MEDIUM = process.env.REACT_APP_PRIORITY_LOW;
-    const PRIORITY_HIGH = process.env.REACT_APP_PRIORITY_LOW;
-    const PRIORITY_URGENT = process.env.REACT_APP_PRIORITY_LOW;
+    const PRIORITY_MEDIUM = process.env.REACT_APP_PRIORITY_MEDIUM;
+    const PRIORITY_HIGH = process.env.REACT_APP_PRIORITY_HIGH;
+    const PRIORITY_URGENT = process.env.REACT_APP_PRIORITY_URGENT;
 
     const SITUATION_ON_TIME = process.env.REACT_APP_SITUATION_ON_TIME;
     const SITUATION_LATE = process.env.REACT_APP_SITUATION_LATE;
