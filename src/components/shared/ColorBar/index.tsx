@@ -2,12 +2,16 @@ import React from 'react';
 
 import { Container } from './styles';
 
-import { PriorityStatusInterface } from '../PriorityIcon';
+import { PriorityStatus } from '../Interfaces/PriorityStatus';
 
-const ColorBar: React.FC<PriorityStatusInterface> = (props) => {
+const ColorBar: React.FC<PriorityStatus> = (props) => {
+
     return (
+
         <Container priorityStatus={props.priorityStatus} />
+
     );
+    
 }
 
 export default ColorBar;

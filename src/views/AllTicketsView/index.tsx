@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Api } from '../../Api';
 
-import { Layout } from './styles';
 import FilterArea from '../../components/AllTicketsViewComponents/FilterArea';
 import OptionsBar from '../../components/AllTicketsViewComponents/OptionsBar';
 import TicketsArea from '../../components/AllTicketsViewComponents/TicketsArea';
+
+import { Layout } from './styles';
 
 const AllTicketsView: React.FC = () => {
 
@@ -12,22 +13,37 @@ const AllTicketsView: React.FC = () => {
     const [dataFound, setDataFound] = useState([]);
 
     useEffect( () => {
+
         (async () => {
+
             searchTicketData();
+
         })()
+
     }, []);
 
     const searchTicketData = async () => {
+
         await Api.get(url)
+
             .then((res: any) => {
+
                 let results = res.data.results;
+
                 if (results) {
+
                     setDataFound(results);
+
                 }
+
             })
+
             .catch((error: any) => {
+
                 console.log(error);
+
             });
+            
     }
     
     const [ currentPage, setCurrentPage ] = useState(1);
@@ -55,21 +71,28 @@ const AllTicketsView: React.FC = () => {
     const isNextDisabled = currentPage === lastPage;
 
     return (
+
         <Layout>
+
             <OptionsBar 
                 handlePrevClick={handlePrevClick}
                 handleNextClick={handleNextClick}
                 isPrevDisabled={isPrevDisabled}
                 isNextDisabled={isNextDisabled}
             />
+
             <FilterArea />
+
             <TicketsArea
                 data={dataFound}
                 currentPage={currentPage}
                 maxTickets={MAX_TICKETS_PER_PAGE}
             />
+
         </Layout>
+
     );
+
 }
 
 export default AllTicketsView;

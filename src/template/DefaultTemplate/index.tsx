@@ -10,18 +10,31 @@ import BottomBar from '../../components/DefaultTemplateComponents/BottomBar';
 import { Layout } from './styles';
 
 const DefaultTemplate: React.FC = () => {
+
   return (
+
     <BrowserRouter>
+
       <GlobalStyles />
+
       <Layout>
+
         <LogoArea />
+
         <SearchArea />
+
         <SideBar />
+
         <MainContent />
+
         <BottomBar />
+
       </Layout>
+
     </BrowserRouter>
+
   );
+  
 }
 
 export default DefaultTemplate;

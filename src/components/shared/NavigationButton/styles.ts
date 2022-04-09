@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-import { NavigateBefore, NavigateNext } from 'styled-icons/material';
+import {
+    NavigateBefore,
+    NavigateNext
+} from 'styled-icons/material';
 
-import { BtnInterface } from '.';
+import { NavigationBtn } from '../Interfaces/NavigationBtn';
 
-export const Button = styled.div<BtnInterface>`
+export const Button = styled.div<NavigationBtn>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +30,7 @@ export const Button = styled.div<BtnInterface>`
         color: var(--THEME_COLOR_001);
     }
     
-    ${(p: BtnInterface) => {
+    ${(p: NavigationBtn) => {
         if (p.isDisabled){
             return `
                 background: var(--THEME_COLOR_002);

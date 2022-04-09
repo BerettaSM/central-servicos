@@ -1,21 +1,30 @@
 import React from 'react';
 
-import { Box, Container } from './styles';
+import {
+    Box,
+    Container
+} from './styles';
 
-interface DCSInterface{
-    title?: string;
-    boxValue?: string;
-}
+import { DescriptionComponent } from '../Interfaces/DescriptionComponent';
 
-const DescriptionComponent_Small: React.FC<DCSInterface> = (props) => {
+const DescriptionComponentSmall: React.FC<DescriptionComponent> = (props) => {
+
     return (
+
         <Container>
+
             <span>{props.title}</span>
+
             <Box>
+
                 <span>{props.boxValue}</span>
+
             </Box>
+
         </Container>
+
     );
+
 }
 
-export default DescriptionComponent_Small;
+export default DescriptionComponentSmall;

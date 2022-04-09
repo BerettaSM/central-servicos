@@ -1,14 +1,22 @@
 import React from 'react';
 
-import { Container } from './styles';
 import InputComponentLarge from '../../../components/shared/InputComponentLarge';
+import { Container } from './styles';
 
 const DescriptionArea: React.FC = () => {
+
+    const TITLE_DESCRIPTION = process.env.REACT_APP_TITLE_DESCRIPTION;
+
     return (
+
         <Container>
-            <InputComponentLarge title='Descrição' />
+
+            <InputComponentLarge title={TITLE_DESCRIPTION} />
+
         </Container>
+
     );
+
 }
 
 export default DescriptionArea;

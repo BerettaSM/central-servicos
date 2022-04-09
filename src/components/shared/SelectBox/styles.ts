@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Select = styled.div`
     background: inherit;
     display: flex;
     flex-direction: column;

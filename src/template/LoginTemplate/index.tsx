@@ -5,17 +5,31 @@ import LoginScreenComponent from '../../components/LoginTemplateComponents/Login
 import { Layout, BottomBar } from './styles';
 
 const LoginTemplate: React.FC = () => {
+
+    const FOOTER_LOGIN_SCREEN = process.env.REACT_APP_FOOTER_LOGIN_SCREEN;
+
     return (
+
         <>
+
             <GlobalStyles />
+
             <Layout>
+
                 <LoginScreenComponent />
+
                 <BottomBar>
-                    <span>Desenvolvido com Amor pelo team XXX</span>
+
+                    <span>{FOOTER_LOGIN_SCREEN}</span>
+
                 </BottomBar>
+
             </Layout>
+
         </>
+
     );
+
 }
 
 export default LoginTemplate;

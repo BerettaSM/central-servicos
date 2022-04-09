@@ -1,26 +1,50 @@
 import React from 'react';
 
-import { Container, Wrapper } from './styles';
 import ColorBar from '../ColorBar';
 
+import {
+    Select,
+    Wrapper
+} from './styles';
+
 interface SelectBoxInterface{
-    title: string;
-    options: Array<String>;
+    title: string | undefined;
+    options: Array<String | undefined>;
     renderColorBar?: boolean;
 }
 
 const SelectBox: React.FC<SelectBoxInterface> = (props) => {
+
     return (
-        <Container>
+
+        <Select>
+
             <Wrapper>
+
                 <span>{props.title}</span>
+
                 {props.renderColorBar && <ColorBar />}
+
             </Wrapper>
+
             <select>
-                {props.options.map((option, idx) => <option key={idx} value={idx}>{option}</option>)}
+
+                {
+
+                    props.options.map((option, idx) => {
+
+                        return <option key={idx} value={idx}>{option}</option>;
+
+                    })
+
+                }
+
             </select>
-        </Container>
+
+        </Select>
+
     );
+
 }
 
 export default SelectBox;

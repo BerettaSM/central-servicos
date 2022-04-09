@@ -1,17 +1,24 @@
 import React from 'react';
 
-import { Container, MessageContainer } from './styles';
 import MessageHeader from '../MessageHeader';
 
-export interface MessageInterface {
-    outgoingMessage?: boolean;
-}
+import {
+    Container,
+    MessageContainer
+} from './styles';
 
-const MessageTemplate: React.FC<MessageInterface> = (props) => {
+import { Message } from '../../shared/Interfaces/Message';
+
+const MessageTemplate: React.FC<Message> = (props) => {
+
     return (
+
         <Container outgoingMessage={props.outgoingMessage}>
+
             <MessageHeader />
+            
             <MessageContainer>
+
                 <span>
                      Lorem ipsum dolor sit amet,
                      consectetur adipiscing elit, 
@@ -27,9 +34,13 @@ const MessageTemplate: React.FC<MessageInterface> = (props) => {
                      sunt in culpa qui officia deserunt mollit 
                      anim id est laborum.
                 </span>
+
             </MessageContainer>
+
         </Container>
+
     );
+
 }
 
 export default MessageTemplate;

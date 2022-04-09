@@ -14,34 +14,57 @@ const TicketView: React.FC = () => {
     const [ticketFound, setTicketFound] = useState({});
 
     useEffect( () => {
+
         (async () => {
+
             searchTicketFromId();
+
         })()
+
     }, []);
 
     const searchTicketFromId = async () => {
+
         await Api.get(url)
+
             .then((res: any) => {
+
                 let results = res.data.results;
+
                 if (results) {
+
                     let ticket = results.find( ( ticket: any ) => {
+
                         return ticket._id === Number(_id)
+
                     });
-                    console.log(ticket);
+
                     setTicketFound(ticket);
+
                 }
+
             })
+
             .catch((error: any) => {
+
                 console.log(error);
+
             });
+
     }
 
     return (
+
         <Layout>
+
             <ChatArea />
+
             <TicketArea data={ticketFound} />
+
         </Layout>
+
     );
+    
 }
 
 export default TicketView;

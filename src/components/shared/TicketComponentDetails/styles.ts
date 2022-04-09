@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-import { CalendarAlt, CalendarCheck } from 'styled-icons/fa-solid';
 import { User } from 'styled-icons/boxicons-solid';
+
+import {
+    CalendarAlt,
+    CalendarCheck
+} from 'styled-icons/fa-solid';
 
 export const Container = styled.div`
     display: flex;  

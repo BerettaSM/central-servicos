@@ -2,11 +2,9 @@ import React from 'react';
 
 import { Icon } from './styles';
 
-export interface DeadlineStatusInterface {
-    deadlineStatus?: number;
-}
+import { DeadlineStatus } from '../Interfaces/DeadlineStatus';
 
-const DeadlineIcon: React.FC<DeadlineStatusInterface> = (props) => {
+const DeadlineIcon: React.FC<DeadlineStatus> = (props) => {
 
     return <Icon deadlineStatus={props.deadlineStatus} />;
 

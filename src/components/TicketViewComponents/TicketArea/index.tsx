@@ -22,35 +22,66 @@ const TicketArea: React.FC<TicketData> = (props) => {
     const { data } = props;
     const { currentAttendant, priorityStatus } = data;
 
+    const TITLE_RESPONSIBLE   = process.env.REACT_APP_TITLE_RESPONSIBLE;
+    const ACTION_ASSIGN_TO_ME = process.env.REACT_APP_ACTION_ASSIGN_TO_ME;
+    const TITLE_PRIORITY      = process.env.REACT_APP_TITLE_PRIORITY;
+
     const priorityString = priorityStatus === 1 ? process.env.REACT_APP_PRIORITY_LOW
-                          :priorityStatus === 2 ? process.env.REACT_APP_PRIORITY_MEDIUM
-                          :priorityStatus === 3 ? process.env.REACT_APP_PRIORITY_HIGH
+                         : priorityStatus === 2 ? process.env.REACT_APP_PRIORITY_MEDIUM
+                         : priorityStatus === 3 ? process.env.REACT_APP_PRIORITY_HIGH
                                                 : process.env.REACT_APP_PRIORITY_URGENT;
 
     return (
+
         <Container>
+
             <TopOuterWrapper>
+
                 <UserPic />
+
                 <TopInnerWrapper>
+
                     <TicketComponentDetails data={data} />
-                    <span>Atribuir para mim</span>
+
+                    <span>{ACTION_ASSIGN_TO_ME}</span>
+
                 </TopInnerWrapper>
+
             </TopOuterWrapper>
+
             <MidWrapper>
-                <DescriptionComponentSmall title='Responsável' boxValue={currentAttendant} />
+
+                <DescriptionComponentSmall
+                    title={TITLE_RESPONSIBLE}
+                    boxValue={currentAttendant}
+                />
+
                 <AttendantPic />
+
             </MidWrapper>
+
             <BottomOuterWrapper>
+
                 <BottomInnerWrapper>
-                    <span>Prioridade</span>
+
+                    <span>{TITLE_PRIORITY}</span>
+
                 </BottomInnerWrapper>
+                
                 <BottomInnerWrapper>
+
                     <ColorBar priorityStatus={priorityStatus}/>
+
                     <span>{priorityString}</span>
+
                 </BottomInnerWrapper>
+
             </BottomOuterWrapper>
+
         </Container>
+
     );
+
 }
 
 export default TicketArea;
