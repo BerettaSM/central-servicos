@@ -34,7 +34,7 @@ const OptionsBar: React.FC<PaginationHandling> = (props) => {
             isDisabled={isNextDisabled}
           />
           <Link to={'/new-ticket'} style={{ textDecoration: 'none'}}>
-            <AddButton InnerText='Novo Ticket' />
+            <AddButton innerText='Novo Ticket' />
           </Link>
         </Wrapper>
       </Container>

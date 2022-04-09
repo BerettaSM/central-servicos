@@ -2,9 +2,11 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const ColorBar: React.FC = () => {
+import { PriorityStatusInterface } from '../PriorityIcon';
+
+const ColorBar: React.FC<PriorityStatusInterface> = (props) => {
     return (
-        <Container />
+        <Container priorityStatus={props.priorityStatus} />
     );
 }
 

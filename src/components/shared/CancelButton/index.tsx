@@ -1,15 +1,12 @@
 import React from 'react';
 
 import { Button, CancelIcon } from './styles';
+import { ButtonInnerText } from '../AddButton';
 
-interface Props {
-    InnerText: string
-}
-
-const CancelButton: React.FC<Props> = (props) => {
+const CancelButton: React.FC<ButtonInnerText> = (props) => {
   return(
     <Button>
-        <span>{props.InnerText}</span>
+        <span>{props.innerText}</span>
         <CancelIcon />
     </Button>
   );

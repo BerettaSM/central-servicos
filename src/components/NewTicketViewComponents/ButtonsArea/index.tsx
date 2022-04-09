@@ -9,9 +9,9 @@ const ButtonsArea: React.FC = () => {
     return (
         <Container>
             <Link to={'/tickets'} style={{ textDecoration: 'none'}} >
-                <CancelButton InnerText='Cancelar' />
+                <CancelButton innerText='Cancelar' />
             </Link>
-            <AddButton InnerText='Abrir Ticket' />
+            <AddButton innerText='Abrir Ticket' />
         </Container>
     );
 }

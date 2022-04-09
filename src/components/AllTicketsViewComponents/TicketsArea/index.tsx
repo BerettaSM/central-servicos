@@ -21,9 +21,9 @@ const TicketsArea: React.FC<Pagination> = (props) => {
       <Container>
         {data
           .slice(pageStart, pageEnd)
-          .map( item => {
+          .map( ( item, idx ) => {
             return (
-              <TicketTemplate data={item} />
+              <TicketTemplate key={idx} data={item} />
             );
           })
         }

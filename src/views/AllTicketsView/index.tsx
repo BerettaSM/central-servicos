@@ -8,10 +8,10 @@ import TicketsArea from '../../components/AllTicketsViewComponents/TicketsArea';
 
 const AllTicketsView: React.FC = () => {
 
-    const url = "/data";
+    const url = '/data';
     const [dataFound, setDataFound] = useState([]);
 
-    useEffect(() => {
+    useEffect( () => {
         (async () => {
             searchTicketData();
         })()

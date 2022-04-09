@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { TicketData } from '../../AllTicketsViewComponents/TicketTemplate';
 import {
     Container,
     DueDateIcon,
@@ -11,17 +12,14 @@ import {
     BottomInnerWrapper
 } from './styles';
 
-interface TicketComponentDetailsData {
-    data: any;
-}
-
-const TicketComponent_Details: React.FC<TicketComponentDetailsData> = (props) => {
+const TicketComponent_Details: React.FC<TicketData> = (props) => {
 
     const { _id, status, ticketTitle, userName, openDate, dueDate } = props.data;
-
-    const statusString = status === 1 ? "Ticket Aberto"
-                        :status === 2 ? "Ticket em Andamento"
-                        :status === 3 ? "Ticket Fechado" : "Ticket Cancelado";
+    
+    const statusString = status === 1 ? process.env.REACT_APP_TICKET_OPENED
+                        :status === 2 ? process.env.REACT_APP_TICKET_ONGOING
+                        :status === 3 ? process.env.REACT_APP_TICKET_CLOSED
+                                      : process.env.REACT_APP_TICKET_CANCELLED;
 
     return (
         <Container>

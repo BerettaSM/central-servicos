@@ -2,14 +2,14 @@ import React from 'react';
 
 import { Button, PlusIcon } from './styles';
 
-interface Props {
-    InnerText: string
+export interface ButtonInnerText {
+    innerText: string
 }
 
-const AddButton: React.FC<Props> = (props) => {
+const AddButton: React.FC<ButtonInnerText> = (props) => {
   return(
     <Button>
-        <span>{props.InnerText}</span>
+        <span>{props.innerText}</span>
         <PlusIcon />
     </Button>
   );

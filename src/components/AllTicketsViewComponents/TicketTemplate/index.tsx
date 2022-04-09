@@ -7,7 +7,7 @@ import UserPic from '../../shared/UserPic';
 
 import { Link } from 'react-router-dom';
 
-interface TicketData {
+export interface TicketData {
   data: any;
 }
 

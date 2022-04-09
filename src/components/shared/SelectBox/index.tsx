@@ -17,7 +17,7 @@ const SelectBox: React.FC<Props> = (props) => {
                 {props.renderColorBar && <ColorBar />}
             </Wrapper>
             <select>
-                {props.opts.map((option, idx) => <option value={idx}>{option}</option>)}
+                {props.opts.map((option, idx) => <option key={idx} value={idx}>{option}</option>)}
             </select>
         </Container>
     );

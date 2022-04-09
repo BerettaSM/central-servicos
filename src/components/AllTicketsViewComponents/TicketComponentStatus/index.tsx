@@ -1,5 +1,8 @@
 import React from 'react';
 
+import PriorityIcon from '../../shared/PriorityIcon';
+import DeadlineIcon from '../../shared/DeadlineIcon';
+import { TicketData } from '../TicketTemplate';
 import {
     Container,
     CurrentAttendantIcon,
@@ -7,24 +10,26 @@ import {
     Wrapper
 } from './styles';
 
-import PriorityIcon from '../../shared/PriorityIcon';
-import DeadlineIcon from '../../shared/DeadlineIcon';
-
-interface TicketComponentStatusData {
-    data: any;
-}
-
-const StatusArea: React.FC<TicketComponentStatusData> = (props) => {
+const StatusArea: React.FC<TicketData> = (props) => {
 
     const { priorityStatus, currentAttendant, deadlineStatus } = props.data;
 
-    const priorityString = priorityStatus === 4 ? "Altíssima"
-                          :priorityStatus === 3 ? "Alta"
-                          :priorityStatus === 2 ? "Média" : "Baixa";
+    const PRIORITY_LOW = process.env.REACT_APP_PRIORITY_LOW;
+    const PRIORITY_MEDIUM = process.env.REACT_APP_PRIORITY_LOW;
+    const PRIORITY_HIGH = process.env.REACT_APP_PRIORITY_LOW;
+    const PRIORITY_URGENT = process.env.REACT_APP_PRIORITY_LOW;
 
-    const attendantString = currentAttendant ? currentAttendant : "Aguardando Atendimento";
+    const SITUATION_ON_TIME = process.env.REACT_APP_SITUATION_ON_TIME;
+    const SITUATION_LATE = process.env.REACT_APP_SITUATION_LATE;
+    const SITUATION_PENDING = process.env.REACT_APP_SITUATION_PENDING;
 
-    const deadlineString = deadlineStatus === 2 ? "Atrasado" : "No Prazo";
+    const priorityString = priorityStatus === 1 ? PRIORITY_LOW
+                          :priorityStatus === 2 ? PRIORITY_MEDIUM
+                          :priorityStatus === 3 ? PRIORITY_HIGH : PRIORITY_URGENT;
+
+    const attendantString = currentAttendant ? currentAttendant : SITUATION_PENDING;
+
+    const deadlineString = deadlineStatus === 1 ? SITUATION_ON_TIME : SITUATION_LATE;
 
     return (
         <Container>
