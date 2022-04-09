@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Button, CancelIcon } from './styles';
-import { ButtonInnerText } from '../AddButton';
+import { InnerText } from '../Interfaces/InnerText';
 
-const CancelButton: React.FC<ButtonInnerText> = (props) => {
+const CancelButton: React.FC<InnerText> = (props) => {
   return(
     <Button>
         <span>{props.innerText}</span>

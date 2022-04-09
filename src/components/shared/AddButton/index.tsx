@@ -2,11 +2,9 @@ import React from 'react';
 
 import { Button, PlusIcon } from './styles';
 
-export interface ButtonInnerText {
-    innerText: string
-}
+import { InnerText } from '../Interfaces/InnerText';
 
-const AddButton: React.FC<ButtonInnerText> = (props) => {
+const AddButton: React.FC<InnerText> = (props) => {
   return(
     <Button>
         <span>{props.innerText}</span>

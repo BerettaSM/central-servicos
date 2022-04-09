@@ -5,7 +5,7 @@ import TicketComponentDetails from '../../../components/shared/TicketComponentDe
 import DescriptionComponentSmall from '../../../components/shared/DescriptionComponentSmall';
 import AttendantPic from '../../../components/shared/AttendantPic';
 import ColorBar from '../../../components/shared/ColorBar';
-import { TicketData } from '../../AllTicketsViewComponents/TicketTemplate';
+
 import { 
     Container,
     TopOuterWrapper,
@@ -15,7 +15,7 @@ import {
     BottomInnerWrapper
 } from './styles';
 
-
+import { TicketData } from '../../shared/Interfaces/TicketData';
 
 const TicketArea: React.FC<TicketData> = (props) => {
 

@@ -11,16 +11,16 @@ const OptionsArea: React.FC = () => {
                 <InputComponentSmall title='Título' placeholder='Título' />
                 <SelectBox
                     title='Prioridade'
-                    opts={['Baixa', 'Média', 'Alta', 'Altíssima']}
+                    options={['Baixa', 'Média', 'Alta', 'Altíssima']}
                     renderColorBar={true}
                 />
                 <SelectBox
                     title='Classificação do Serviço'
-                    opts={['Suporte Operacional']}
+                    options={['Suporte Operacional']}
                 />
                 <SelectBox
                     title='Responsável'
-                    opts={['Time de Sustentação A2',
+                    options={['Time de Sustentação A2',
                         'Time de Sustentação B1',
                         'Time de Sustentação C1']}
                 />

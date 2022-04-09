@@ -3,13 +3,13 @@ import React from 'react';
 import { Container, Wrapper } from './styles';
 import ColorBar from '../ColorBar';
 
-interface Props{
+interface SelectBoxInterface{
     title: string;
-    opts: Array<String>;
+    options: Array<String>;
     renderColorBar?: boolean;
 }
 
-const SelectBox: React.FC<Props> = (props) => {
+const SelectBox: React.FC<SelectBoxInterface> = (props) => {
     return (
         <Container>
             <Wrapper>
@@ -17,7 +17,7 @@ const SelectBox: React.FC<Props> = (props) => {
                 {props.renderColorBar && <ColorBar />}
             </Wrapper>
             <select>
-                {props.opts.map((option, idx) => <option key={idx} value={idx}>{option}</option>)}
+                {props.options.map((option, idx) => <option key={idx} value={idx}>{option}</option>)}
             </select>
         </Container>
     );

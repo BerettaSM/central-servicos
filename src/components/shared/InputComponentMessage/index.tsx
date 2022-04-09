@@ -2,12 +2,9 @@ import React from 'react';
 
 import { Container, InputField, InputForm, PaperPlaneIcon } from './styles';
 
-interface Props{
-    title?: string;
-    placeholder?: string;
-}
+import { InputComponent } from '../Interfaces/InputComponent';
 
-const InputComponent_Message: React.FC<Props> = (props) => {
+const InputComponent_Message: React.FC<InputComponent> = (props) => {
     return (
         <Container>
             <span>{props.title}</span>

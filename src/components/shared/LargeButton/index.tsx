@@ -2,11 +2,9 @@ import React from 'react';
 
 import { Container } from './styles';
 
-interface Props {
-    innerText: string;
-}
+import { InnerText } from '../Interfaces/InnerText';
 
-const LargeButton: React.FC<Props> = (props) => {
+const LargeButton: React.FC<InnerText> = (props) => {
   return (
       <Container>
           <span>{props.innerText}</span>

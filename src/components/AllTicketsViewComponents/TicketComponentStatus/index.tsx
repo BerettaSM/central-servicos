@@ -2,13 +2,14 @@ import React from 'react';
 
 import PriorityIcon from '../../shared/PriorityIcon';
 import DeadlineIcon from '../../shared/DeadlineIcon';
-import { TicketData } from '../TicketTemplate';
 import {
     Container,
     CurrentAttendantIcon,
     StandByIcon,
     Wrapper
 } from './styles';
+
+import { TicketData } from '../../shared/Interfaces/TicketData';
 
 const StatusArea: React.FC<TicketData> = (props) => {
 

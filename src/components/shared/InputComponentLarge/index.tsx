@@ -2,11 +2,9 @@ import React from 'react';
 
 import { Container, InputField, InputForm } from './styles';
 
-interface Props{
-    title: string;
-}
+import { InputComponent } from '../Interfaces/InputComponent';
 
-const InputComponent_Large: React.FC<Props> = (props) => {
+const InputComponent_Large: React.FC<InputComponent> = (props) => {
     return (
         <Container>
             <span>{props.title}</span>

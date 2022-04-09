@@ -17,24 +17,29 @@ const OptionsBar: React.FC<PaginationHandling> = (props) => {
 
   const { handleNextClick, handlePrevClick, isPrevDisabled, isNextDisabled } = props;
 
+  const ALL_TICKETS = process.env.REACT_APP_TITLE_ALL_TICKETS;
+  const PREVIOUS = process.env.REACT_APP_NAVIGATION_PREVIOUS;
+  const NEXT = process.env.REACT_APP_NAVIGATION_NEXT;
+  const NEW_TICKET = process.env.REACT_APP_ACTION_NEW_TICKET;
+
   return (
       <Container>
-        <ViewTitle innerText='Todos os Tickets' />
+        <ViewTitle innerText={ALL_TICKETS} />
         <Wrapper>
           <NavigationButton
-            innerText='Anterior'
+            innerText={PREVIOUS}
             renderArrow='left'
             onClick={handlePrevClick}
             isDisabled={isPrevDisabled}
           />
           <NavigationButton
-            innerText='Próximo'
+            innerText={NEXT}
             renderArrow='right'
             onClick={handleNextClick}
             isDisabled={isNextDisabled}
           />
           <Link to={'/new-ticket'} style={{ textDecoration: 'none'}}>
-            <AddButton innerText='Novo Ticket' />
+            <AddButton innerText={NEW_TICKET} />
           </Link>
         </Wrapper>
       </Container>

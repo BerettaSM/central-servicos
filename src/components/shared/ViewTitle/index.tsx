@@ -2,11 +2,9 @@ import React from 'react';
 
 import { Container, RightArrowIcon } from './styles';
 
-interface Props{
-    innerText: string;
-}
+import { InnerText } from '../Interfaces/InnerText';
 
-const ViewTitle: React.FC<Props> = (props) => {
+const ViewTitle: React.FC<InnerText> = (props) => {
     return (
         <Container>
             <RightArrowIcon />

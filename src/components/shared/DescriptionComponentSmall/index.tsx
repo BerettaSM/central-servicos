@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Box, Container } from './styles';
 
-interface Props{
+interface DCSInterface{
     title?: string;
     boxValue?: string;
 }
 
-const DescriptionComponent_Small: React.FC<Props> = (props) => {
+const DescriptionComponent_Small: React.FC<DCSInterface> = (props) => {
     return (
         <Container>
             <span>{props.title}</span>
