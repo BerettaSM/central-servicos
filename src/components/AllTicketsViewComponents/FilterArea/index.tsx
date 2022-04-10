@@ -9,9 +9,9 @@ import {
   Wrapper
 } from './styles';
 
-import { FilterInterface } from '../../shared/Interfaces/FilterInterface';
+import { FilterAreaInterface } from '../../shared/Interfaces/FilterAreaInterface';
 
-const FilterArea: React.FC<FilterInterface> = (props) => {
+const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
   const TITLE_ALL_TICKETS        = process.env.REACT_APP_TITLE_ALL_TICKETS;
   const TITLE_OPENED_TICKETS     = process.env.REACT_APP_TITLE_OPENED_TICKETS;
@@ -20,6 +20,12 @@ const FilterArea: React.FC<FilterInterface> = (props) => {
   const TITLE_MY_CLOSED_TICKETS  = process.env.REACT_APP_TITLE_MY_CLOSED_TICKETS;
 
   const { selectedFilter } = props;
+
+  const IS_FILTER_1_SELECTED = selectedFilter === 1;
+  const IS_FILTER_2_SELECTED = selectedFilter === 2;
+  const IS_FILTER_3_SELECTED = selectedFilter === 3;
+  const IS_FILTER_4_SELECTED = selectedFilter === 4;
+  const IS_FILTER_5_SELECTED = selectedFilter === 5;
   
   return (
 
@@ -35,31 +41,51 @@ const FilterArea: React.FC<FilterInterface> = (props) => {
 
         <Link to={'/tickets'}>
 
-          <FilterOption innerText={TITLE_ALL_TICKETS} />
+          <FilterOption
+            innerText={TITLE_ALL_TICKETS}
+            isSelected={IS_FILTER_1_SELECTED}
+            handleResetPage={props.handleResetPage}
+          />
 
         </Link>
 
         <Link to={'/tickets/open-tickets'}>
 
-          <FilterOption innerText={TITLE_OPENED_TICKETS} />
+          <FilterOption
+            innerText={TITLE_OPENED_TICKETS}
+            isSelected={IS_FILTER_2_SELECTED}
+            handleResetPage={props.handleResetPage}
+          />
 
         </Link>
 
         <Link to={'/tickets/ongoing-tickets'}>
 
-          <FilterOption innerText={TITLE_ONGOING_TICKETS} />
+          <FilterOption
+            innerText={TITLE_ONGOING_TICKETS} 
+            isSelected={IS_FILTER_3_SELECTED}
+            handleResetPage={props.handleResetPage}
+          />
 
         </Link>
 
         <Link to={'/tickets/my-ongoing-tickets'}>
 
-          <FilterOption innerText={TITLE_MY_ONGOING_TICKETS} />
+          <FilterOption
+            innerText={TITLE_MY_ONGOING_TICKETS}
+            isSelected={IS_FILTER_4_SELECTED}
+            handleResetPage={props.handleResetPage}
+          />
 
         </Link>
 
         <Link to={'/tickets/my-closed-tickets'}>
 
-          <FilterOption innerText={TITLE_MY_CLOSED_TICKETS} />
+          <FilterOption
+            innerText={TITLE_MY_CLOSED_TICKETS}
+            isSelected={IS_FILTER_5_SELECTED}
+            handleResetPage={props.handleResetPage}
+          />
 
         </Link>
 

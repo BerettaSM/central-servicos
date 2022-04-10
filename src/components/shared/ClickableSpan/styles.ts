@@ -7,6 +7,6 @@ export const Span = styled.span`
     transition: 500ms linear;
 
     :hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 `;

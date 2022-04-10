@@ -1,3 +1,3 @@
 export interface InnerTextInterface {
-    innerText: string | undefined;
+    innerText?: string | undefined;
 }

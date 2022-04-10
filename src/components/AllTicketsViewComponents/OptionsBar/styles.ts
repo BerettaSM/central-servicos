@@ -21,4 +21,8 @@ export const Wrapper = styled.div`
     > div:nth-child(2) {
         margin: 0 6px;
     }
+
+    > a {
+        text-decoration: none;
+    }
 `;

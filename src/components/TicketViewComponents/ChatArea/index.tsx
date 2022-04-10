@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import ViewTitle from '../../../components/shared/ViewTitle';
 import InputComponentMessage from '../../../components/shared/InputComponentMessage';
+import ClickableSpan from '../../shared/ClickableSpan';
 import MessageTemplate from '../MessageTemplate';
 
 import {
@@ -26,9 +27,9 @@ const ChatArea: React.FC = () => {
 
                 <ViewTitle innerText={TITLE_ALL_TICKETS} />
 
-                <Link to={'/tickets'} style={{ textDecoration: 'none'}} >
+                <Link to={'/tickets'} >
 
-                    <span>{ACTION_RETURN}</span>
+                    <ClickableSpan innerText={ACTION_RETURN} />
 
                 </Link>
 

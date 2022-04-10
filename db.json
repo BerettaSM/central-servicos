@@ -508,18 +508,18 @@
         "openDate": "19/01/2022 06:10",
         "dueDate": "25/01/2022 05:35",
         "priorityStatus": 4,
-        "currentAttendant": "Hemengarda Crementino",
+        "currentAttendant": "Josisnelson da Silva",
         "deadlineStatus": 1
       },
       {
         "_id": 11897,
-        "status": 1,
+        "status": 2,
         "ticketTitle": "Meu cachorro comeu o ticket que eu havia aberto",
         "userName": "Day Snider",
         "openDate": "22/01/2022 02:23",
         "dueDate": "30/01/2022 11:00",
         "priorityStatus": 4,
-        "currentAttendant": "Hemengarda Crementino",
+        "currentAttendant": "Josisnelson da Silva",
         "deadlineStatus": 1
       },
       {
@@ -557,13 +557,13 @@
       },
       {
         "_id": 12258,
-        "status": 1,
+        "status": 2,
         "ticketTitle": "Problema na rebinboca da parafuseta",
         "userName": "Carver Navarro",
         "openDate": "22/02/2022 11:33",
         "dueDate": "14/03/2022 11:48",
         "priorityStatus": 1,
-        "currentAttendant": "Marco Polo",
+        "currentAttendant": "Josisnelson da Silva",
         "deadlineStatus": 1
       },
       {

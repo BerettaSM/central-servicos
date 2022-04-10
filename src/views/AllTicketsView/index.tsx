@@ -28,7 +28,7 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
         await Api.get(url)
 
-            .then((res: any) => {
+            .then( (res: any) => {
 
                 let results = res.data.results;
 
@@ -40,19 +40,69 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
             })
 
-            .catch((error: any) => {
+            .catch( (error: any) => {
 
                 console.log(error);
 
             });
             
     }
-    
+
+    const { selectedFilter } = props;
+
+    let data = dataFound;
+
+    const MOCK_USER_NAME = process.env.REACT_APP_MOCK_USER_NAME; // Filter testing
+
+    switch (selectedFilter) {
+
+        case 2:
+
+            data = dataFound.filter( (item: any) => {
+
+                return item.status === 1
+
+            });
+
+            break;
+
+        case 3:
+
+            data = dataFound.filter( (item: any) => {
+
+                return item.status === 2
+
+            });
+
+            break;
+
+        case 4:
+
+            data = dataFound.filter( (item: any) => {
+
+                return item.status === 2 && item.currentAttendant === MOCK_USER_NAME
+
+            });
+
+            break;
+
+        case 5:
+
+            data = dataFound.filter( (item: any) => {
+
+                return item.status === 3 && item.currentAttendant === MOCK_USER_NAME
+
+            });
+            
+            break;
+
+    }
+
     const [ currentPage, setCurrentPage ] = useState(1);
 
     const handleNextClick = () => {
 
-        if(currentPage < lastPage)
+        if (currentPage < lastPage)
 
             setCurrentPage(currentPage + 1);
 
@@ -66,13 +116,17 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
       
     }
 
+    const handleResetPage = () => {
+
+        setCurrentPage(1);
+
+    }
+
     const MAX_TICKETS_PER_PAGE = 8;
-    const lastPage = Math.ceil(dataFound.length / MAX_TICKETS_PER_PAGE);
+    const lastPage = Math.ceil(data.length / MAX_TICKETS_PER_PAGE);
 
-    const isPrevDisabled = currentPage === 1;
-    const isNextDisabled = currentPage === lastPage;
-
-    const { selectedFilter } = props;
+    const isPrevDisabled = currentPage <= 1;
+    const isNextDisabled = currentPage >= lastPage;
 
     return (
 
@@ -85,10 +139,13 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
                 isNextDisabled={isNextDisabled}
             />
 
-            <FilterArea selectedFilter={selectedFilter} />
+            <FilterArea
+                selectedFilter={selectedFilter}
+                handleResetPage={handleResetPage}
+            />
 
             <TicketsArea
-                data={dataFound}
+                data={data}
                 currentPage={currentPage}
                 maxTickets={MAX_TICKETS_PER_PAGE}
             />

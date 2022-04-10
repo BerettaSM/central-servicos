@@ -14,7 +14,7 @@ const ButtonsArea: React.FC = () => {
 
         <Container>
 
-            <Link to={'/tickets'} style={{ textDecoration: 'none'}} >
+            <Link to={'/tickets'}>
 
                 <CancelButton innerText={ACTION_CANCEL} />
 

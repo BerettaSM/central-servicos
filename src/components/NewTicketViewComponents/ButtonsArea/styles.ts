@@ -12,4 +12,8 @@ export const Container = styled.div`
     > :first-child {
         margin-right: 10px;
     }
+
+    > a {
+        text-decoration: none;
+    }
 `;

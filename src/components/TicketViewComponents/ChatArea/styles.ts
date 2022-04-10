@@ -10,6 +10,7 @@ export const Container = styled.div`
         margin: 0 12px 12px 12px;
         width: calc(100% - 24px);
     }
+
 `;
 
 export const MessagesContainer = styled.div`
@@ -33,8 +34,8 @@ export const Wrapper = styled.div`
     padding: 12px;
     margin: 12px 12px 0 12px;
 
-    >:last-child > span {
-        color: var(--THEME_COLOR_001);
-        cursor: pointer;
+    > a {
+        text-decoration: none;
     }
+
 `;

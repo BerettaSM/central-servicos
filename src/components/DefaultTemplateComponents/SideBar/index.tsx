@@ -27,7 +27,7 @@ const SideBar: React.FC = () => {
 
       </SideBarOption>
 
-      <Link to={'/tickets'} style={{ textDecoration: 'none'}}>
+      <Link to={'/tickets'}>
 
         <SideBarOption>
 

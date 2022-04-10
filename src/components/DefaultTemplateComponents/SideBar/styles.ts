@@ -11,6 +11,10 @@ export const Container = styled.div`
 
     background: var(--THEME_COLOR_003);
     padding-top: 30px;
+
+    > a {
+        text-decoration: none;
+    }
 `;
 
 

@@ -18,7 +18,7 @@ export const Container = styled.div`
         margin-bottom: 27px;
     }
 
-    > * {
+    > a {
         margin-bottom: 12px;
         text-decoration: none;
     }
