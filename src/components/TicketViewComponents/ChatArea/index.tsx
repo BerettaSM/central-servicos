@@ -29,7 +29,10 @@ const ChatArea: React.FC = () => {
 
                 <ViewTitle innerText={TITLE_ALL_TICKETS} />
 
-                <ClickableSpan onClick={() =>navigate(-1)} innerText={ACTION_RETURN} />
+                <ClickableSpan 
+                    onClick={() => navigate(-1)}
+                    innerText={ACTION_RETURN}
+                />
 
             </Wrapper>
 

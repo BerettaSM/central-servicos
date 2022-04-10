@@ -12,7 +12,7 @@ import { FilterInterface } from '../../components/shared/Interfaces/FilterInterf
 const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
     const url = '/data';
-    const [dataFound, setDataFound] = useState([]);
+    const [ dataFound, setDataFound ] = useState([]);
 
     useEffect( () => {
 
@@ -140,14 +140,14 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
             />
 
             <FilterArea
-                selectedFilter={selectedFilter}
                 handleResetPage={handleResetPage}
+                selectedFilter={selectedFilter}
             />
 
             <TicketsArea
-                data={data}
-                currentPage={currentPage}
                 maxTickets={MAX_TICKETS_PER_PAGE}
+                currentPage={currentPage}
+                data={data}
             />
 
         </Layout>

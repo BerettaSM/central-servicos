@@ -27,10 +27,10 @@ const TicketArea: React.FC<TicketDataInterface> = (props) => {
     const ACTION_ASSIGN_TO_ME = process.env.REACT_APP_ACTION_ASSIGN_TO_ME;
     const TITLE_PRIORITY      = process.env.REACT_APP_TITLE_PRIORITY;
 
-    const priorityString = priorityStatus === 1 ? process.env.REACT_APP_PRIORITY_LOW
-                         : priorityStatus === 2 ? process.env.REACT_APP_PRIORITY_MEDIUM
-                         : priorityStatus === 3 ? process.env.REACT_APP_PRIORITY_HIGH
-                                                : process.env.REACT_APP_PRIORITY_URGENT;
+    const priorityString      = priorityStatus === 1 ? process.env.REACT_APP_PRIORITY_LOW
+                              : priorityStatus === 2 ? process.env.REACT_APP_PRIORITY_MEDIUM
+                              : priorityStatus === 3 ? process.env.REACT_APP_PRIORITY_HIGH
+                                                     : process.env.REACT_APP_PRIORITY_URGENT;
 
     return (
 

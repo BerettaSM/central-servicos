@@ -35,17 +35,17 @@ const OptionsBar: React.FC<PaginationHandling> = (props) => {
         <Wrapper>
 
           <NavigationButton
-            innerText={PREVIOUS}
-            renderArrow='left'
             onClick={handlePrevClick}
             isDisabled={isPrevDisabled}
+            innerText={PREVIOUS}
+            renderArrow='left'
           />
 
           <NavigationButton
-            innerText={NEXT}
-            renderArrow='right'
             onClick={handleNextClick}
             isDisabled={isNextDisabled}
+            innerText={NEXT}
+            renderArrow='right'
           />
 
           <Link to={'/new-ticket'}>

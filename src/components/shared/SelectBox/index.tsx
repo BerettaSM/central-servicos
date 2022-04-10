@@ -33,7 +33,11 @@ const SelectBox: React.FC<SelectBoxInterface> = (props) => {
 
                     props.options.map((option, idx) => {
 
-                        return <option key={idx} value={idx}>{option}</option>;
+                        return (
+
+                            <option key={idx} value={idx}>{option}</option>
+                            
+                        );
 
                     })
 

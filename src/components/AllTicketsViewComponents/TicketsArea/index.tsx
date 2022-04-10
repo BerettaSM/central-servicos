@@ -15,7 +15,7 @@ const TicketsArea: React.FC<Pagination> = (props) => {
   const { data, currentPage, maxTickets } = props;
 
   const pageEnd   = currentPage * maxTickets;
-  const pageStart = pageEnd - maxTickets;
+  const pageStart =   pageEnd   - maxTickets;
 
   return (
 
@@ -25,7 +25,11 @@ const TicketsArea: React.FC<Pagination> = (props) => {
 
           data.slice(pageStart, pageEnd).map( ( item, idx ) => {
 
-            return (<TicketTemplate key={idx} data={item} />);
+            return (
+
+              <TicketTemplate key={idx} data={item} />
+
+            );
 
           })
           
