@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Span } from './styles';
 
-import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
+import { ClickableSpanInterface } from '../Interfaces/ClickableSpanInterface';
 
-const ClickableSpan: React.FC<InnerTextInterface> = (props) => {
+const ClickableSpan: React.FC<ClickableSpanInterface> = (props) => {
 
     return (
 
-        <Span>{props.innerText}</Span>
+        <Span onClick={props.onClick}>{props.innerText}</Span>
 
     );
 

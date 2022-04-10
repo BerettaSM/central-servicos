@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import ViewTitle from '../../../components/shared/ViewTitle';
 import InputComponentMessage from '../../../components/shared/InputComponentMessage';
@@ -14,11 +14,13 @@ import {
 
 const ChatArea: React.FC = () => {
 
+    const navigate = useNavigate();
+
     const TITLE_ALL_TICKETS        = process.env.REACT_APP_TITLE_ALL_TICKETS;
     const TITLE_WRITE_YOUR_MESSAGE = process.env.REACT_APP_TITLE_WRITE_YOUR_MESSAGE;
     const ACTION_SEARCH_TICKET     = process.env.REACT_APP_ACTION_SEARCH_TICKET;
     const ACTION_RETURN            = process.env.REACT_APP_ACTION_RETURN;
-
+    
     return (
 
         <Container>
@@ -27,11 +29,7 @@ const ChatArea: React.FC = () => {
 
                 <ViewTitle innerText={TITLE_ALL_TICKETS} />
 
-                <Link to={'/tickets'} >
-
-                    <ClickableSpan innerText={ACTION_RETURN} />
-
-                </Link>
+                <ClickableSpan onClick={() =>navigate(-1)} innerText={ACTION_RETURN} />
 
             </Wrapper>
 

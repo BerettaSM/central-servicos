@@ -13,6 +13,7 @@ import { FilterAreaInterface } from '../../shared/Interfaces/FilterAreaInterface
 
 const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
+  const TITLE_FILTER             = process.env.REACT_APP_TITLE_FILTER;
   const TITLE_ALL_TICKETS        = process.env.REACT_APP_TITLE_ALL_TICKETS;
   const TITLE_OPENED_TICKETS     = process.env.REACT_APP_TITLE_OPENED_TICKETS;
   const TITLE_ONGOING_TICKETS    = process.env.REACT_APP_TITLE_ONGOING_TICKETS;
@@ -33,7 +34,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
         <Wrapper>
 
-          <span>Filtros</span>
+          <span>{TITLE_FILTER}</span>
 
           <FilterIcon />
           
