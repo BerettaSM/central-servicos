@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-import { PriorityStatus } from '../Interfaces/PriorityStatus';
+import { PriorityStatusInterface } from '../Interfaces/PriorityStatusInterface';
 
-export const Container = styled.div<PriorityStatus>`
+export const Container = styled.div<PriorityStatusInterface>`
     background: var(--THEME_COLOR_005);
     border-radius: 8px;
     height: 6px;
     width: 60px;
 
-    ${(p: PriorityStatus) => {
+    ${(p: PriorityStatusInterface) => {
 
         const status = p.priorityStatus;
 

@@ -5,9 +5,9 @@ import {
   PlusIcon
 } from './styles';
 
-import { InnerText } from '../Interfaces/InnerText';
+import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
 
-const AddButton: React.FC<InnerText> = (props) => {
+const AddButton: React.FC<InnerTextInterface> = (props) => {
 
   return(
 

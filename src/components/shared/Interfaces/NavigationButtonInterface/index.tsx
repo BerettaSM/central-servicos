@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
 
-export interface NavigationBtn {
+export interface NavigationButtonInterface {
     innerText?: string;
     onClick?: MouseEventHandler;
     isDisabled?: boolean;

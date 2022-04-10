@@ -13,19 +13,40 @@ const ViewsRoutes: React.FC = () => {
 
         <Routes>
 
-            <Route path='/tickets' element={<AllTicketsView />} />
+            <Route
+                path='/tickets'
+                element={<AllTicketsView selectedFilter={1} />}
+            />
 
-            <Route path='/tickets/open-tickets' element={<AllTicketsView />} />
+            <Route
+                path='/tickets/open-tickets'
+                element={<AllTicketsView selectedFilter={2} />}
+            />
 
-            <Route path='/tickets/ongoing-tickets' element={<AllTicketsView />} />
+            <Route
+                path='/tickets/ongoing-tickets'
+                element={<AllTicketsView selectedFilter={3} />}
+            />
 
-            <Route path='/tickets/my-ongoing-tickets' element={<AllTicketsView />} />
+            <Route
+                path='/tickets/my-ongoing-tickets'
+                element={<AllTicketsView selectedFilter={4} />}
+            />
 
-            <Route path='/tickets/my-closed-tickets' element={<AllTicketsView />} />
+            <Route
+                path='/tickets/my-closed-tickets'
+                element={<AllTicketsView selectedFilter={5} />}
+            />
 
-            <Route path='/new-ticket' element={<NewTicketView />} />
+            <Route
+                path='/new-ticket'
+                element={<NewTicketView />}
+            />
 
-            <Route path='/ticket-detail/:_id' element={<TicketView />} />
+            <Route
+                path='/ticket-detail/:_id'
+                element={<TicketView />}
+            />
 
         </Routes>
 

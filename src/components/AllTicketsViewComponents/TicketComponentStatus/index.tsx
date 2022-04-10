@@ -10,9 +10,9 @@ import {
     Wrapper
 } from './styles';
 
-import { TicketData } from '../../shared/Interfaces/TicketData';
+import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface';
 
-const StatusArea: React.FC<TicketData> = (props) => {
+const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
     const { priorityStatus, currentAttendant, deadlineStatus } = props.data;
 

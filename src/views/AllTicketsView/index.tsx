@@ -7,7 +7,9 @@ import TicketsArea from '../../components/AllTicketsViewComponents/TicketsArea';
 
 import { Layout } from './styles';
 
-const AllTicketsView: React.FC = () => {
+import { FilterInterface } from '../../components/shared/Interfaces/FilterInterface';
+
+const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
     const url = '/data';
     const [dataFound, setDataFound] = useState([]);
@@ -70,6 +72,8 @@ const AllTicketsView: React.FC = () => {
     const isPrevDisabled = currentPage === 1;
     const isNextDisabled = currentPage === lastPage;
 
+    const { selectedFilter } = props;
+
     return (
 
         <Layout>
@@ -81,7 +85,7 @@ const AllTicketsView: React.FC = () => {
                 isNextDisabled={isNextDisabled}
             />
 
-            <FilterArea />
+            <FilterArea selectedFilter={selectedFilter} />
 
             <TicketsArea
                 data={dataFound}

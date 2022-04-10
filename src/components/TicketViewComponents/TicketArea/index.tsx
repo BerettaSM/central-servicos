@@ -16,9 +16,9 @@ import {
     BottomInnerWrapper
 } from './styles';
 
-import { TicketData } from '../../shared/Interfaces/TicketData';
+import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface';
 
-const TicketArea: React.FC<TicketData> = (props) => {
+const TicketArea: React.FC<TicketDataInterface> = (props) => {
 
     const { data } = props;
     const { currentAttendant, priorityStatus } = data;

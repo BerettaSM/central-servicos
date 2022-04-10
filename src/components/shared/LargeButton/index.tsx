@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Button } from './styles';
 
-import { InnerText } from '../Interfaces/InnerText';
+import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
 
-const LargeButton: React.FC<InnerText> = (props) => {
+const LargeButton: React.FC<InnerTextInterface> = (props) => {
 
   return (
 

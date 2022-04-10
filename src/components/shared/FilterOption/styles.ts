@@ -7,10 +7,13 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
 
+    background: var(--THEME_COLOR_003);
+    color: var(--THEME_COLOR_004);
+
     border-radius: 8px;
     cursor: pointer;
     height: 40px;
-    
+
     :hover {
         background: var(--THEME_COLOR_002);
         color: var(--THEME_COLOR_001);

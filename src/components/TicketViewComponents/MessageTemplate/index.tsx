@@ -7,9 +7,9 @@ import {
     MessageContainer
 } from './styles';
 
-import { Message } from '../../shared/Interfaces/Message';
+import { MessageDirectionInterface } from '../../shared/Interfaces/MessageDirectionInterface';
 
-const MessageTemplate: React.FC<Message> = (props) => {
+const MessageTemplate: React.FC<MessageDirectionInterface> = (props) => {
 
     return (
 

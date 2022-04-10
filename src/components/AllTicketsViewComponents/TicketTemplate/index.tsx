@@ -10,9 +10,9 @@ import {
   Wrapper
 } from './styles';
 
-import { TicketData } from '../../shared/Interfaces/TicketData';
+import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface';
 
-const TicketTemplate: React.FC<TicketData> = (props) => {
+const TicketTemplate: React.FC<TicketDataInterface> = (props) => {
   
   const { data } = props;
   

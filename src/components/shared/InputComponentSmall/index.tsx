@@ -6,9 +6,9 @@ import {
     InputForm
 } from './styles';
 
-import { InputComponent } from '../Interfaces/InputComponent';
+import { InputComponentInterface } from '../Interfaces/InputComponentInterface';
 
-const InputComponentSmall: React.FC<InputComponent> = (props) => {
+const InputComponentSmall: React.FC<InputComponentInterface> = (props) => {
 
     return (
         <Container>

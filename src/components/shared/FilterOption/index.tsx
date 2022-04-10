@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Container, RightArrowIcon } from './styles';
 
-import { InnerText } from '../Interfaces/InnerText';
+import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
 
-const FilterOption: React.FC<InnerText> = (props) => {
+const FilterOption: React.FC<InnerTextInterface> = (props) => {
 
     return (
 

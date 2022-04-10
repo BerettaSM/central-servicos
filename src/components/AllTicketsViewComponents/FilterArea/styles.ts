@@ -17,9 +17,12 @@ export const Container = styled.div`
     > :first-child {
         margin-bottom: 27px;
     }
-    > div {
+
+    > * {
         margin-bottom: 12px;
+        text-decoration: none;
     }
+
 `;
 
 export const Wrapper = styled.div`

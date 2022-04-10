@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Icon } from './styles';
 
-import { PriorityStatus } from '../Interfaces/PriorityStatus';
+import { PriorityStatusInterface } from '../Interfaces/PriorityStatusInterface';
 
-const PriorityIcon: React.FC<PriorityStatus> = (props) => {
+const PriorityIcon: React.FC<PriorityStatusInterface> = (props) => {
 
     return <Icon priorityStatus={props.priorityStatus} />;
 

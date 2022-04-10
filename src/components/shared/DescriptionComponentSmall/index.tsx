@@ -5,9 +5,9 @@ import {
     Container
 } from './styles';
 
-import { DescriptionComponent } from '../Interfaces/DescriptionComponent';
+import { DescriptionComponentInterface } from '../Interfaces/DescriptionComponentInterface';
 
-const DescriptionComponentSmall: React.FC<DescriptionComponent> = (props) => {
+const DescriptionComponentSmall: React.FC<DescriptionComponentInterface> = (props) => {
 
     return (
 

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Span } from './styles';
 
-import { InnerText } from '../Interfaces/InnerText';
+import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
 
-const ClickableSpan: React.FC<InnerText> = (props) => {
+const ClickableSpan: React.FC<InnerTextInterface> = (props) => {
 
     return (
 

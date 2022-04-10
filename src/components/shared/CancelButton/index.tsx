@@ -5,9 +5,9 @@ import {
   CancelIcon
 } from './styles';
 
-import { InnerText } from '../Interfaces/InnerText';
+import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
 
-const CancelButton: React.FC<InnerText> = (props) => {
+const CancelButton: React.FC<InnerTextInterface> = (props) => {
 
   return(
 

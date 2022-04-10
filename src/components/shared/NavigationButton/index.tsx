@@ -6,9 +6,9 @@ import {
   RightArrowIcon
 } from './styles';
 
-import { NavigationBtn } from '../Interfaces/NavigationBtn';
+import { NavigationButtonInterface } from '../Interfaces/NavigationButtonInterface';
 
-const NavigationButton: React.FC<NavigationBtn> = (props) => {
+const NavigationButton: React.FC<NavigationButtonInterface> = (props) => {
 
   return(
 

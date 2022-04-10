@@ -7,9 +7,9 @@ import {
     PaperPlaneIcon
 } from './styles';
 
-import { InputComponent } from '../Interfaces/InputComponent';
+import { InputComponentInterface } from '../Interfaces/InputComponentInterface';
 
-const InputComponentMessage: React.FC<InputComponent> = (props) => {
+const InputComponentMessage: React.FC<InputComponentInterface> = (props) => {
 
     return (
 

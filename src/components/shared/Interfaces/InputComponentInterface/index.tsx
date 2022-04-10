@@ -1,4 +1,4 @@
-export interface InputComponent {
+export interface InputComponentInterface {
     title?: string;
     placeholder?: string;
 }
