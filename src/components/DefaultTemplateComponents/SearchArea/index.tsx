@@ -11,8 +11,10 @@ import {
 
 const SearchArea: React.FC = () => {
 
-  const ACTION_SEARCH_TICKET = process.env.REACT_APP_ACTION_SEARCH_TICKET;
-  const MOCK_USER_NAME       = process.env.REACT_APP_MOCK_USER_NAME;
+  const {
+    REACT_APP_ACTION_SEARCH_TICKET,
+    REACT_APP_MOCK_USER_NAME
+  } = process.env;
 
   return (
 
@@ -20,7 +22,7 @@ const SearchArea: React.FC = () => {
 
       <SearchField>
 
-        <SearchForm type='text' placeholder={ACTION_SEARCH_TICKET} />
+        <SearchForm type='text' placeholder={REACT_APP_ACTION_SEARCH_TICKET} />
 
         <SearchIcon />
 
@@ -28,7 +30,7 @@ const SearchArea: React.FC = () => {
 
       <UserSection>
 
-        <span>{MOCK_USER_NAME}</span>
+        <span>{REACT_APP_MOCK_USER_NAME}</span>
 
         <UserIcon />
 

@@ -52,7 +52,7 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
     let data = dataFound;
 
-    const MOCK_USER_NAME = process.env.REACT_APP_MOCK_USER_NAME; // Filter testing
+    const { REACT_APP_MOCK_USER_NAME } = process.env; // Filter testing
 
     switch (selectedFilter) {
 
@@ -80,7 +80,9 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
             data = dataFound.filter( (item: any) => {
 
-                return item.status === 2 && item.currentAttendant === MOCK_USER_NAME
+                return item.currentAttendant === REACT_APP_MOCK_USER_NAME
+                            &&
+                       item.status === 2
 
             });
 
@@ -90,8 +92,10 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
             data = dataFound.filter( (item: any) => {
 
-                return item.status === 3 && item.currentAttendant === MOCK_USER_NAME
-
+                return item.currentAttendant === REACT_APP_MOCK_USER_NAME
+                            && 
+                       item.status === 3
+                       
             });
             
             break;

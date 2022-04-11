@@ -16,22 +16,25 @@ const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
     const { priorityStatus, currentAttendant, deadlineStatus } = props.data;
 
-    const PRIORITY_LOW      = process.env.REACT_APP_PRIORITY_LOW;
-    const PRIORITY_MEDIUM   = process.env.REACT_APP_PRIORITY_MEDIUM;
-    const PRIORITY_HIGH     = process.env.REACT_APP_PRIORITY_HIGH;
-    const PRIORITY_URGENT   = process.env.REACT_APP_PRIORITY_URGENT;
+    const {
+        REACT_APP_SITUATION_PENDING,
+        REACT_APP_SITUATION_ON_TIME,
+        REACT_APP_SITUATION_LATE,
+        REACT_APP_PRIORITY_LOW,
+        REACT_APP_PRIORITY_MEDIUM,
+        REACT_APP_PRIORITY_HIGH,
+        REACT_APP_PRIORITY_URGENT
+    } = process.env;
 
-    const SITUATION_ON_TIME = process.env.REACT_APP_SITUATION_ON_TIME;
-    const SITUATION_LATE    = process.env.REACT_APP_SITUATION_LATE;
-    const SITUATION_PENDING = process.env.REACT_APP_SITUATION_PENDING;
+    const attendantString = currentAttendant ? currentAttendant : REACT_APP_SITUATION_PENDING;
 
-    const attendantString   = currentAttendant ? currentAttendant : SITUATION_PENDING;
-
-    const deadlineString    = deadlineStatus === 1 ? SITUATION_ON_TIME : SITUATION_LATE;
+    const deadlineString  = deadlineStatus === 1 ? REACT_APP_SITUATION_ON_TIME
+                                                 : REACT_APP_SITUATION_LATE;
     
-    const priorityString    = priorityStatus === 1 ? PRIORITY_LOW
-                            : priorityStatus === 2 ? PRIORITY_MEDIUM
-                            : priorityStatus === 3 ? PRIORITY_HIGH : PRIORITY_URGENT;
+    const priorityString  = priorityStatus === 1 ? REACT_APP_PRIORITY_LOW
+                          : priorityStatus === 2 ? REACT_APP_PRIORITY_MEDIUM
+                          : priorityStatus === 3 ? REACT_APP_PRIORITY_HIGH
+                                                 : REACT_APP_PRIORITY_URGENT;
 
     return (
 

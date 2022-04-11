@@ -8,7 +8,7 @@ import {
 
 const InputComponentLogin: React.FC = () => {
 
-  const ACTION_LOGIN = process.env.REACT_APP_ACTION_LOGIN;
+  const { REACT_APP_ACTION_LOGIN } = process.env;
 
   return (
 
@@ -16,7 +16,7 @@ const InputComponentLogin: React.FC = () => {
 
           <UserIcon />
 
-          <LoginForm type='text' placeholder={ACTION_LOGIN}  />
+          <LoginForm type='text' placeholder={REACT_APP_ACTION_LOGIN}  />
 
       </Container>
 

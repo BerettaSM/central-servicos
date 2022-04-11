@@ -16,10 +16,12 @@ const ChatArea: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const TITLE_ALL_TICKETS        = process.env.REACT_APP_TITLE_ALL_TICKETS;
-    const TITLE_WRITE_YOUR_MESSAGE = process.env.REACT_APP_TITLE_WRITE_YOUR_MESSAGE;
-    const ACTION_SEARCH_TICKET     = process.env.REACT_APP_ACTION_SEARCH_TICKET;
-    const ACTION_RETURN            = process.env.REACT_APP_ACTION_RETURN;
+    const {
+        REACT_APP_TITLE_ALL_TICKETS,
+        REACT_APP_ACTION_RETURN,
+        REACT_APP_TITLE_WRITE_YOUR_MESSAGE,
+        REACT_APP_ACTION_SEARCH_TICKET
+    } = process.env;
     
     return (
 
@@ -27,11 +29,11 @@ const ChatArea: React.FC = () => {
 
             <Wrapper>
 
-                <ViewTitle innerText={TITLE_ALL_TICKETS} />
+                <ViewTitle innerText={REACT_APP_TITLE_ALL_TICKETS} />
 
                 <ClickableSpan 
                     onClick={() => navigate(-1)}
-                    innerText={ACTION_RETURN}
+                    innerText={REACT_APP_ACTION_RETURN}
                 />
 
             </Wrapper>
@@ -47,8 +49,8 @@ const ChatArea: React.FC = () => {
             </MessagesContainer>
             
             <InputComponentMessage 
-                title={TITLE_WRITE_YOUR_MESSAGE}
-                placeholder={ACTION_SEARCH_TICKET}
+                title={REACT_APP_TITLE_WRITE_YOUR_MESSAGE}
+                placeholder={REACT_APP_ACTION_SEARCH_TICKET}
             />
 
         </Container>

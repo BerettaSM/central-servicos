@@ -6,7 +6,7 @@ import { Layout, BottomBar } from './styles';
 
 const LoginTemplate: React.FC = () => {
 
-    const FOOTER_LOGIN_SCREEN = process.env.REACT_APP_FOOTER_LOGIN_SCREEN;
+    const { REACT_APP_FOOTER_LOGIN_SCREEN } = process.env;
 
     return (
 
@@ -20,7 +20,7 @@ const LoginTemplate: React.FC = () => {
 
                 <BottomBar>
 
-                    <span>{FOOTER_LOGIN_SCREEN}</span>
+                    <span>{REACT_APP_FOOTER_LOGIN_SCREEN}</span>
 
                 </BottomBar>
 

@@ -13,20 +13,22 @@ import { FilterAreaInterface } from '../../shared/Interfaces/FilterAreaInterface
 
 const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
-  const { selectedFilter, handleResetPage } = props;
+  const { handleResetPage, selectedFilter } = props;
 
-  const TITLE_FILTER             = process.env.REACT_APP_TITLE_FILTER;
-  const TITLE_ALL_TICKETS        = process.env.REACT_APP_TITLE_ALL_TICKETS;
-  const TITLE_OPENED_TICKETS     = process.env.REACT_APP_TITLE_OPENED_TICKETS;
-  const TITLE_ONGOING_TICKETS    = process.env.REACT_APP_TITLE_ONGOING_TICKETS;
-  const TITLE_MY_ONGOING_TICKETS = process.env.REACT_APP_TITLE_MY_ONGOING_TICKETS;
-  const TITLE_MY_CLOSED_TICKETS  = process.env.REACT_APP_TITLE_MY_CLOSED_TICKETS;
+  const IS_FILTER_1_SELECTED = selectedFilter === 1;
+  const IS_FILTER_2_SELECTED = selectedFilter === 2;
+  const IS_FILTER_3_SELECTED = selectedFilter === 3;
+  const IS_FILTER_4_SELECTED = selectedFilter === 4;
+  const IS_FILTER_5_SELECTED = selectedFilter === 5;
 
-  const IS_FILTER_1_SELECTED     = selectedFilter === 1;
-  const IS_FILTER_2_SELECTED     = selectedFilter === 2;
-  const IS_FILTER_3_SELECTED     = selectedFilter === 3;
-  const IS_FILTER_4_SELECTED     = selectedFilter === 4;
-  const IS_FILTER_5_SELECTED     = selectedFilter === 5;
+  const {
+    REACT_APP_TITLE_FILTER,
+    REACT_APP_TITLE_ALL_TICKETS,
+    REACT_APP_TITLE_OPENED_TICKETS,
+    REACT_APP_TITLE_ONGOING_TICKETS,
+    REACT_APP_TITLE_MY_ONGOING_TICKETS,
+    REACT_APP_TITLE_MY_CLOSED_TICKETS
+  } = process.env;
   
   return (
 
@@ -34,7 +36,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
         <Wrapper>
 
-          <span>{TITLE_FILTER}</span>
+          <span>{REACT_APP_TITLE_FILTER}</span>
 
           <FilterIcon />
           
@@ -45,7 +47,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
           <FilterOption
             handleResetPage={handleResetPage}
             isSelected={IS_FILTER_1_SELECTED}
-            innerText={TITLE_ALL_TICKETS}
+            innerText={REACT_APP_TITLE_ALL_TICKETS}
           />
 
         </Link>
@@ -55,7 +57,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
           <FilterOption
             handleResetPage={handleResetPage}
             isSelected={IS_FILTER_2_SELECTED}
-            innerText={TITLE_OPENED_TICKETS}
+            innerText={REACT_APP_TITLE_OPENED_TICKETS}
           />
 
         </Link>
@@ -65,7 +67,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
           <FilterOption
             handleResetPage={handleResetPage}
             isSelected={IS_FILTER_3_SELECTED}
-            innerText={TITLE_ONGOING_TICKETS}
+            innerText={REACT_APP_TITLE_ONGOING_TICKETS}
           />
 
         </Link>
@@ -75,7 +77,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
           <FilterOption
             handleResetPage={handleResetPage}
             isSelected={IS_FILTER_4_SELECTED}
-            innerText={TITLE_MY_ONGOING_TICKETS}
+            innerText={REACT_APP_TITLE_MY_ONGOING_TICKETS}
           />
 
         </Link>
@@ -85,7 +87,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
           <FilterOption
             handleResetPage={handleResetPage}
             isSelected={IS_FILTER_5_SELECTED}
-            innerText={TITLE_MY_CLOSED_TICKETS}
+            innerText={REACT_APP_TITLE_MY_CLOSED_TICKETS}
           />
 
         </Link>
@@ -93,6 +95,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
       </Container>
       
   );
+  
 }
 
 export default FilterArea;

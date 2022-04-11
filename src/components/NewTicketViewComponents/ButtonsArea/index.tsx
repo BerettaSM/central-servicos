@@ -7,8 +7,10 @@ import { Container } from './styles';
 
 const ButtonsArea: React.FC = () => {
 
-    const ACTION_CANCEL     = process.env.REACT_APP_ACTION_CANCEL;
-    const ACTION_NEW_TICKET = process.env.REACT_APP_ACTION_NEW_TICKET;
+    const {
+        REACT_APP_ACTION_CANCEL,
+        REACT_APP_ACTION_NEW_TICKET
+    } = process.env;
 
     return (
 
@@ -16,11 +18,11 @@ const ButtonsArea: React.FC = () => {
 
             <Link to={'/tickets'}>
 
-                <CancelButton innerText={ACTION_CANCEL} />
+                <CancelButton innerText={REACT_APP_ACTION_CANCEL} />
 
             </Link>
 
-            <AddButton innerText={ACTION_NEW_TICKET} />
+            <AddButton innerText={REACT_APP_ACTION_NEW_TICKET} />
 
         </Container>
 

@@ -16,11 +16,18 @@ import { TicketDataInterface } from '../Interfaces/TicketDataInterface';
 const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
     const { _id, status, ticketTitle, userName, openDate, dueDate } = props.data;
+
+    const {
+        REACT_APP_STATUS_OPENED,
+        REACT_APP_STATUS_ONGOING,
+        REACT_APP_STATUS_CLOSED,
+        REACT_APP_STATUS_CANCELLED
+    } = process.env;
     
-    const statusString = status === 1 ? process.env.REACT_APP_STATUS_OPENED
-                       : status === 2 ? process.env.REACT_APP_STATUS_ONGOING
-                       : status === 3 ? process.env.REACT_APP_STATUS_CLOSED
-                                      : process.env.REACT_APP_STATUS_CANCELLED;
+    const statusString = status === 1 ? REACT_APP_STATUS_OPENED
+                       : status === 2 ? REACT_APP_STATUS_ONGOING
+                       : status === 3 ? REACT_APP_STATUS_CLOSED
+                                      : REACT_APP_STATUS_CANCELLED;
 
     return (
 

@@ -5,13 +5,13 @@ import { Container } from './styles';
 
 const DescriptionArea: React.FC = () => {
 
-    const TITLE_DESCRIPTION = process.env.REACT_APP_TITLE_DESCRIPTION;
+    const { REACT_APP_TITLE_DESCRIPTION } = process.env;
 
     return (
 
         <Container>
 
-            <InputComponentLarge title={TITLE_DESCRIPTION} />
+            <InputComponentLarge title={REACT_APP_TITLE_DESCRIPTION} />
 
         </Container>
 
