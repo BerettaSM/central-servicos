@@ -11,7 +11,7 @@ import { FilterInterface } from '../../components/shared/Interfaces/FilterInterf
 
 const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
-    const url = '/data';
+    const url = '/api/ticket';
     const [ dataFound, setDataFound ] = useState([]);
 
     useEffect( () => {
@@ -30,8 +30,8 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
             .then( (res: any) => {
 
-                let results = res.data.results;
-
+                let results = res.data.content;
+                console.log(res);
                 if (results) {
 
                     setDataFound(results);
@@ -52,55 +52,9 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
     let data = dataFound;
 
-    const { REACT_APP_MOCK_USER_NAME } = process.env; // Filter testing
+    //const { REACT_APP_MOCK_USER_NAME } = process.env; // Filter testing
 
-    switch (selectedFilter) {
-
-        case 2:
-
-            data = dataFound.filter( (item: any) => {
-
-                return item.status === 1
-
-            });
-
-            break;
-
-        case 3:
-
-            data = dataFound.filter( (item: any) => {
-
-                return item.status === 2
-
-            });
-
-            break;
-
-        case 4:
-
-            data = dataFound.filter( (item: any) => {
-
-                return item.currentAttendant === REACT_APP_MOCK_USER_NAME
-                            &&
-                       item.status === 2
-
-            });
-
-            break;
-
-        case 5:
-
-            data = dataFound.filter( (item: any) => {
-
-                return item.currentAttendant === REACT_APP_MOCK_USER_NAME
-                            && 
-                       item.status === 3
-                       
-            });
-            
-            break;
-
-    }
+    
 
     const [ currentPage, setCurrentPage ] = useState(1);
 

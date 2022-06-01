@@ -1,3 +1,3 @@
 export interface PriorityStatusInterface {
-    priorityStatus?: number;
+    priorityStatus?: string;
 }

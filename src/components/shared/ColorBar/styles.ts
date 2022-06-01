@@ -13,14 +13,19 @@ export const Container = styled.div<PriorityStatusInterface>`
         const status = p.priorityStatus;
 
         switch(status) {
-            case 1:
-                return `background: var(--PRIORITY_LOW);`;
-            case 2:
-                return `background: var(--PRIORITY_MEDIUM);`;
-            case 3:
-                return `background: var(--PRIORITY_HIGH);`;
-            case 4:
-                return `background: var(--PRIORITY_URGENT);`;
+
+            case "Baixa":
+                return `color: var(--PRIORITY_LOW);`;
+
+            case "Média":
+                return `color: var(--PRIORITY_MEDIUM);`;
+
+            case "Alta":
+                return `color: var(--PRIORITY_HIGH);`;
+
+            case "Altíssima":
+                return `color: var(--PRIORITY_URGENT);`;
+                
         }
 
     }};

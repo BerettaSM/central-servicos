@@ -14,27 +14,18 @@ import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface
 
 const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
-    const { priorityStatus, currentAttendant, deadlineStatus } = props.data;
+    const { priority, responsibleUser, onTime } = props.data;
+
+    const { fullName } = responsibleUser;
 
     const {
-        REACT_APP_SITUATION_PENDING,
         REACT_APP_SITUATION_ON_TIME,
-        REACT_APP_SITUATION_LATE,
-        REACT_APP_PRIORITY_LOW,
-        REACT_APP_PRIORITY_MEDIUM,
-        REACT_APP_PRIORITY_HIGH,
-        REACT_APP_PRIORITY_URGENT
+        REACT_APP_SITUATION_LATE
     } = process.env;
 
-    const attendantString = currentAttendant ? currentAttendant : REACT_APP_SITUATION_PENDING;
-
-    const deadlineString  = deadlineStatus === 1 ? REACT_APP_SITUATION_ON_TIME
-                                                 : REACT_APP_SITUATION_LATE;
+    const deadlineString  = onTime ? REACT_APP_SITUATION_ON_TIME
+                                   : REACT_APP_SITUATION_LATE;
     
-    const priorityString  = priorityStatus === 1 ? REACT_APP_PRIORITY_LOW
-                          : priorityStatus === 2 ? REACT_APP_PRIORITY_MEDIUM
-                          : priorityStatus === 3 ? REACT_APP_PRIORITY_HIGH
-                                                 : REACT_APP_PRIORITY_URGENT;
 
     return (
 
@@ -42,23 +33,23 @@ const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
             <Wrapper>
 
-                <PriorityIcon priorityStatus={priorityStatus} />
+                <PriorityIcon priorityStatus={priority} />
 
-                <span>{priorityString}</span>
-
-            </Wrapper>
-
-            <Wrapper>
-
-                {currentAttendant ? <CurrentAttendantIcon /> : <StandByIcon />}
-
-                <span>{attendantString}</span>
+                <span>{priority}</span>
 
             </Wrapper>
 
             <Wrapper>
 
-                <DeadlineIcon deadlineStatus={deadlineStatus} />
+                {fullName ? <CurrentAttendantIcon /> : <StandByIcon />}
+
+                <span>{fullName}</span>
+
+            </Wrapper>
+
+            <Wrapper>
+
+                <DeadlineIcon deadlineStatus={onTime} />
 
                 <span>{deadlineString}</span>
 
