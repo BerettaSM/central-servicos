@@ -10,7 +10,7 @@ import { TicketDTOInterface } from '../../components/shared/Interfaces/TicketDTO
 const TicketView: React.FC = () => {
 
     const { _id } = useParams();
-    
+
     const [ticketFound, setTicketFound] = useState<TicketDTOInterface>();
 
     useEffect( () => {
@@ -24,7 +24,7 @@ const TicketView: React.FC = () => {
                 .then((res: any) => {
     
                     let results = res.data;
-    
+                    
                     if (results) {
     
                         setTicketFound(results);
@@ -42,14 +42,13 @@ const TicketView: React.FC = () => {
         }
 
         (async () => {
-
+ 
             searchTicketFromId();
 
         })()
 
     }, [_id]);
 
-    
 
     return (
 

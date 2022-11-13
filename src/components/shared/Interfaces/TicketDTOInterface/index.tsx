@@ -1,3 +1,6 @@
+import { OpenedBy } from '../OpenedByInterface';
+import { User } from '../UserInterface';
+
 export interface TicketDTOInterface {
     ticketId: number;
     status: number;
@@ -12,24 +15,3 @@ export interface TicketDTOInterface {
     onTime: boolean;
 }
 
-interface User {
-    id: number;
-    fullName: string;
-    level: Level;
-    enabled: boolean;
-}
-
-interface OpenedBy {
-    id: number;
-    fullName: string;
-    level: Level;
-    enabled: boolean;
-}
-
-interface Level {
-    id: number;
-    levelCode: string;
-    levelName: string;
-    description: string;
-    enabled: boolean;
-}
