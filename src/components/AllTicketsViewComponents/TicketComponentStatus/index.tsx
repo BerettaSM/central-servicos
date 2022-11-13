@@ -14,14 +14,19 @@ import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface
 
 const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
-    const { priority, responsibleUser, onTime } = props.data;
-
-    const { fullName } = responsibleUser;
-
     const {
+        REACT_APP_SITUATION_LATE,
         REACT_APP_SITUATION_ON_TIME,
-        REACT_APP_SITUATION_LATE
+        REACT_APP_SITUATION_PENDING
     } = process.env;
+
+    const { data } = props;
+
+    const priority = data?.priority;
+    
+    const currentAttendant = data?.responsibleUser?.fullName ?? REACT_APP_SITUATION_PENDING;
+
+    const onTime = data?.onTime;
 
     const deadlineString  = onTime ? REACT_APP_SITUATION_ON_TIME
                                    : REACT_APP_SITUATION_LATE;
@@ -41,9 +46,9 @@ const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
             <Wrapper>
 
-                {fullName ? <CurrentAttendantIcon /> : <StandByIcon />}
+                {currentAttendant !== REACT_APP_SITUATION_PENDING ? <CurrentAttendantIcon /> : <StandByIcon />}
 
-                <span>{fullName}</span>
+                <span>{currentAttendant}</span>
 
             </Wrapper>
 

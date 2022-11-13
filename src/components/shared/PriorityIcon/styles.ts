@@ -10,7 +10,7 @@ export const Icon = styled(CircleFill)<PriorityStatusInterface>`
     ${(p: PriorityStatusInterface) => {
 
         const status = p.priorityStatus;
-
+        
         switch(status) {
 
             case "Baixa":

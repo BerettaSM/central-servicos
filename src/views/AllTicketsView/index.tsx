@@ -32,7 +32,7 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
                     if (results) {
 
                         setDataFound(results);
-
+                        
                     }
 
                 })
@@ -53,7 +53,7 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
     }, [currentPage, selectedFilter]);
 
-    let data = dataFound?.content;
+    const data = dataFound?.content;
 
     const isOnFirstPage = dataFound?.first;
     const isOnLastPage = dataFound?.last;

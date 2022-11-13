@@ -18,7 +18,7 @@ const TicketTemplate: React.FC<TicketDataInterface> = (props) => {
   
   return (
 
-      <Link to={`/ticket-detail/${data._id}`} style={{ textDecoration: 'none'}}>
+      <Link to={`/ticket-detail/${data?.ticketId}`} style={{ textDecoration: 'none'}}>
         
         <Container>
 

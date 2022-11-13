@@ -1,11 +1,12 @@
 import React from 'react';
+import { TicketDTOInterface } from '../../shared/Interfaces/TicketDTOInterface';
 
 import TicketTemplate from '../TicketTemplate';
 
 import { Container } from './styles';
 
 interface Pagination{
-  data: object[] | undefined;
+  data: TicketDTOInterface[] | undefined;
 }
 
 const TicketsArea: React.FC<Pagination> = (props) => {

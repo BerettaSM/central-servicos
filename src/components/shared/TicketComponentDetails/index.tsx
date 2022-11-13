@@ -15,9 +15,21 @@ import { TicketDataInterface } from '../Interfaces/TicketDataInterface';
 
 const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
-    const { ticketId, descStatus, title, openedBy, dateStart, dateEnd } = props.data;
+    const { data } = props;
 
-    const { fullName } = openedBy;
+    const ticketId = data?.ticketId;
+
+    const descStatus = data?.descStatus;
+
+    const title = data?.title;
+
+    const openedBy = data?.openedBy;
+
+    const responsibleUser = openedBy?.fullName;
+
+    const dateStart = data?.dateStart;
+
+    const dateEnd = data?.dateEnd;
 
     return (
 
@@ -43,7 +55,7 @@ const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
                     <UserIcon />
 
-                    <span>{fullName}</span>
+                    <span>{responsibleUser}</span>
 
                 </BottomInnerWrapper>
 
