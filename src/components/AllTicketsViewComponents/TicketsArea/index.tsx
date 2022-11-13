@@ -5,25 +5,20 @@ import TicketTemplate from '../TicketTemplate';
 import { Container } from './styles';
 
 interface Pagination{
-  data: object[];
-  currentPage: number;
-  maxTickets: number;
+  data: object[] | undefined;
 }
 
 const TicketsArea: React.FC<Pagination> = (props) => {
 
-  const { data, currentPage, maxTickets } = props;
-
-  const pageEnd   = currentPage * maxTickets;
-  const pageStart =   pageEnd   - maxTickets;
+  const { data } = props;
 
   return (
 
       <Container>
 
         {
-
-          data.slice(pageStart, pageEnd).map( ( item, idx ) => {
+          
+          data && data.map( ( item, idx ) => {
 
             return (
 

@@ -13,8 +13,8 @@ import {
 interface PaginationHandling {
   handleNextClick() : void;
   handlePrevClick() : void;
-  isPrevDisabled: boolean;
-  isNextDisabled: boolean;
+  isPrevDisabled: boolean | undefined;
+  isNextDisabled: boolean | undefined;
 }
 
 const OptionsBar: React.FC<PaginationHandling> = (props) => {

@@ -15,9 +15,9 @@ import { TicketDataInterface } from '../Interfaces/TicketDataInterface';
 
 const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
-    const { ticketId, descStatus, title, openBy, dateStart, dateEnd } = props.data;
+    const { ticketId, descStatus, title, openedBy, dateStart, dateEnd } = props.data;
 
-    const { fullName } = openBy;
+    const { fullName } = openedBy;
 
     return (
 

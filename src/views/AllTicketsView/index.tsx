@@ -8,13 +8,42 @@ import TicketsArea from '../../components/AllTicketsViewComponents/TicketsArea';
 import { Layout } from './styles';
 
 import { FilterInterface } from '../../components/shared/Interfaces/FilterInterface';
+import { ApiResponse } from '../../components/shared/Interfaces/ApiResponseInterface';
 
 const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
-    const url = '/api/ticket';
-    const [ dataFound, setDataFound ] = useState([]);
+    const [ currentPage, setCurrentPage ] = useState(0);
+    const [ dataFound, setDataFound ] = useState<ApiResponse>();
+
+    const { selectedFilter } = props;
 
     useEffect( () => {
+
+        const url = `/api/ticket?size=8&page=${currentPage}&status=${selectedFilter === 2 ? 3 : selectedFilter}`;
+
+        const searchTicketData = async () => {
+
+            await Api.get(url)
+
+                .then( (res: any) => {
+
+                    let results = res.data;
+
+                    if (results) {
+
+                        setDataFound(results);
+
+                    }
+
+                })
+
+                .catch( (error: any) => {
+
+                    console.log(error);
+
+                });
+                
+        }
 
         (async () => {
 
@@ -22,53 +51,24 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
         })()
 
-    }, []);
+    }, [currentPage, selectedFilter]);
 
-    const searchTicketData = async () => {
+    let data = dataFound?.content;
 
-        await Api.get(url)
-
-            .then( (res: any) => {
-
-                let results = res.data.content;
-                console.log(res);
-                if (results) {
-
-                    setDataFound(results);
-
-                }
-
-            })
-
-            .catch( (error: any) => {
-
-                console.log(error);
-
-            });
-            
-    }
-
-    const { selectedFilter } = props;
-
-    let data = dataFound;
-
-    //const { REACT_APP_MOCK_USER_NAME } = process.env; // Filter testing
-
-    
-
-    const [ currentPage, setCurrentPage ] = useState(1);
+    const isOnFirstPage = dataFound?.first;
+    const isOnLastPage = dataFound?.last;
 
     const handleNextClick = () => {
 
-        if (currentPage < lastPage)
+        if (!(isOnLastPage))
 
             setCurrentPage(currentPage + 1);
 
     }
   
     const handlePrevClick = () => {
-  
-        if (currentPage > 1)
+
+        if (!(isOnFirstPage))
 
             setCurrentPage(currentPage - 1);
       
@@ -76,15 +76,9 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
 
     const handleResetPage = () => {
 
-        setCurrentPage(1);
+        setCurrentPage(0);
 
     }
-
-    const MAX_TICKETS_PER_PAGE = 8;
-    const lastPage = Math.ceil(data.length / MAX_TICKETS_PER_PAGE);
-
-    const isPrevDisabled = currentPage <= 1;
-    const isNextDisabled = currentPage >= lastPage;
 
     return (
 
@@ -93,8 +87,8 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
             <OptionsBar 
                 handlePrevClick={handlePrevClick}
                 handleNextClick={handleNextClick}
-                isPrevDisabled={isPrevDisabled}
-                isNextDisabled={isNextDisabled}
+                isPrevDisabled={isOnFirstPage}
+                isNextDisabled={isOnLastPage}
             />
 
             <FilterArea
@@ -102,11 +96,7 @@ const AllTicketsView: React.FC<FilterInterface> = (props) => {
                 selectedFilter={selectedFilter}
             />
 
-            <TicketsArea
-                maxTickets={MAX_TICKETS_PER_PAGE}
-                currentPage={currentPage}
-                data={data}
-            />
+            <TicketsArea data={data} />
 
         </Layout>
 
