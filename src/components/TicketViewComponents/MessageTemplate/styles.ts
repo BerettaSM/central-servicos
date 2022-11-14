@@ -35,4 +35,5 @@ export const Container = styled.div<MessageDirectionInterface>`
 
 export const MessageContainer = styled.div`
     margin: 18px 0 14px 47px;
+    word-wrap: break-word;
 `;

@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ColorBar from '../ColorBar';
 
-import {
-    Select,
-    Wrapper
-} from './styles';
+import { Select, Wrapper } from './styles';
 
-interface SelectBoxInterface{
-    title: string | undefined;
-    options: Array<String | undefined>;
-    renderColorBar?: boolean;
-}
+import { SelectBoxInterface } from '../Interfaces/SelectBoxInterface';
 
 const SelectBox: React.FC<SelectBoxInterface> = (props) => {
 
+    const [selectedOption, setSelectedOption] = useState("Baixa");
+
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        
+        const index = e.target.selectedIndex;
+
+        setSelectedOption(e.target[index].innerText);
+
+    }
+    
     return (
 
         <Select>
@@ -23,19 +26,19 @@ const SelectBox: React.FC<SelectBoxInterface> = (props) => {
 
                 <span>{props.title}</span>
 
-                {props.renderColorBar && <ColorBar />}
+                {props.renderColorBar && <ColorBar priorityStatus={selectedOption} />}
 
             </Wrapper>
 
-            <select>
+            <select id={props.title} onChange={handleChange}>
 
                 {
 
-                    props.options.map((option, idx) => {
+                    props.options && props.options.map((option, idx) => {
 
                         return (
 
-                            <option key={idx} value={idx}>{option}</option>
+                            <option key={idx} value={option.id ?? idx}>{option.description}</option>
                             
                         );
 

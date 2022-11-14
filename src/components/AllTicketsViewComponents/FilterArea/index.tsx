@@ -15,11 +15,11 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
   const { handleResetPage, selectedFilter } = props;
 
+  const IS_FILTER_0_SELECTED = selectedFilter === 0;
   const IS_FILTER_1_SELECTED = selectedFilter === 1;
   const IS_FILTER_2_SELECTED = selectedFilter === 2;
   const IS_FILTER_3_SELECTED = selectedFilter === 3;
   const IS_FILTER_4_SELECTED = selectedFilter === 4;
-  const IS_FILTER_5_SELECTED = selectedFilter === 5;
 
   const {
     REACT_APP_TITLE_FILTER,
@@ -46,7 +46,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
           <FilterOption
             handleResetPage={handleResetPage}
-            isSelected={IS_FILTER_1_SELECTED}
+            isSelected={IS_FILTER_0_SELECTED}
             innerText={REACT_APP_TITLE_ALL_TICKETS}
           />
 
@@ -56,7 +56,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
           <FilterOption
             handleResetPage={handleResetPage}
-            isSelected={IS_FILTER_2_SELECTED}
+            isSelected={IS_FILTER_1_SELECTED}
             innerText={REACT_APP_TITLE_OPENED_TICKETS}
           />
 
@@ -66,7 +66,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
           <FilterOption
             handleResetPage={handleResetPage}
-            isSelected={IS_FILTER_3_SELECTED}
+            isSelected={IS_FILTER_2_SELECTED}
             innerText={REACT_APP_TITLE_ONGOING_TICKETS}
           />
 
@@ -76,7 +76,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
           <FilterOption
             handleResetPage={handleResetPage}
-            isSelected={IS_FILTER_4_SELECTED}
+            isSelected={IS_FILTER_3_SELECTED}
             innerText={REACT_APP_TITLE_MY_ONGOING_TICKETS}
           />
 
@@ -86,7 +86,7 @@ const FilterArea: React.FC<FilterAreaInterface> = (props) => {
 
           <FilterOption
             handleResetPage={handleResetPage}
-            isSelected={IS_FILTER_5_SELECTED}
+            isSelected={IS_FILTER_4_SELECTED}
             innerText={REACT_APP_TITLE_MY_CLOSED_TICKETS}
           />
 

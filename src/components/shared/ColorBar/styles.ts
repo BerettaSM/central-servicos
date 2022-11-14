@@ -7,20 +7,25 @@ export const Container = styled.div<PriorityStatusInterface>`
     border-radius: 8px;
     height: 6px;
     width: 60px;
-
+    
     ${(p: PriorityStatusInterface) => {
 
         const status = p.priorityStatus;
-
+        
         switch(status) {
-            case 1:
+
+            case "Baixa":
                 return `background: var(--PRIORITY_LOW);`;
-            case 2:
+
+            case "Média":
                 return `background: var(--PRIORITY_MEDIUM);`;
-            case 3:
+
+            case "Alta":
                 return `background: var(--PRIORITY_HIGH);`;
-            case 4:
+
+            case "Altíssima":
                 return `background: var(--PRIORITY_URGENT);`;
+                
         }
 
     }};

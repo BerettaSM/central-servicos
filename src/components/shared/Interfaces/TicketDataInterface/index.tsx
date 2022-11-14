@@ -1,3 +1,5 @@
+import { TicketDTOInterface } from "../TicketDTOInterface"
+
 export interface TicketDataInterface {
-    data: any;
+    data: TicketDTOInterface | undefined;
 }

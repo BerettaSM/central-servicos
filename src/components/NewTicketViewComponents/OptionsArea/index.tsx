@@ -1,24 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import SelectBox from '../../../components/shared/SelectBox';
 import InputComponentSmall from '../../../components/shared/InputComponentSmall';
 
-import {
-    Container,
-    Wrapper
-} from './styles';
+import { Container, Wrapper } from './styles';
+
+import { Api } from '../../../Api';
+
+import { NewTicketOptionsAreaInterface } from '../../shared/Interfaces/NewTicketOptionsAreaInterface';
 
 const OptionsArea: React.FC = () => {
 
+    const [data, setData] = useState<NewTicketOptionsAreaInterface>();
+    
+    useEffect(() => {
+
+        const gatherData = async () => {
+
+            const endpoints = {'classification': [], 'area': []};
+
+            for(const endpoint of Object.keys(endpoints)) {
+                
+                if(endpoint !== 'classification' && endpoint !== 'area')
+                    throw new Error(`${endpoint} não é um endpoint válido.`);
+
+                await Api.get(`/api/${endpoint}`)
+
+                    .then((res: any) => {
+
+                        let results = res.data;
+
+                        if(results)
+
+                            endpoints[endpoint] = results;
+
+                    })
+
+                    .catch((error: any) => {
+
+                        console.error(error);
+
+                    })
+
+            }
+            
+            setData(endpoints);
+
+        }
+
+        (async () => {
+
+            gatherData();
+
+        })()
+
+    }, [])
+
     const {
-        REACT_APP_PRIORITY_LOW,
-        REACT_APP_PRIORITY_MEDIUM,
-        REACT_APP_PRIORITY_HIGH,
-        REACT_APP_PRIORITY_URGENT,
-        REACT_APP_SERVICE_OPERATIONAL_SUPPORT,
-        REACT_APP_TEAM_A2,
-        REACT_APP_TEAM_B1,
-        REACT_APP_TEAM_C1,
         REACT_APP_TITLE,
         REACT_APP_TITLE_PRIORITY,
         REACT_APP_TITLE_SERVICE_TYPES,
@@ -26,20 +64,10 @@ const OptionsArea: React.FC = () => {
     } = process.env;
 
     const prioritiesArray = [
-        REACT_APP_PRIORITY_LOW,
-        REACT_APP_PRIORITY_MEDIUM,
-        REACT_APP_PRIORITY_HIGH,
-        REACT_APP_PRIORITY_URGENT
-    ];
-
-    const servicesArray = [
-        REACT_APP_SERVICE_OPERATIONAL_SUPPORT
-    ];
-
-    const teamsArray = [
-        REACT_APP_TEAM_A2,
-        REACT_APP_TEAM_B1,
-        REACT_APP_TEAM_C1
+        {id: null, description: 'Baixa'},
+        {id: null, description: 'Média'},
+        {id: null, description: 'Alta'},
+        {id: null, description: 'Altíssima'}
     ];
     
     return (
@@ -54,19 +82,19 @@ const OptionsArea: React.FC = () => {
                 />
 
                 <SelectBox
-                    title={REACT_APP_TITLE_PRIORITY}
+                    title={REACT_APP_TITLE_PRIORITY ?? "Placeholder"}
                     options={prioritiesArray}
                     renderColorBar={true}
                 />
-
+       
                 <SelectBox
-                    title={REACT_APP_TITLE_SERVICE_TYPES}
-                    options={servicesArray}
+                    title={REACT_APP_TITLE_SERVICE_TYPES ?? "Placeholder"}
+                    options={data?.classification}
                 />
 
                 <SelectBox
-                    title={REACT_APP_TITLE_RESPONSIBLE}
-                    options={teamsArray}
+                    title={REACT_APP_TITLE_RESPONSIBLE ?? "Placeholder"}
+                    options={data?.area}
                 />
 
             </Wrapper>

@@ -14,27 +14,23 @@ import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface
 
 const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
-    const { priorityStatus, currentAttendant, deadlineStatus } = props.data;
-
     const {
-        REACT_APP_SITUATION_PENDING,
-        REACT_APP_SITUATION_ON_TIME,
         REACT_APP_SITUATION_LATE,
-        REACT_APP_PRIORITY_LOW,
-        REACT_APP_PRIORITY_MEDIUM,
-        REACT_APP_PRIORITY_HIGH,
-        REACT_APP_PRIORITY_URGENT
+        REACT_APP_SITUATION_ON_TIME,
+        REACT_APP_SITUATION_PENDING
     } = process.env;
 
-    const attendantString = currentAttendant ? currentAttendant : REACT_APP_SITUATION_PENDING;
+    const { data } = props;
 
-    const deadlineString  = deadlineStatus === 1 ? REACT_APP_SITUATION_ON_TIME
-                                                 : REACT_APP_SITUATION_LATE;
+    const priority = data?.priority;
     
-    const priorityString  = priorityStatus === 1 ? REACT_APP_PRIORITY_LOW
-                          : priorityStatus === 2 ? REACT_APP_PRIORITY_MEDIUM
-                          : priorityStatus === 3 ? REACT_APP_PRIORITY_HIGH
-                                                 : REACT_APP_PRIORITY_URGENT;
+    const currentAttendant = data?.responsibleUser?.fullName ?? REACT_APP_SITUATION_PENDING;
+
+    const onTime = data?.onTime;
+
+    const deadlineString  = onTime ? REACT_APP_SITUATION_ON_TIME
+                                   : REACT_APP_SITUATION_LATE;
+    
 
     return (
 
@@ -42,23 +38,23 @@ const StatusArea: React.FC<TicketDataInterface> = (props) => {
 
             <Wrapper>
 
-                <PriorityIcon priorityStatus={priorityStatus} />
+                <PriorityIcon priorityStatus={priority} />
 
-                <span>{priorityString}</span>
-
-            </Wrapper>
-
-            <Wrapper>
-
-                {currentAttendant ? <CurrentAttendantIcon /> : <StandByIcon />}
-
-                <span>{attendantString}</span>
+                <span>{priority}</span>
 
             </Wrapper>
 
             <Wrapper>
 
-                <DeadlineIcon deadlineStatus={deadlineStatus} />
+                {currentAttendant !== REACT_APP_SITUATION_PENDING ? <CurrentAttendantIcon /> : <StandByIcon />}
+
+                <span>{currentAttendant}</span>
+
+            </Wrapper>
+
+            <Wrapper>
+
+                <DeadlineIcon deadlineStatus={onTime} />
 
                 <span>{deadlineString}</span>
 

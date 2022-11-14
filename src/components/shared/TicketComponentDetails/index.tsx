@@ -15,19 +15,21 @@ import { TicketDataInterface } from '../Interfaces/TicketDataInterface';
 
 const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
-    const { _id, status, ticketTitle, userName, openDate, dueDate } = props.data;
+    const { data } = props;
 
-    const {
-        REACT_APP_STATUS_OPENED,
-        REACT_APP_STATUS_ONGOING,
-        REACT_APP_STATUS_CLOSED,
-        REACT_APP_STATUS_CANCELLED
-    } = process.env;
-    
-    const statusString = status === 1 ? REACT_APP_STATUS_OPENED
-                       : status === 2 ? REACT_APP_STATUS_ONGOING
-                       : status === 3 ? REACT_APP_STATUS_CLOSED
-                                      : REACT_APP_STATUS_CANCELLED;
+    const ticketId = data?.ticketId;
+
+    const descStatus = data?.descStatus;
+
+    const title = data?.title;
+
+    const openedBy = data?.openedBy;
+
+    const responsibleUser = openedBy?.fullName;
+
+    const dateStart = data?.dateStart;
+
+    const dateEnd = data?.dateEnd;
 
     return (
 
@@ -35,15 +37,15 @@ const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
             <UpperWrapper>
 
-                <span>#{_id}</span>
+                <span>#{ticketId}</span>
 
-                <span>{statusString}</span>
+                <span>{descStatus}</span>
 
             </UpperWrapper>
 
             <MiddleWrapper>
 
-                <span>{ticketTitle}</span>
+                <span>{title}</span>
 
             </MiddleWrapper>
 
@@ -53,7 +55,7 @@ const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
                     <UserIcon />
 
-                    <span>{userName}</span>
+                    <span>{responsibleUser}</span>
 
                 </BottomInnerWrapper>
 
@@ -61,7 +63,7 @@ const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
                     <OpenDateIcon />
 
-                    <span>{openDate}</span>
+                    <span>{dateStart}</span>
 
                 </BottomInnerWrapper>
 
@@ -69,7 +71,7 @@ const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
                     <DueDateIcon />
 
-                    <span>{dueDate}</span>
+                    <span>{dateEnd}</span>
 
                 </BottomInnerWrapper>
 

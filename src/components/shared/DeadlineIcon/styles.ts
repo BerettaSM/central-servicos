@@ -11,11 +11,11 @@ export const Icon = styled(CircleFill)<DeadlineStatusInterface>`
 
         const status = p.deadlineStatus;
 
-        if(status === 1) {
+        if(status) {
 
             return `color: var(--DEADLINE_ONTIME)`;
 
-        } else if (status === 2) {
+        } else {
 
             return `color: var(--DEADLINE_LATE)`;
             

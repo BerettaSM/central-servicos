@@ -20,23 +20,16 @@ import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface
 
 const TicketArea: React.FC<TicketDataInterface> = (props) => {
 
-    const { data } = props;
-    const { currentAttendant, priorityStatus } = data;
-
     const {
-        REACT_APP_PRIORITY_LOW,
-        REACT_APP_PRIORITY_MEDIUM,
-        REACT_APP_PRIORITY_HIGH,
-        REACT_APP_PRIORITY_URGENT,
         REACT_APP_ACTION_ASSIGN_TO_ME,
+        REACT_APP_SITUATION_PENDING,
         REACT_APP_TITLE_RESPONSIBLE,
         REACT_APP_TITLE_PRIORITY
     } = process.env;
-
-    const priorityString = priorityStatus === 1 ? REACT_APP_PRIORITY_LOW
-                         : priorityStatus === 2 ? REACT_APP_PRIORITY_MEDIUM
-                         : priorityStatus === 3 ? REACT_APP_PRIORITY_HIGH
-                                                : REACT_APP_PRIORITY_URGENT;
+    
+    const { data }  = props;
+    const currentAttendant = data?.responsibleUser?.fullName ?? REACT_APP_SITUATION_PENDING;
+    const priority = data?.priority;
 
     return (
 
@@ -77,9 +70,9 @@ const TicketArea: React.FC<TicketDataInterface> = (props) => {
                 
                 <BottomInnerWrapper>
 
-                    <ColorBar priorityStatus={priorityStatus}/>
+                    <ColorBar priorityStatus={priority}/>
 
-                    <span>{priorityString}</span>
+                    <span>{priority}</span>
 
                 </BottomInnerWrapper>
 

@@ -1,3 +1,3 @@
 export interface DeadlineStatusInterface {
-    deadlineStatus?: number;
+    deadlineStatus?: boolean;
 }
