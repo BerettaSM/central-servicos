@@ -4,13 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import ViewTitle from '../../../components/shared/ViewTitle';
 import InputComponentMessage from '../../../components/shared/InputComponentMessage';
 import ClickableSpan from '../../shared/ClickableSpan';
-import MessageTemplate from '../MessageTemplate';
 
-import {
-    Container,
-    Wrapper,
-    MessagesContainer
-} from './styles';
+
+import { Container, Wrapper } from './styles';
+import MessagesContainer from '../MessagesContainer';
 
 const ChatArea: React.FC = () => {
 
@@ -38,15 +35,7 @@ const ChatArea: React.FC = () => {
 
             </Wrapper>
 
-            <MessagesContainer>
-
-                <MessageTemplate />
-
-                <MessageTemplate outgoingMessage={true}/>
-
-                <MessageTemplate />
-
-            </MessagesContainer>
+            <MessagesContainer />
             
             <InputComponentMessage 
                 title={REACT_APP_TITLE_WRITE_YOUR_MESSAGE}

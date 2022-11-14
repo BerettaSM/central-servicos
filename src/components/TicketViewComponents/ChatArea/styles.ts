@@ -13,16 +13,6 @@ export const Container = styled.div`
 
 `;
 
-export const MessagesContainer = styled.div`
-    background: none;
-    height: calc(100% - 48px - 84px);
-    width: 100%;
-    
-    > div {
-        margin-bottom: 12px;
-    }
-`;
-
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
