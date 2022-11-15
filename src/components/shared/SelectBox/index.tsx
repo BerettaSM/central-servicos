@@ -4,9 +4,9 @@ import ColorBar from '../ColorBar';
 
 import { Select, Wrapper } from './styles';
 
-import { SelectBoxInterface } from '../Interfaces/SelectBoxInterface';
+import {default as ISelectBox} from '../Interfaces/SelectBox';
 
-const SelectBox: React.FC<SelectBoxInterface> = (props) => {
+const SelectBox: React.FC<ISelectBox> = ({ title, renderColorBar, options }) => {
 
     const [selectedOption, setSelectedOption] = useState("Baixa");
 
@@ -24,17 +24,17 @@ const SelectBox: React.FC<SelectBoxInterface> = (props) => {
 
             <Wrapper>
 
-                <span>{props.title}</span>
+                <span>{title}</span>
 
-                {props.renderColorBar && <ColorBar priorityStatus={selectedOption} />}
+                {renderColorBar && <ColorBar priorityStatus={selectedOption} />}
 
             </Wrapper>
 
-            <select id={props.title} onChange={handleChange}>
+            <select id={title} onChange={handleChange}>
 
                 {
 
-                    props.options && props.options.map((option, idx) => {
+                    options && options.map((option, idx) => {
 
                         return (
 

@@ -16,9 +16,9 @@ import {
     BottomInnerWrapper
 } from './styles';
 
-import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface';
+import TicketData from '../../shared/Interfaces/TicketData';
 
-const TicketArea: React.FC<TicketDataInterface> = (props) => {
+const TicketArea: React.FC<TicketData> = (props) => {
 
     const {
         REACT_APP_ACTION_ASSIGN_TO_ME,

@@ -7,11 +7,11 @@ import { Container, Wrapper } from './styles';
 
 import { Api } from '../../../Api';
 
-import { NewTicketOptionsAreaInterface } from '../../shared/Interfaces/NewTicketOptionsAreaInterface';
+import NewTicketOptions from '../../shared/Interfaces/NewTicketOptions';
 
 const OptionsArea: React.FC = () => {
 
-    const [data, setData] = useState<NewTicketOptionsAreaInterface>();
+    const [data, setData] = useState<NewTicketOptions>();
     
     useEffect(() => {
 

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 import { CircleFill } from 'styled-icons/bootstrap';
 
-import { PriorityStatusInterface } from '../Interfaces/PriorityStatusInterface';
+import PriorityStatus from '../Interfaces/PriorityStatus';
 
-export const Icon = styled(CircleFill)<PriorityStatusInterface>`
+export const Icon = styled(CircleFill)<PriorityStatus>`
     width: 14px;
 
-    ${(p: PriorityStatusInterface) => {
+    ${(p: PriorityStatus) => {
 
         const status = p.priorityStatus;
         

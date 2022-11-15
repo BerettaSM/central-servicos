@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import { NavigateNext } from 'styled-icons/material';
 
-import { FilterOptionInterface } from '../Interfaces/FilterOptionInterface';
+import FilterOption from '../Interfaces/FilterOption';
 
-export const Container = styled.div<FilterOptionInterface>`
+export const Container = styled.div<FilterOption>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,7 +21,7 @@ export const Container = styled.div<FilterOptionInterface>`
         color: var(--THEME_COLOR_001);
     }
 
-    ${(p: FilterOptionInterface) => {
+    ${(p: FilterOption) => {
 
         if (p.isSelected) {
 

@@ -5,9 +5,9 @@ import {
     RightArrowIcon
 } from './styles';
 
-import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
+import InnerText from '../Interfaces/InnerText';
 
-const ViewTitle: React.FC<InnerTextInterface> = (props) => {
+const ViewTitle: React.FC<InnerText> = ({ innerText }) => {
 
     return (
 
@@ -15,7 +15,7 @@ const ViewTitle: React.FC<InnerTextInterface> = (props) => {
 
             <RightArrowIcon />
 
-            <span>{props.innerText}</span>
+            <span>{innerText}</span>
 
         </Container>
 

@@ -5,15 +5,15 @@ import {
   PlusIcon
 } from './styles';
 
-import { InnerTextInterface } from '../Interfaces/InnerTextInterface';
+import InnerText from '../Interfaces/InnerText';
 
-const AddButton: React.FC<InnerTextInterface> = (props) => {
+const AddButton: React.FC<InnerText> = ({ innerText }) => {
 
   return(
 
     <Button>
 
-        <span>{props.innerText}</span>
+        <span>{innerText}</span>
 
         <PlusIcon />
 

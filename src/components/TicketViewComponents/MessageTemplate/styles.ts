@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import { MessageDirectionInterface } from '../../shared/Interfaces/MessageDirectionInterface';
+import MessageDirection from '../../shared/Interfaces/MessageDirection';
 
-export const Container = styled.div<MessageDirectionInterface>`
+export const Container = styled.div<MessageDirection>`
     background: var(--THEME_COLOR_003);
     color: var(--THEME_COLOR_005);
     font-size: 14px;
     padding: 12px;
     width: calc(100% - 63px);
 
-    ${(p: MessageDirectionInterface) => {
+    ${(p: MessageDirection) => {
 
         if(p.outgoingMessage) {
 

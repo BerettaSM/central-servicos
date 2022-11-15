@@ -6,15 +6,15 @@ import {
     InputForm
 } from './styles';
 
-import { InputComponentInterface } from '../Interfaces/InputComponentInterface';
+import InputComponent from '../Interfaces/InputComponent';
 
-const InputComponentLarge: React.FC<InputComponentInterface> = (props) => {
+const InputComponentLarge: React.FC<InputComponent> = ({ title }) => {
 
     return (
 
         <Container>
 
-            <span>{props.title}</span>
+            <span>{title}</span>
 
             <InputField>
 

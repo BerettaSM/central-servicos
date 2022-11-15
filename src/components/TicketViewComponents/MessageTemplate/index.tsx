@@ -7,13 +7,13 @@ import {
     MessageContainer
 } from './styles';
 
-import { MessageDirectionInterface } from '../../shared/Interfaces/MessageDirectionInterface';
+import MessageDirection from '../../shared/Interfaces/MessageDirection';
 
-const MessageTemplate: React.FC<MessageDirectionInterface> = (props) => {
+const MessageTemplate: React.FC<MessageDirection> = ({ outgoingMessage }) => {
 
     return (
 
-        <Container outgoingMessage={props.outgoingMessage}>
+        <Container outgoingMessage={outgoingMessage}>
 
             <MessageHeader />
             

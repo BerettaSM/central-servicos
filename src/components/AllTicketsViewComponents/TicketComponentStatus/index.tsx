@@ -10,17 +10,15 @@ import {
     Wrapper
 } from './styles';
 
-import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface';
+import TicketData from '../../shared/Interfaces/TicketData';
 
-const StatusArea: React.FC<TicketDataInterface> = (props) => {
+const StatusArea: React.FC<TicketData> = ({ data }) => {
 
     const {
         REACT_APP_SITUATION_LATE,
         REACT_APP_SITUATION_ON_TIME,
         REACT_APP_SITUATION_PENDING
     } = process.env;
-
-    const { data } = props;
 
     const priority = data?.priority;
     

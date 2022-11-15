@@ -7,19 +7,19 @@ import {
     PaperPlaneIcon
 } from './styles';
 
-import { InputComponentInterface } from '../Interfaces/InputComponentInterface';
+import InputComponent from '../Interfaces/InputComponent';
 
-const InputComponentMessage: React.FC<InputComponentInterface> = (props) => {
+const InputComponentMessage: React.FC<InputComponent> = ({ title, placeholder }) => {
 
     return (
 
         <Container>
 
-            <span>{props.title}</span>
+            <span>{title}</span>
 
             <InputField>
 
-                <InputForm type='text' placeholder={props.placeholder}/>
+                <InputForm type='text' placeholder={placeholder}/>
 
                 <PaperPlaneIcon />
 

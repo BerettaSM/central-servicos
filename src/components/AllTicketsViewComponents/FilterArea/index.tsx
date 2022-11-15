@@ -9,11 +9,9 @@ import {
   Wrapper
 } from './styles';
 
-import { FilterAreaInterface } from '../../shared/Interfaces/FilterAreaInterface';
+import {default as IFilterArea} from '../../shared/Interfaces/FilterArea';
 
-const FilterArea: React.FC<FilterAreaInterface> = (props) => {
-
-  const { handleResetPage, selectedFilter } = props;
+const FilterArea: React.FC<IFilterArea> = ({ handleResetPage, selectedFilter }) => {
 
   const IS_FILTER_0_SELECTED = selectedFilter === 0;
   const IS_FILTER_1_SELECTED = selectedFilter === 1;

@@ -6,19 +6,19 @@ import {
   RightArrowIcon
 } from './styles';
 
-import { NavigationButtonInterface } from '../Interfaces/NavigationButtonInterface';
+import {default as INavigationButton} from '../Interfaces/NavigationButton';
 
-const NavigationButton: React.FC<NavigationButtonInterface> = (props) => {
+const NavigationButton: React.FC<INavigationButton> = ({ onClick, isDisabled, renderArrow, innerText }) => {
 
   return(
 
-    <Button onClick={props.onClick} isDisabled={props.isDisabled}>
+    <Button onClick={onClick} isDisabled={isDisabled}>
 
-        {props.renderArrow === 'left' && <LeftArrowIcon />}
+        {renderArrow === 'left' && <LeftArrowIcon />}
 
-        <span>{props.innerText}</span>
+        <span>{innerText}</span>
 
-        {props.renderArrow === 'right' && <RightArrowIcon />}
+        {renderArrow === 'right' && <RightArrowIcon />}
 
     </Button>
 

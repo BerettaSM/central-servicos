@@ -11,11 +11,9 @@ import {
     BottomInnerWrapper
 } from './styles';
 
-import { TicketDataInterface } from '../Interfaces/TicketDataInterface';
+import TicketData from '../Interfaces/TicketData';
 
-const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
-
-    const { data } = props;
+const TicketComponentDetails: React.FC<TicketData> = ({ data }) => {
 
     const ticketId = data?.ticketId;
 
@@ -23,9 +21,7 @@ const TicketComponentDetails: React.FC<TicketDataInterface> = (props) => {
 
     const title = data?.title;
 
-    const openedBy = data?.openedBy;
-
-    const responsibleUser = openedBy?.fullName;
+    const responsibleUser = data?.openedBy?.fullName;
 
     const dateStart = data?.dateStart;
 
