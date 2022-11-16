@@ -9,7 +9,9 @@ import { Api } from '../../../Api';
 
 import NewTicketOptions from '../../shared/Interfaces/NewTicketOptions';
 
-const OptionsArea: React.FC = () => {
+import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
+
+const OptionsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
     const [data, setData] = useState<NewTicketOptions>();
     
@@ -79,22 +81,30 @@ const OptionsArea: React.FC = () => {
                 <InputComponentSmall
                     title={REACT_APP_TITLE}
                     placeholder={REACT_APP_TITLE}
+                    newTicketState={newTicketState}
+                    propertyToUpdate='title'
                 />
 
                 <SelectBox
                     title={REACT_APP_TITLE_PRIORITY ?? "Placeholder"}
                     options={prioritiesArray}
                     renderColorBar={true}
+                    newTicketState={newTicketState}
+                    propertyToUpdate='priority'
                 />
        
                 <SelectBox
                     title={REACT_APP_TITLE_SERVICE_TYPES ?? "Placeholder"}
                     options={data?.classification}
+                    newTicketState={newTicketState}
+                    propertyToUpdate='classificationId'
                 />
 
                 <SelectBox
                     title={REACT_APP_TITLE_RESPONSIBLE ?? "Placeholder"}
                     options={data?.area}
+                    newTicketState={newTicketState}
+                    propertyToUpdate='areaId'
                 />
 
             </Wrapper>

@@ -7,11 +7,15 @@ import {
 
 import InnerText from '../Interfaces/InnerText';
 
-const AddButton: React.FC<InnerText> = ({ innerText }) => {
+import Clickable from '../Interfaces/Clickable';
+
+type InnerTextWithClickable = InnerText & Clickable;
+
+const AddButton: React.FC<InnerTextWithClickable> = ({ innerText, onClick }) => {
 
   return(
 
-    <Button>
+    <Button onClick={onClick}>
 
         <span>{innerText}</span>
 

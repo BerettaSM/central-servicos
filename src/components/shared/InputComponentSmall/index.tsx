@@ -8,7 +8,25 @@ import {
 
 import InputComponent from '../Interfaces/InputComponent';
 
-const InputComponentSmall: React.FC<InputComponent> = ({ title, placeholder }) => {
+import UpdateNewTicket from '../Interfaces/UpdateNewTicket';
+
+type InputComponentWithUpdateNewTicket = InputComponent & UpdateNewTicket;
+
+const InputComponentSmall: React.FC<InputComponentWithUpdateNewTicket> = ({ title, placeholder, newTicketState, propertyToUpdate }) => {
+
+    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        if(newTicketState !== undefined && propertyToUpdate === 'title') {
+
+            const [newTicket, setNewTicket] = newTicketState;
+
+            newTicket[propertyToUpdate] = e.target.value;
+
+            setNewTicket(Object.assign({}, newTicket));
+
+        }
+
+    }
 
     return (
         <Container>
@@ -17,7 +35,7 @@ const InputComponentSmall: React.FC<InputComponent> = ({ title, placeholder }) =
 
             <InputField>
 
-                <InputForm type='text' placeholder={placeholder}/>
+                <InputForm type='text' placeholder={placeholder} onChange={onInputChange}/>
 
             </InputField>
 

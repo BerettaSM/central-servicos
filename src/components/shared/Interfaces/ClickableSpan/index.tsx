@@ -1,6 +1,5 @@
-import { MouseEventHandler } from "react";
 import InnerText from "../InnerText";
+import Clickable from "../Clickable";
 
-export default interface ClickableSpan extends InnerText {
-    onClick?: MouseEventHandler;
+export default interface ClickableSpan extends InnerText, Clickable {
 }

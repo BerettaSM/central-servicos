@@ -1,8 +1,7 @@
-import { MouseEventHandler } from 'react';
+import Clickable from '../Clickable';
 
-export default interface NavigationButton {
+export default interface NavigationButton extends Clickable {
     innerText?: string;
-    onClick?: MouseEventHandler;
     isDisabled?: boolean;
     renderArrow?: string;
   }

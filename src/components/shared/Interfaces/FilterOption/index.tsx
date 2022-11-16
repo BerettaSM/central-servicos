@@ -1,8 +1,7 @@
-import { MouseEventHandler } from "react";
+import Clickable from "../Clickable";
 
-export default interface FilterOption {
+export default interface FilterOption extends Clickable {
     innerText?: string | undefined;
     isSelected: boolean;
-    onClick?: MouseEventHandler;
     handleResetPage?: () => void;
 }
