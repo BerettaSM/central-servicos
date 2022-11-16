@@ -7,14 +7,12 @@ import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
 
 const DescriptionArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
-    const { REACT_APP_TITLE_DESCRIPTION } = process.env;
-
     return (
 
         <Container>
 
             <InputComponentLarge
-                title={REACT_APP_TITLE_DESCRIPTION}
+                title="Descrição"
                 newTicketState={newTicketState}
                 propertyToUpdate='description'
             />

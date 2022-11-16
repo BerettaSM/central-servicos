@@ -6,13 +6,11 @@ import { Container } from './styles';
 
 const TitleArea: React.FC = () => {
 
-    const { REACT_APP_TITLE_CREATE_NEW_TICKET } = process.env;
-
     return (
 
         <Container>
 
-            <ViewTitle innerText={REACT_APP_TITLE_CREATE_NEW_TICKET} />
+            <ViewTitle innerText="Criar Novo Ticket" />
 
         </Container>
 

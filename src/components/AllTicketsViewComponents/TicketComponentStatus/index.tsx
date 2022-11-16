@@ -14,20 +14,13 @@ import TicketData from '../../shared/Interfaces/TicketData';
 
 const StatusArea: React.FC<TicketData> = ({ data }) => {
 
-    const {
-        REACT_APP_SITUATION_LATE,
-        REACT_APP_SITUATION_ON_TIME,
-        REACT_APP_SITUATION_PENDING
-    } = process.env;
-
     const priority = data?.priority;
     
-    const currentAttendant = data?.responsibleUser?.fullName ?? REACT_APP_SITUATION_PENDING;
+    const currentAttendant = data?.responsibleUser?.fullName ?? "Aguardando Atendimento";
 
     const onTime = data?.onTime;
 
-    const deadlineString  = onTime ? REACT_APP_SITUATION_ON_TIME
-                                   : REACT_APP_SITUATION_LATE;
+    const deadlineString  = onTime ? "No Prazo" : "Atrasado";
     
 
     return (
@@ -44,7 +37,7 @@ const StatusArea: React.FC<TicketData> = ({ data }) => {
 
             <Wrapper>
 
-                {currentAttendant !== REACT_APP_SITUATION_PENDING ? <CurrentAttendantIcon /> : <StandByIcon />}
+                {currentAttendant !== "Aguardando Atendimento" ? <CurrentAttendantIcon /> : <StandByIcon />}
 
                 <span>{currentAttendant}</span>
 

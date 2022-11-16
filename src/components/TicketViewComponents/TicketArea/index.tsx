@@ -18,17 +18,9 @@ import {
 
 import TicketData from '../../shared/Interfaces/TicketData';
 
-const TicketArea: React.FC<TicketData> = (props) => {
+const TicketArea: React.FC<TicketData> = ({ data }) => {
 
-    const {
-        REACT_APP_ACTION_ASSIGN_TO_ME,
-        REACT_APP_SITUATION_PENDING,
-        REACT_APP_TITLE_RESPONSIBLE,
-        REACT_APP_TITLE_PRIORITY
-    } = process.env;
-    
-    const { data }  = props;
-    const currentAttendant = data?.responsibleUser?.fullName ?? REACT_APP_SITUATION_PENDING;
+    const currentAttendant = data?.responsibleUser?.fullName ?? 'Aguardando Atendimento';
     const priority = data?.priority;
 
     return (
@@ -43,7 +35,7 @@ const TicketArea: React.FC<TicketData> = (props) => {
 
                     <TicketComponentDetails data={data} />
 
-                    <ClickableSpan innerText={REACT_APP_ACTION_ASSIGN_TO_ME} />
+                    <ClickableSpan innerText="Atribuir para mim" />
 
                 </TopInnerWrapper>
 
@@ -52,7 +44,7 @@ const TicketArea: React.FC<TicketData> = (props) => {
             <MidWrapper>
 
                 <DescriptionComponentSmall
-                    title={REACT_APP_TITLE_RESPONSIBLE}
+                    title="Responsável"
                     boxValue={currentAttendant}
                 />
 
@@ -64,7 +56,7 @@ const TicketArea: React.FC<TicketData> = (props) => {
 
                 <BottomInnerWrapper>
 
-                    <span>{REACT_APP_TITLE_PRIORITY}</span>
+                    <span>Prioridade</span>
 
                 </BottomInnerWrapper>
                 

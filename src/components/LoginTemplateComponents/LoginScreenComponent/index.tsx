@@ -13,19 +13,13 @@ import {
 
 const LoginScreenComponent: React.FC = () => {
 
-    const {
-        REACT_APP_ACTION_LOGIN,
-        REACT_APP_ACTION_FORGOT_MY_PASSWORD,
-        REACT_APP_ACTION_INFORM_LOGIN_PASSWORD
-    } = process.env;
-
     return (
 
         <Container>
 
             <LoginTitle>
 
-                <span>{REACT_APP_ACTION_LOGIN?.toUpperCase()}</span>
+                <span>LOGIN</span>
 
             </LoginTitle>
 
@@ -35,13 +29,13 @@ const LoginScreenComponent: React.FC = () => {
 
                 <InputComponentPassword />
 
-                <LargeButton innerText={REACT_APP_ACTION_LOGIN} />
+                <LargeButton innerText="Login" />
 
             </Wrapper>
 
-            <ClickableSpan innerText={REACT_APP_ACTION_FORGOT_MY_PASSWORD} />
+            <ClickableSpan innerText="Esqueci minha senha" />
 
-            <span>{REACT_APP_ACTION_INFORM_LOGIN_PASSWORD}</span>
+            <span>Informe seu login e senha para acessar o sistema</span>
 
         </Container>
 

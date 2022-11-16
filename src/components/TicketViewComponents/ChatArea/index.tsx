@@ -13,24 +13,17 @@ const ChatArea: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const {
-        REACT_APP_TITLE_ALL_TICKETS,
-        REACT_APP_ACTION_RETURN,
-        REACT_APP_TITLE_WRITE_YOUR_MESSAGE,
-        REACT_APP_ACTION_SEARCH_TICKET
-    } = process.env;
-    
     return (
 
         <Container>
 
             <Wrapper>
 
-                <ViewTitle innerText={REACT_APP_TITLE_ALL_TICKETS} />
+                <ViewTitle innerText="Todos Os Tickets" />
 
                 <ClickableSpan 
                     onClick={() => navigate(-1)}
-                    innerText={REACT_APP_ACTION_RETURN}
+                    innerText="Voltar"
                 />
 
             </Wrapper>
@@ -38,8 +31,8 @@ const ChatArea: React.FC = () => {
             <MessagesContainer />
             
             <InputComponentMessage 
-                title={REACT_APP_TITLE_WRITE_YOUR_MESSAGE}
-                placeholder={REACT_APP_ACTION_SEARCH_TICKET}
+                title="Escreva Sua Mensagem"
+                placeholder="Digite aqui"
             />
 
         </Container>

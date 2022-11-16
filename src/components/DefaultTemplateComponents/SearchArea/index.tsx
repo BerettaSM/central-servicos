@@ -12,7 +12,6 @@ import {
 const SearchArea: React.FC = () => {
 
   const {
-    REACT_APP_ACTION_SEARCH_TICKET,
     REACT_APP_MOCK_USER_NAME
   } = process.env;
 
@@ -22,7 +21,7 @@ const SearchArea: React.FC = () => {
 
       <SearchField>
 
-        <SearchForm type='text' placeholder={REACT_APP_ACTION_SEARCH_TICKET} />
+        <SearchForm type='text' placeholder="Pesquisar Ticket" />
 
         <SearchIcon />
 

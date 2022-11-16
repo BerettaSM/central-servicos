@@ -14,11 +14,6 @@ const ButtonsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
     const navigate = useNavigate();
 
-    const {
-        REACT_APP_ACTION_CANCEL,
-        REACT_APP_ACTION_NEW_TICKET
-    } = process.env;
-
     const saveTicket = async (ticketToSave: TicketRequestDTO): Promise<number> => {
 
         let returnCode = -1;
@@ -74,11 +69,11 @@ const ButtonsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
             <Link to={'/tickets'}>
 
-                <CancelButton innerText={REACT_APP_ACTION_CANCEL} />
+                <CancelButton innerText="Cancelar" />
 
             </Link>
 
-            <AddButton innerText={REACT_APP_ACTION_NEW_TICKET} onClick={handleClick} />
+            <AddButton innerText="Novo Ticket" onClick={handleClick} />
 
         </Container>
 
