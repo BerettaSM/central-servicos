@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import ViewTitle from '../../../components/shared/ViewTitle';
 import InputComponentMessage from '../../../components/shared/InputComponentMessage';
@@ -11,7 +11,25 @@ import MessagesContainer from '../MessagesContainer';
 
 const ChatArea: React.FC = () => {
 
+    const searchParams = useSearchParams()[0];
+
     const navigate = useNavigate();
+
+    const navigateBack = () => {
+
+        const userWasRedirected = searchParams.get("redirected") !== null;
+
+        if(userWasRedirected) {
+
+            navigate("/tickets");
+
+        } else {
+
+            navigate(-1);
+
+        }
+
+    }
 
     return (
 
@@ -22,7 +40,7 @@ const ChatArea: React.FC = () => {
                 <ViewTitle innerText="Todos Os Tickets" />
 
                 <ClickableSpan 
-                    onClick={() => navigate(-1)}
+                    onClick={navigateBack}
                     innerText="Voltar"
                 />
 

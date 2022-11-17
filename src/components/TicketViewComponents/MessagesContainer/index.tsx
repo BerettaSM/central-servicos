@@ -18,7 +18,7 @@ const MessagesContainer: React.FC = () => {
 
     useEffect(() => { // Apenas testes, deletar
 
-        setInterval(() => {
+        const addMessage = setInterval(() => {
 
             const outgoingMessage = Math.random() < .5;
 
@@ -27,9 +27,11 @@ const MessagesContainer: React.FC = () => {
                 ...current,
                 outgoingMessage
 
-            ])
+            ]);
 
         }, 2000);
+
+        return () => clearInterval(addMessage);
 
     }, []);
 

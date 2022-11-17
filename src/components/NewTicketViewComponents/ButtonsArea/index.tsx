@@ -55,7 +55,7 @@ const ButtonsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
             } else {
 
-                navigate(`/ticket-detail/${code}`);
+                navigate(`/ticket-detail/${code}?redirected`);
 
             }
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Api } from '../../Api';
 import { useParams } from 'react-router-dom';
-
 import { Layout } from './styles';
 import ChatArea from '../../components/TicketViewComponents/ChatArea';
 import TicketArea from '../../components/TicketViewComponents/TicketArea';
@@ -56,7 +55,7 @@ const TicketView: React.FC = () => {
 
             <ChatArea />
 
-            <TicketArea data={ticketFound} />
+            <TicketArea data={ticketFound} callback={setTicketFound} />
 
         </Layout>
 

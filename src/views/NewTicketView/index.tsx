@@ -11,7 +11,9 @@ import TicketRequestDTO from '../../components/shared/Interfaces/TicketRequestDT
 
 const NewTicketView: React.FC = () => {
 
-    const mockUserID = 1; // Imitar um usuário logado.
+    const { REACT_APP_MOCK_USER_ID } = process.env;
+
+    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
 
     const [newTicket, setNewTicket] = useState<TicketRequestDTO>({
         title: '',
