@@ -11,7 +11,7 @@ export const Container = styled.div<MessageDirection>`
 
     ${(p: MessageDirection) => {
 
-        if(p.outgoingMessage) {
+        if(p.outgoing) {
 
             return `
                 margin-left: 63px;

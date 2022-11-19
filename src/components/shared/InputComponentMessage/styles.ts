@@ -20,6 +20,10 @@ export const InputField = styled.div`
     height: 34px;
     padding: 8px;
     width: 100%;
+
+    > button {
+        background: var(--THEME_COLOR_003);
+    }
 `;
 
 export const InputForm = styled.input`

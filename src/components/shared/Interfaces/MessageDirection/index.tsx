@@ -1,3 +1,3 @@
 export default interface MessageDirection {
-    outgoingMessage?: boolean;
+    outgoing?: boolean;
 }

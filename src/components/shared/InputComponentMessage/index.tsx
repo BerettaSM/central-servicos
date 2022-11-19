@@ -9,7 +9,17 @@ import {
 
 import InputComponent from '../Interfaces/InputComponent';
 
-const InputComponentMessage: React.FC<InputComponent> = ({ title, placeholder }) => {
+const InputComponentMessage: React.FC<InputComponent> = ({ title, placeholder, onSubmitEvent }) => {
+
+    const onEnterDown = (e: React.KeyboardEvent) => {
+        
+        if(e.key === 'Enter') {
+
+            console.log('Apertei o enter')
+            
+        }
+
+    }
 
     return (
 
@@ -19,9 +29,13 @@ const InputComponentMessage: React.FC<InputComponent> = ({ title, placeholder })
 
             <InputField>
 
-                <InputForm type='text' placeholder={placeholder}/>
+                <InputForm type='text' placeholder={placeholder} onKeyDown={onEnterDown}/>
 
-                <PaperPlaneIcon />
+                <button onClick={() => console.log('oi')}>
+
+                    <PaperPlaneIcon />
+
+                </button>
 
             </InputField>
 

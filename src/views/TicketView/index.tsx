@@ -53,7 +53,7 @@ const TicketView: React.FC = () => {
 
         <Layout>
 
-            <ChatArea />
+            <ChatArea data={ticketFound} />
 
             <TicketArea data={ticketFound} callback={setTicketFound} />
 

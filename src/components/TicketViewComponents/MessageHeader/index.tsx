@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import UserPic from '../../shared/UserPic';
 
@@ -11,7 +11,55 @@ import {
     DatetimeStampIcon
 } from './styles';
 
-const MessageHeader: React.FC = () => {
+import TicketMessage from '../../shared/Interfaces/TicketMessage';
+
+const MessageHeader: React.FC<TicketMessage> = ({ data }) => {
+
+    const { id, senderId, senderName, senderLevel, sendDate } = data;
+
+    const [timeDifference, setTimeDifference] = useState("Desconhecido.");
+
+    useEffect(() => {
+
+        const getTimeDifference = () => {
+
+            const unix = Date.now() - Date.parse(sendDate);
+    
+            const units: [number, string, string][] = [
+                [31536000, 'ano', 'anos'],
+                [2628288, 'meses', 'mês'],
+                [86400, 'dias', 'dia'],
+                [3600, 'horas', 'hora'],
+                [60, 'minutos', 'minuto'],
+            ];
+    
+            for(const unit of units) {
+    
+                const diff = Math.floor((unix / 1000) / unit[0]);
+
+                if(diff > 0) {
+    
+                    return `${diff} ${diff > 1 ? unit[1] : unit[2]} atrás.`;
+    
+                }
+    
+            }
+    
+            return 'Agora';
+    
+        }
+
+        const timeDifferenceUpdate = setInterval(() => {
+
+            setTimeDifference(getTimeDifference());
+
+        }, 60000);
+
+        setTimeDifference(getTimeDifference());
+
+        return () => clearInterval(timeDifferenceUpdate);
+
+    }, [sendDate])
 
     return (
 
@@ -23,15 +71,15 @@ const MessageHeader: React.FC = () => {
 
                 <TicketDetailsInnerWrapper>
 
-                    <span>#29</span>
+                    <span>Mensagem #{id}</span>
 
-                    <span>Juliana da Silva</span>
+                    <span>{senderName} (#{senderId}) - {senderLevel}</span>
 
                     <DatetimeStampWrapper>
 
                         <DatetimeStampIcon />
 
-                        <span>14/03/2022 10:20</span>
+                        <span>{sendDate}</span>
 
                     </DatetimeStampWrapper>
 
@@ -41,7 +89,7 @@ const MessageHeader: React.FC = () => {
 
             <TimeStampWrapper>
 
-                <span>15 minutos atrás</span>
+                <span>{timeDifference}</span>
 
             </TimeStampWrapper>
 
