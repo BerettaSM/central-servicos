@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
     Container,
@@ -11,12 +11,32 @@ import InputComponent from '../Interfaces/InputComponent';
 
 const InputComponentMessage: React.FC<InputComponent> = ({ title, placeholder, onSubmitEvent }) => {
 
+    const [ inputValue, setInputValue ] = useState('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        setInputValue(e.target.value);
+
+    }
+
     const onEnterDown = (e: React.KeyboardEvent) => {
         
         if(e.key === 'Enter') {
 
-            console.log('Apertei o enter')
+            handleSubmit();
             
+        }
+
+    }
+
+    const handleSubmit = () => {
+
+        if(onSubmitEvent !== undefined) {
+
+            onSubmitEvent(inputValue);
+
+            setInputValue('');
+
         }
 
     }
@@ -29,9 +49,9 @@ const InputComponentMessage: React.FC<InputComponent> = ({ title, placeholder, o
 
             <InputField>
 
-                <InputForm type='text' placeholder={placeholder} onKeyDown={onEnterDown}/>
+                <InputForm type='text' placeholder={placeholder} onKeyDown={onEnterDown} onChange={handleChange} value={inputValue}/>
 
-                <button onClick={() => console.log('oi')}>
+                <button onClick={handleSubmit}>
 
                     <PaperPlaneIcon />
 

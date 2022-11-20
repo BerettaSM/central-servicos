@@ -41,4 +41,6 @@ export const PaperPlaneIcon = styled(PaperPlane)`
     color: var(--THEME_COLOR_005);
     margin-right: 12px;
     width: 14px;
+
+    cursor: pointer;
 `;

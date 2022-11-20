@@ -12,7 +12,7 @@ const MessagesContainer: React.FC<TicketData> = ({ data }) => {
 
     const ticketId = data?.ticketId;
     
-    const bottomRef = useRef<null | HTMLDivElement>(null);
+    const bottomRef = useRef<HTMLDivElement | null>(null);
 
     // const [messages, setMessages] = useState<boolean[]>([]); // Mudar o tipo
 
@@ -56,7 +56,7 @@ const MessagesContainer: React.FC<TicketData> = ({ data }) => {
                 .then((res: any) => {
     
                     let results = res.data;
-    
+                    console.log(results)
                     if(results) {
     
                         setMessages(results);
@@ -77,14 +77,15 @@ const MessagesContainer: React.FC<TicketData> = ({ data }) => {
 
             (async () => {
 
-                getTicketMessages();
+                getTicketMessages(); /* Memory leak (rerender) when there are no messages. */
 
-            })()
+            })() 
 
         scrollToBottom();
 
     }, [messages, ticketId])
 
+    //console.log('render')
     return (
 
         <Container>
