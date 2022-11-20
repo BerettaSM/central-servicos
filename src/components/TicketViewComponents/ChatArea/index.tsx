@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import ViewTitle from '../../../components/shared/ViewTitle';
@@ -14,20 +14,27 @@ import { Client, frameCallbackType, IFrame, StompSubscription, messageCallbackTy
 
 import TicketMessageRequestDTO from '../../shared/Interfaces/TicketMessageRequestDTO';
 
+import TicketMessageResponseDTO from '../../shared/Interfaces/TicketMessageResponseDTO';
+
 
 const ChatArea: React.FC<TicketData> = ({ data }) => {
+
+    const ticketId = data?.ticketId;
+
+    const navigate = useNavigate();
+
+    const searchParams = useSearchParams()[0];
 
     let stompClient = useRef<Client | null>(null);
 
     let stompSubscription = useRef<StompSubscription | null>(null);
 
-    const searchParams = useSearchParams()[0];
+    const [messages, setMessages] = useState<TicketMessageResponseDTO[]>([]);
 
-    const navigate = useNavigate();
-
-    const { REACT_APP_MOCK_USER_ID } = process.env;
-
+    /* PARA TESTES ABAIXO */
+    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
     const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
+    /* PARA TESTES ACIMA */
 
     const navigateBack = () => {
 
@@ -47,13 +54,17 @@ const ChatArea: React.FC<TicketData> = ({ data }) => {
 
     const onConnect: frameCallbackType = useCallback( (frame: IFrame) => {
         
-        if(stompClient.current !== null) {
+        if(stompClient.current !== null && ticketId !== undefined) {
+            
+            stompSubscription.current = stompClient.current.subscribe(`/topic/ticket/${ticketId}`, onMessageReceived);
 
-            stompSubscription.current = stompClient.current.subscribe("/topic/public", onMessageReceived);
+        } else {
+
+            alert('Não foi possível conectar ao chat.');
 
         }
 
-    }, []);
+    }, [ticketId]);
 
     const onDisconnect = useCallback(() => {
 
@@ -64,7 +75,9 @@ const ChatArea: React.FC<TicketData> = ({ data }) => {
         }
 
         if(stompClient.current !== null) {
+
             alert('Usuário desconectado');
+
             stompClient.current.deactivate();
 
         }
@@ -73,9 +86,9 @@ const ChatArea: React.FC<TicketData> = ({ data }) => {
 
     const onError: frameCallbackType = useCallback( (frame: IFrame) => {
 
-        console.log("O Broker está reportando o seguinte erro: " + frame.headers['message']);
+        console.error("O Message Broker está reportando o seguinte erro: " + frame.headers['message']);
 
-        console.log("Detalhes adicionais: " + frame.body);
+        console.error("Detalhes adicionais: " + frame.body);
 
     }, []);
 
@@ -83,27 +96,34 @@ const ChatArea: React.FC<TicketData> = ({ data }) => {
 
         if(message.body) {
 
-            alert("Mensagem: " + message.body);
+            const newMessage: TicketMessageResponseDTO = JSON.parse(message.body);
 
-        } else {
+            setMessages(currentMessages => [
 
-            alert("Mensagem em branco");
+                ...currentMessages,
+                newMessage
 
-        }
+            ]);
+
+        } 
 
     }
 
     const sendMessage = (message: string) => {
 
-        if(stompClient.current !== null) {
+        if(stompClient.current !== null && ticketId !== undefined) {
 
             const payload: TicketMessageRequestDTO = {
                 message: message,
-                ticketId: 1,
+                ticketId: ticketId,
                 senderId: mockUserID
             }
 
-            stompClient.current.publish({destination: "/app/message", body: JSON.stringify(payload)});
+            stompClient.current.publish({destination: `/app/message/${ticketId}`, body: JSON.stringify(payload)});
+
+        } else {
+
+            alert("Não foi possível enviar a mensagem.");
 
         }
 
@@ -111,23 +131,27 @@ const ChatArea: React.FC<TicketData> = ({ data }) => {
 
     useEffect(() => {
         
-        (() => {
+        if(ticketId !== undefined) {
 
-            stompClient.current = new Client({ brokerURL: 'ws://localhost:8080/ws' });
+            (() => {
+
+                stompClient.current = new Client({ brokerURL: 'ws://localhost:8080/ws' });
+        
+                stompClient.current.onConnect = onConnect;
+        
+                stompClient.current.onStompError = onError;
     
-            stompClient.current.onConnect = onConnect;
+                stompClient.current.activate();
     
-            stompClient.current.onStompError = onError;
-
-            stompClient.current.activate();
-
-            alert('Usuário conectado.');
+                alert('Usuário conectado.');
+        
+            })()
     
-        })()
+            return () => onDisconnect();
 
-        return () => onDisconnect();
+        }
 
-    }, [onConnect, onDisconnect, onError])
+    }, [onConnect, onDisconnect, onError, ticketId])
 
     return (
 
@@ -144,7 +168,7 @@ const ChatArea: React.FC<TicketData> = ({ data }) => {
 
             </Wrapper>
 
-            <MessagesContainer data={data} />
+            <MessagesContainer data={data} messages={messages} setMessages={setMessages} />
             
             <InputComponentMessage 
                 title="Escreva Sua Mensagem"

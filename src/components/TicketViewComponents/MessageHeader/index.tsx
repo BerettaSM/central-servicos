@@ -23,7 +23,7 @@ const MessageHeader: React.FC<TicketMessage> = ({ data }) => {
 
         const getTimeDifference = () => {
 
-            const unix = Date.now() - Date.parse(sendDate);
+            const millis = Date.now() - Date.parse(sendDate);
     
             const units: [number, string, string][] = [
                 [31536000, 'ano', 'anos'],
@@ -35,7 +35,7 @@ const MessageHeader: React.FC<TicketMessage> = ({ data }) => {
     
             for(const unit of units) {
     
-                const diff = Math.floor((unix / 1000) / unit[0]);
+                const diff = Math.floor((millis / 1000) / unit[0]);
 
                 if(diff > 0) {
     

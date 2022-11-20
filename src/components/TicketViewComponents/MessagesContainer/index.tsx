@@ -6,17 +6,18 @@ import MessageTemplate from '../MessageTemplate';
 
 import { Api } from '../../../Api';
 import TicketData from '../../shared/Interfaces/TicketData';
-import TicketMessageResponseDTO from '../../shared/Interfaces/TicketMessageResponseDTO';
 
-const MessagesContainer: React.FC<TicketData> = ({ data }) => {
+import TicketMessagesState from '../../shared/Interfaces/TicketMessagesState';
+
+type MessagesContainerInterface = TicketData & TicketMessagesState;
+
+const MessagesContainer: React.FC<MessagesContainerInterface> = ({ data, messages, setMessages }) => {
 
     const ticketId = data?.ticketId;
     
     const bottomRef = useRef<HTMLDivElement | null>(null);
 
-    // const [messages, setMessages] = useState<boolean[]>([]); // Mudar o tipo
-
-    const [messages, setMessages] = useState<TicketMessageResponseDTO[]>([]);
+    const [messagesWereFetched, setMessagesWereFetched] = useState<boolean>(false);
 
     const scrollToBottom = () => {
 
@@ -24,28 +25,10 @@ const MessagesContainer: React.FC<TicketData> = ({ data }) => {
 
     }
 
-    // useEffect(() => { // Apenas testes, deletar
-
-    //     const addMessage = setInterval(() => {
-
-    //         const outgoingMessage = Math.random() < .5;
-
-    //         setMessages(current => [
-
-    //             ...current,
-    //             outgoingMessage
-
-    //         ]);
-
-    //     }, 2000);
-
-    //     return () => clearInterval(addMessage);
-
-    // }, []);
-
-    const { REACT_APP_MOCK_USER_ID } = process.env;
-
+    /* PARA TESTES ABAIXO */
+    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
     const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
+    /* PARA TESTES ACIMA */
 
     useEffect(() => {
 
@@ -56,7 +39,7 @@ const MessagesContainer: React.FC<TicketData> = ({ data }) => {
                 .then((res: any) => {
     
                     let results = res.data;
-                    console.log(results)
+                    
                     if(results) {
     
                         setMessages(results);
@@ -73,19 +56,22 @@ const MessagesContainer: React.FC<TicketData> = ({ data }) => {
     
         }
 
-        if(ticketId !== undefined && messages.length === 0)
+        if(ticketId !== undefined && messages.length === 0 && !messagesWereFetched) {
+
+            setMessagesWereFetched(true);
 
             (async () => {
 
-                getTicketMessages(); /* Memory leak (rerender) when there are no messages. */
+                getTicketMessages();
 
             })() 
 
+        }
+
         scrollToBottom();
 
-    }, [messages, ticketId])
+    }, [messages, setMessages, ticketId, messagesWereFetched])
 
-    //console.log('render')
     return (
 
         <Container>
