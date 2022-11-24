@@ -119,7 +119,10 @@ const ChatArea: React.FC<TicketData> = ({ data }) => {
                 senderId: mockUserID
             }
 
-            stompClient.current.publish({destination: `/app/message/${ticketId}`, body: JSON.stringify(payload)});
+            stompClient.current.publish({
+                destination: `/app/message/${ticketId}`,
+                body: JSON.stringify(payload)
+            });
 
         } else {
 
