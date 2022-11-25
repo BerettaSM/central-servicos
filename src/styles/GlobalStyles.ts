@@ -32,6 +32,9 @@ export default createGlobalStyle`
         --PRIORITY_HIGH: #FF8C00;
         --PRIORITY_URGENT: #FF0000;
 
+        --CONNECTED: #25BE75;
+        --DISCONNECTED: #FF0000;
+
         --DEADLINE_ONTIME: var(--PRIORITY_LOW);
         --DEADLINE_LATE: var(--PRIORITY_URGENT);
     }

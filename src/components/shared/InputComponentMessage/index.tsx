@@ -49,7 +49,13 @@ const InputComponentMessage: React.FC<InputComponent> = ({ title, placeholder, o
 
             <InputField>
 
-                <InputForm type='text' placeholder={placeholder} onKeyDown={onEnterDown} onChange={handleChange} value={inputValue}/>
+                <InputForm
+                    type='text'
+                    placeholder={placeholder}
+                    onKeyDown={onEnterDown}
+                    onChange={handleChange}
+                    value={inputValue}
+                />
 
                 <button onClick={handleSubmit}>
 
