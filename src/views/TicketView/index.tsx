@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Api } from '../../Api';
 import { useParams } from 'react-router-dom';
-
 import { Layout } from './styles';
 import ChatArea from '../../components/TicketViewComponents/ChatArea';
 import TicketArea from '../../components/TicketViewComponents/TicketArea';
-import { TicketDTOInterface } from '../../components/shared/Interfaces/TicketDTOInterface';
+import TicketDTO from '../../components/shared/Interfaces/TicketDTO';
 
 const TicketView: React.FC = () => {
 
     const { _id } = useParams();
 
-    const [ticketFound, setTicketFound] = useState<TicketDTOInterface>();
+    const [ticketFound, setTicketFound] = useState<TicketDTO>();
 
     useEffect( () => {
 
@@ -54,9 +53,9 @@ const TicketView: React.FC = () => {
 
         <Layout>
 
-            <ChatArea />
+            <ChatArea data={ticketFound} />
 
-            <TicketArea data={ticketFound} />
+            <TicketArea data={ticketFound} callback={setTicketFound} />
 
         </Layout>
 

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import useElapsedTime from '../../../hooks/useElapsedTime';
+
 import UserPic from '../../shared/UserPic';
 
 import { 
@@ -11,7 +13,15 @@ import {
     DatetimeStampIcon
 } from './styles';
 
-const MessageHeader: React.FC = () => {
+import TicketMessage from '../../shared/Interfaces/TicketMessage';
+
+const MessageHeader: React.FC<TicketMessage> = ({ data }) => {
+
+    const { id, senderId, senderName, senderLevel, sendDate } = data;
+
+    const UPDATE_INTERVAL_IN_SECONDS = 60;
+
+    const [ elapsedTime ] = useElapsedTime(sendDate, UPDATE_INTERVAL_IN_SECONDS);
 
     return (
 
@@ -23,15 +33,15 @@ const MessageHeader: React.FC = () => {
 
                 <TicketDetailsInnerWrapper>
 
-                    <span>#29</span>
+                    <span>Mensagem #{id}</span>
 
-                    <span>Juliana da Silva</span>
+                    <span>{senderName} (#{senderId}) - {senderLevel}</span>
 
                     <DatetimeStampWrapper>
 
                         <DatetimeStampIcon />
 
-                        <span>14/03/2022 10:20</span>
+                        <span>{sendDate}</span>
 
                     </DatetimeStampWrapper>
 
@@ -41,7 +51,7 @@ const MessageHeader: React.FC = () => {
 
             <TimeStampWrapper>
 
-                <span>15 minutos atrás</span>
+                <span>{elapsedTime}</span>
 
             </TimeStampWrapper>
 

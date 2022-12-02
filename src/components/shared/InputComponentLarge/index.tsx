@@ -6,19 +6,36 @@ import {
     InputForm
 } from './styles';
 
-import { InputComponentInterface } from '../Interfaces/InputComponentInterface';
+import InputComponent from '../Interfaces/InputComponent';
+import UpdateNewTicket from '../Interfaces/UpdateNewTicket';
 
-const InputComponentLarge: React.FC<InputComponentInterface> = (props) => {
+type InputComponentWithUpdateNewTicket = InputComponent & UpdateNewTicket;
+
+const InputComponentLarge: React.FC<InputComponentWithUpdateNewTicket> = ({ title, newTicketState, propertyToUpdate }) => {
+
+    const onInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+
+        if(newTicketState !== undefined && propertyToUpdate === 'description') {
+
+            const [newTicket, setNewTicket] = newTicketState;
+
+            newTicket[propertyToUpdate] = e.target.value;
+
+            setNewTicket(Object.assign({}, newTicket));
+
+        }
+
+    }
 
     return (
 
         <Container>
 
-            <span>{props.title}</span>
+            <span>{title}</span>
 
             <InputField>
 
-                <InputForm />
+                <InputForm onChange={onInputChange} />
 
             </InputField>
 

@@ -10,12 +10,10 @@ import {
   Wrapper
 } from './styles';
 
-import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface';
+import TicketData from '../../shared/Interfaces/TicketData';
 
-const TicketTemplate: React.FC<TicketDataInterface> = (props) => {
-  
-  const { data } = props;
-  
+const TicketTemplate: React.FC<TicketData> = ({ data }) => {
+
   return (
 
       <Link to={`/ticket-detail/${data?.ticketId}`} style={{ textDecoration: 'none'}}>

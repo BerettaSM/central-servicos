@@ -6,4 +6,3 @@ ReactDOM.render(
   <DefaultTemplate />, 
   document.getElementById('root')
 );
-

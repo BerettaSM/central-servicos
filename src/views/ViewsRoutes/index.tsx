@@ -4,8 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import AllTicketsView from '../AllTicketsView';
 import NewTicketView from '../NewTicketView';
 import TicketView from '../TicketView';
-//import AnnouncementsView from '../AnnouncementsView';
-//import HomePageView from '../HomePageView';
 
 const ViewsRoutes: React.FC = () => {
 

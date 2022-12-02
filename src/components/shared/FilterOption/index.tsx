@@ -2,17 +2,17 @@ import React from 'react';
 
 import { Container, RightArrowIcon } from './styles';
 
-import { FilterOptionInterface } from '../Interfaces/FilterOptionInterface';
+import {default as IFilterOption} from '../Interfaces/FilterOption';
 
-const FilterOption: React.FC<FilterOptionInterface> = (props) => {
+const FilterOption: React.FC<IFilterOption> = ({ isSelected, handleResetPage, innerText }) => {
 
     return (
 
-        <Container isSelected={props.isSelected} onClick={props.handleResetPage}>
+        <Container isSelected={isSelected} onClick={handleResetPage}>
 
             <RightArrowIcon />
 
-            <span>{props.innerText}</span>
+            <span>{innerText}</span>
 
         </Container>
 

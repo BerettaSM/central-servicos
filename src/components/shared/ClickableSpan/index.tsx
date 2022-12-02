@@ -2,15 +2,29 @@ import React from 'react';
 
 import { Span } from './styles';
 
-import { ClickableSpanInterface } from '../Interfaces/ClickableSpanInterface';
+import {default as IClickableSpan} from '../Interfaces/ClickableSpan';
 
-const ClickableSpan: React.FC<ClickableSpanInterface> = (props) => {
+const ClickableSpan: React.FC<IClickableSpan> = ({onClick, innerText, isDisabled}) => {
 
-    return (
 
-        <Span onClick={props.onClick}>{props.innerText}</Span>
+    if(isDisabled) {
 
-    );
+        return (
+        
+            <Span isDisabled={isDisabled}>{innerText}</Span>
+    
+        );
+
+    } else {
+
+        return (
+        
+            <Span onClick={onClick}>{innerText}</Span>
+    
+        );
+
+    }
+    
 
 }
 

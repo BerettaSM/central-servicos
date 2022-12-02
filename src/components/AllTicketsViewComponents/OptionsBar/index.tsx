@@ -17,42 +17,33 @@ interface PaginationHandling {
   isNextDisabled: boolean | undefined;
 }
 
-const OptionsBar: React.FC<PaginationHandling> = (props) => {
+const OptionsBar: React.FC<PaginationHandling> = ({ handleNextClick, handlePrevClick, isPrevDisabled, isNextDisabled }) => {
 
-  const { handleNextClick, handlePrevClick, isPrevDisabled, isNextDisabled } = props;
-
-  const {
-    REACT_APP_TITLE_ALL_TICKETS,
-    REACT_APP_NAVIGATION_PREVIOUS,
-    REACT_APP_NAVIGATION_NEXT,
-    REACT_APP_ACTION_NEW_TICKET
-  } = process.env;
-  
   return (
 
       <Container>
 
-        <ViewTitle innerText={REACT_APP_TITLE_ALL_TICKETS} />
+        <ViewTitle innerText="Todos Os Tickets" />
 
         <Wrapper>
 
           <NavigationButton
             onClick={handlePrevClick}
             isDisabled={isPrevDisabled}
-            innerText={REACT_APP_NAVIGATION_PREVIOUS}
+            innerText="Anterior"
             renderArrow='left'
           />
 
           <NavigationButton
             onClick={handleNextClick}
             isDisabled={isNextDisabled}
-            innerText={REACT_APP_NAVIGATION_NEXT}
+            innerText="Próximo"
             renderArrow='right'
           />
 
           <Link to={'/new-ticket'}>
 
-            <AddButton innerText={REACT_APP_ACTION_NEW_TICKET} />
+            <AddButton innerText="Novo Ticket" />
 
           </Link>
 

@@ -13,7 +13,6 @@ export const Container = styled.div`
     font-size: 12px;
     justify-content: center;
     margin-left: 15px;
-    width: 400px;
     
 `;
 
@@ -43,12 +42,15 @@ export const MiddleWrapper = styled.div`
 
 export const BottomOuterWrapper = styled.div`
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     margin: 3px 0;
+    width: 510px;
 `;
 
 export const BottomInnerWrapper = styled.div`
     display: flex;
+    width: 33.33%;
     > span {
         margin: 0 12px 0 6px;   
     }

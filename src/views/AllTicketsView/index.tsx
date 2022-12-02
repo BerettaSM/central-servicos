@@ -7,15 +7,14 @@ import TicketsArea from '../../components/AllTicketsViewComponents/TicketsArea';
 
 import { Layout } from './styles';
 
-import { FilterInterface } from '../../components/shared/Interfaces/FilterInterface';
-import { ApiResponse } from '../../components/shared/Interfaces/ApiResponseInterface';
+import Filter from '../../components/shared/Interfaces/Filter';
+import { FindAllApiResponse } from '../../components/shared/Interfaces/FindAllApiResponse';
 
-const AllTicketsView: React.FC<FilterInterface> = (props) => {
+const AllTicketsView: React.FC<Filter> = ({ selectedFilter }) => {
 
     const [ currentPage, setCurrentPage ] = useState(0);
-    const [ dataFound, setDataFound ] = useState<ApiResponse>();
+    const [ dataFound, setDataFound ] = useState<FindAllApiResponse>();
 
-    const { selectedFilter } = props;
 
     useEffect( () => {
 

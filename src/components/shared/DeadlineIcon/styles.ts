@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 import { CircleFill } from 'styled-icons/bootstrap';
 
-import { DeadlineStatusInterface } from '../Interfaces/DeadlineStatusInterface';
+import DeadlineStatus from '../Interfaces/DeadlineStatus';
 
-export const Icon = styled(CircleFill)<DeadlineStatusInterface>`
+export const Icon = styled(CircleFill)<DeadlineStatus>`
     width: 14px;
 
-    ${(p: DeadlineStatusInterface) => {
+    ${(p: DeadlineStatus) => {
 
         const status = p.deadlineStatus;
 

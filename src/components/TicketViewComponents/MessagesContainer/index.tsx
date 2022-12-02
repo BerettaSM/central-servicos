@@ -1,14 +1,19 @@
-import React, {  useEffect, useRef, useState } from 'react';
+import React, {  useEffect, useRef } from 'react';
 
 import { Container } from './styles';
 
 import MessageTemplate from '../MessageTemplate';
 
-const MessagesContainer: React.FC = () => {
+import TicketMessagesState from '../../shared/Interfaces/TicketMessagesState';
 
-    const bottomRef = useRef<null | HTMLDivElement>(null);
+const MessagesContainer: React.FC<TicketMessagesState> = ({ messages }) => {
 
-    const [messages, setMessages] = useState<boolean[]>([]); // Mudar o tipo
+    /* PARA TESTES ABAIXO */
+    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
+    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
+    /* PARA TESTES ACIMA */
+
+    const bottomRef = useRef<HTMLDivElement | null>(null);
 
     const scrollToBottom = () => {
 
@@ -16,34 +21,25 @@ const MessagesContainer: React.FC = () => {
 
     }
 
-    useEffect(() => { // Apenas testes, deletar
-
-        setInterval(() => {
-
-            const outgoingMessage = Math.random() < .5;
-
-            setMessages(current => [
-
-                ...current,
-                outgoingMessage
-
-            ])
-
-        }, 2000);
-
-    }, []);
-
     useEffect(() => {
 
         scrollToBottom();
 
-    }, [messages]);
+    }, [messages])
 
     return (
 
         <Container>
 
-            {messages.map((myBoolean, idx) => <MessageTemplate key={idx} outgoingMessage={myBoolean}/>)}
+            {
+
+                messages.map( (message, idx) => (
+
+                        <MessageTemplate key={idx} data={message} outgoing={message.senderId === mockUserID} />
+
+                ))
+
+            }
 
             <div ref={bottomRef} />
 

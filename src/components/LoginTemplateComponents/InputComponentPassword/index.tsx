@@ -8,15 +8,13 @@ import {
 
 const InputComponentPassword: React.FC = () => {
 
-  const { REACT_APP_ACTION_PASSWORD } = process.env;
-
   return (
 
       <Container>
 
           <PasswordIcon />
 
-          <PasswordForm type='text' placeholder={REACT_APP_ACTION_PASSWORD}  />
+          <PasswordForm type="text" placeholder="Password"  />
 
       </Container>
 

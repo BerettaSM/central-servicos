@@ -5,19 +5,19 @@ import {
     Container
 } from './styles';
 
-import { DescriptionComponentInterface } from '../Interfaces/DescriptionComponentInterface';
+import DescriptionComponent from '../Interfaces/DescriptionComponent';
 
-const DescriptionComponentSmall: React.FC<DescriptionComponentInterface> = (props) => {
+const DescriptionComponentSmall: React.FC<DescriptionComponent> = ({ title, boxValue }) => {
 
     return (
 
         <Container>
 
-            <span>{props.title}</span>
+            <span>{title}</span>
 
             <Box>
 
-                <span>{props.boxValue}</span>
+                <span>{boxValue}</span>
 
             </Box>
 

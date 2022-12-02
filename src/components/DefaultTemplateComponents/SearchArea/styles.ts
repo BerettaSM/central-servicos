@@ -29,7 +29,7 @@ export const SearchField = styled.div`
 export const SearchForm = styled.input`
     display: flex;
     flex-direction: row;
-
+    background-color: inherit;
     border-right: 1px solid var(--THEME_COLOR_005);
     font-size: 12.8px;
     width: 100%;

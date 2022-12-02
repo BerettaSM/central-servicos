@@ -3,15 +3,19 @@ import React from 'react';
 import InputComponentLarge from '../../../components/shared/InputComponentLarge';
 import { Container } from './styles';
 
-const DescriptionArea: React.FC = () => {
+import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
 
-    const { REACT_APP_TITLE_DESCRIPTION } = process.env;
+const DescriptionArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
     return (
 
         <Container>
 
-            <InputComponentLarge title={REACT_APP_TITLE_DESCRIPTION} />
+            <InputComponentLarge
+                title="Descrição"
+                newTicketState={newTicketState}
+                propertyToUpdate='description'
+            />
 
         </Container>
 

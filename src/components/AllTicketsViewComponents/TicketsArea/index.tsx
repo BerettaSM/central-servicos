@@ -1,39 +1,43 @@
 import React from 'react';
-import { TicketDTOInterface } from '../../shared/Interfaces/TicketDTOInterface';
 
 import TicketTemplate from '../TicketTemplate';
 
 import { Container } from './styles';
+import Pagination from '../../shared/Interfaces/Pagination';
 
-interface Pagination{
-  data: TicketDTOInterface[] | undefined;
-}
+import Spinner from '../../shared/Spinner';
 
-const TicketsArea: React.FC<Pagination> = (props) => {
 
-  const { data } = props;
+const TicketsArea: React.FC<Pagination> = ({ data }) => {
 
-  return (
+    return (
 
-      <Container>
+        <Container>
 
-        {
-          
-          data && data.map( ( item, idx ) => {
+            {
+                data 
 
-            return (
+                ?
 
-              <TicketTemplate key={idx} data={item} />
+                data.map( ( item, idx ) => {
 
-            );
+                    return (
 
-          })
-          
-        }
+                        <TicketTemplate key={idx} data={item} />
 
-      </Container>
+                    );
+
+                })
+
+                :
+
+                <Spinner clockwise={true} smoothness='linear' width={120} doubleSemiCircles={false} />
+
+            }
+
+        </Container>
       
-  );
+    );
 }
 
 export default TicketsArea;

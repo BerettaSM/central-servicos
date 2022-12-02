@@ -7,11 +7,13 @@ import { Container, Wrapper } from './styles';
 
 import { Api } from '../../../Api';
 
-import { NewTicketOptionsAreaInterface } from '../../shared/Interfaces/NewTicketOptionsAreaInterface';
+import NewTicketOptions from '../../shared/Interfaces/NewTicketOptions';
 
-const OptionsArea: React.FC = () => {
+import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
 
-    const [data, setData] = useState<NewTicketOptionsAreaInterface>();
+const OptionsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
+
+    const [data, setData] = useState<NewTicketOptions>();
     
     useEffect(() => {
 
@@ -56,13 +58,6 @@ const OptionsArea: React.FC = () => {
 
     }, [])
 
-    const {
-        REACT_APP_TITLE,
-        REACT_APP_TITLE_PRIORITY,
-        REACT_APP_TITLE_SERVICE_TYPES,
-        REACT_APP_TITLE_RESPONSIBLE
-    } = process.env;
-
     const prioritiesArray = [
         {id: null, description: 'Baixa'},
         {id: null, description: 'Média'},
@@ -77,24 +72,32 @@ const OptionsArea: React.FC = () => {
             <Wrapper>
 
                 <InputComponentSmall
-                    title={REACT_APP_TITLE}
-                    placeholder={REACT_APP_TITLE}
+                    title="Título"
+                    placeholder="Título"
+                    newTicketState={newTicketState}
+                    propertyToUpdate='title'
                 />
 
                 <SelectBox
-                    title={REACT_APP_TITLE_PRIORITY ?? "Placeholder"}
+                    title="Prioridade"
                     options={prioritiesArray}
                     renderColorBar={true}
+                    newTicketState={newTicketState}
+                    propertyToUpdate='priority'
                 />
        
                 <SelectBox
-                    title={REACT_APP_TITLE_SERVICE_TYPES ?? "Placeholder"}
+                    title="Classificação Do Serviço"
                     options={data?.classification}
+                    newTicketState={newTicketState}
+                    propertyToUpdate='classificationId'
                 />
 
                 <SelectBox
-                    title={REACT_APP_TITLE_RESPONSIBLE ?? "Placeholder"}
+                    title="Responsável"
                     options={data?.area}
+                    newTicketState={newTicketState}
+                    propertyToUpdate='areaId'
                 />
 
             </Wrapper>

@@ -5,9 +5,9 @@ import {
     NavigateNext
 } from 'styled-icons/material';
 
-import { NavigationButtonInterface } from '../Interfaces/NavigationButtonInterface';
+import NavigationButton from '../Interfaces/NavigationButton';
 
-export const Button = styled.div<NavigationButtonInterface>`
+export const Button = styled.div<NavigationButton>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,7 @@ export const Button = styled.div<NavigationButtonInterface>`
         color: var(--THEME_COLOR_001);
     }
     
-    ${(p: NavigationButtonInterface) => {
+    ${(p: NavigationButton) => {
         if (p.isDisabled){
             return `
                 background: var(--THEME_COLOR_002);

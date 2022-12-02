@@ -20,6 +20,10 @@ export const InputField = styled.div`
     height: 34px;
     padding: 8px;
     width: 100%;
+
+    > button {
+        background: var(--THEME_COLOR_003);
+    }
 `;
 
 export const InputForm = styled.input`
@@ -37,4 +41,6 @@ export const PaperPlaneIcon = styled(PaperPlane)`
     color: var(--THEME_COLOR_005);
     margin-right: 12px;
     width: 14px;
+
+    cursor: pointer;
 `;

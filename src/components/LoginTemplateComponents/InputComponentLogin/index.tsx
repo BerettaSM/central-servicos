@@ -8,15 +8,13 @@ import {
 
 const InputComponentLogin: React.FC = () => {
 
-  const { REACT_APP_ACTION_LOGIN } = process.env;
-
   return (
 
       <Container>
 
           <UserIcon />
 
-          <LoginForm type='text' placeholder={REACT_APP_ACTION_LOGIN}  />
+          <LoginForm type='text' placeholder="Login"  />
 
       </Container>
 

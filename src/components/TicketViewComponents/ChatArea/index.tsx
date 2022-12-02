@@ -1,45 +1,72 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+
+import useChat from '../../../hooks/useChat';
+
+import { Container, Wrapper } from './styles';
 
 import ViewTitle from '../../../components/shared/ViewTitle';
 import InputComponentMessage from '../../../components/shared/InputComponentMessage';
 import ClickableSpan from '../../shared/ClickableSpan';
-
-
-import { Container, Wrapper } from './styles';
 import MessagesContainer from '../MessagesContainer';
+import ChatConnectionStatus from '../ChatConnectionStatus';
 
-const ChatArea: React.FC = () => {
+import TicketData from '../../shared/Interfaces/TicketData';
+
+const ChatArea: React.FC<TicketData> = ({ data }) => {
+
+    /* PARA TESTES ABAIXO */
+    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
+    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
+    /* PARA TESTES ACIMA */
+
+    const ticketId = data?.ticketId;
+
+    const [ messages, sendTicketMessage, chatConnected ] = useChat(ticketId, mockUserID);
 
     const navigate = useNavigate();
 
-    const {
-        REACT_APP_TITLE_ALL_TICKETS,
-        REACT_APP_ACTION_RETURN,
-        REACT_APP_TITLE_WRITE_YOUR_MESSAGE,
-        REACT_APP_ACTION_SEARCH_TICKET
-    } = process.env;
-    
+    const searchParams = useSearchParams()[0];
+
+    const navigateBack = () => {
+
+        const userWasRedirected = searchParams.get("redirected") !== null;
+
+        if(userWasRedirected) {
+
+            navigate("/tickets");
+
+        } else {
+
+            navigate(-1);
+
+        }
+
+    }
+
     return (
 
         <Container>
 
             <Wrapper>
 
-                <ViewTitle innerText={REACT_APP_TITLE_ALL_TICKETS} />
+                <ViewTitle innerText="Todos Os Tickets" />
+
+                <ChatConnectionStatus connected={chatConnected} />
 
                 <ClickableSpan 
-                    onClick={() => navigate(-1)}
-                    innerText={REACT_APP_ACTION_RETURN}
+                    onClick={navigateBack}
+                    innerText="Voltar"
                 />
 
             </Wrapper>
 
-            <MessagesContainer />
+            <MessagesContainer messages={messages} />
             
             <InputComponentMessage 
-                title={REACT_APP_TITLE_WRITE_YOUR_MESSAGE}
-                placeholder={REACT_APP_ACTION_SEARCH_TICKET}
+                title="Escreva Sua Mensagem"
+                placeholder="Digite aqui"
+                onSubmitEvent={sendTicketMessage}
             />
 
         </Container>

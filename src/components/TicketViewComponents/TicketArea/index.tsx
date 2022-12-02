@@ -16,20 +16,67 @@ import {
     BottomInnerWrapper
 } from './styles';
 
-import { TicketDataInterface } from '../../shared/Interfaces/TicketDataInterface';
+import { Api } from '../../../Api';
 
-const TicketArea: React.FC<TicketDataInterface> = (props) => {
+import TicketData from '../../shared/Interfaces/TicketData';
 
-    const {
-        REACT_APP_ACTION_ASSIGN_TO_ME,
-        REACT_APP_SITUATION_PENDING,
-        REACT_APP_TITLE_RESPONSIBLE,
-        REACT_APP_TITLE_PRIORITY
-    } = process.env;
-    
-    const { data }  = props;
-    const currentAttendant = data?.responsibleUser?.fullName ?? REACT_APP_SITUATION_PENDING;
+const TicketArea: React.FC<TicketData> = ({ data, callback }) => {
+
+    const currentAttendant = data?.responsibleUser?.fullName ?? 'Aguardando Atendimento';
     const priority = data?.priority;
+    const ticketId = data?.ticketId;
+    const ticketStatus = data?.status;
+
+    /* PARA TESTES ABAIXO */
+    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
+    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
+    /* PARA TESTES ACIMA */
+
+    const isAttendantAlreadyAssigned = data?.responsibleUser?.id === mockUserID;
+    const isTicketAlreadyClosedOrCancelled = ticketStatus === 4 || ticketStatus === 5;
+    const isAssignDisabled = isAttendantAlreadyAssigned || isTicketAlreadyClosedOrCancelled;
+
+    const updateResponsibleUser = async () => {
+
+        const url = "/api/ticket/assign-to-me";
+
+        const attendantId = mockUserID;
+
+        await Api.get(url, { params: { ticketId, attendantId } })
+
+            .then(res => {
+
+                let result = res.data;
+
+                if(result && callback !== undefined) {
+
+                    callback(result);
+
+                }
+
+            })
+
+            .catch(error => {
+
+                console.log(error);
+
+            })
+
+    }
+
+    const assignToMe = () => {
+
+        if(mockUserID === undefined || ticketId === undefined)
+
+            return window.alert('Não foi possível atribuir o ticket.');
+
+        (async () => {
+
+            updateResponsibleUser();
+            
+        })();
+
+    }
 
     return (
 
@@ -43,7 +90,7 @@ const TicketArea: React.FC<TicketDataInterface> = (props) => {
 
                     <TicketComponentDetails data={data} />
 
-                    <ClickableSpan innerText={REACT_APP_ACTION_ASSIGN_TO_ME} />
+                    <ClickableSpan innerText="Atribuir para mim" onClick={assignToMe} isDisabled={isAssignDisabled}/>
 
                 </TopInnerWrapper>
 
@@ -52,7 +99,7 @@ const TicketArea: React.FC<TicketDataInterface> = (props) => {
             <MidWrapper>
 
                 <DescriptionComponentSmall
-                    title={REACT_APP_TITLE_RESPONSIBLE}
+                    title="Responsável"
                     boxValue={currentAttendant}
                 />
 
@@ -64,7 +111,7 @@ const TicketArea: React.FC<TicketDataInterface> = (props) => {
 
                 <BottomInnerWrapper>
 
-                    <span>{REACT_APP_TITLE_PRIORITY}</span>
+                    <span>Prioridade</span>
 
                 </BottomInnerWrapper>
                 
