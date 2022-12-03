@@ -1,24 +1,47 @@
 import React from 'react';
+import CallbackAuth from '../../shared/Interfaces/CallbackAuth';
 
 import {
-  Container,
-  PasswordForm,
-  PasswordIcon
+    Container,
+    PasswordForm,
+    PasswordIcon
 } from './styles';
 
-const InputComponentPassword: React.FC = () => {
+const InputComponentPassword: React.FC<CallbackAuth> = ({ stringState, callback, handleSubmit }) => {
 
-  return (
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-      <Container>
+        callback(e.target.value);
 
-          <PasswordIcon />
+    }
 
-          <PasswordForm type="text" placeholder="Password"  />
+    const onEnterDown = (e: React.KeyboardEvent) => {
+        
+        if(e.key === 'Enter' && handleSubmit !== undefined) {
 
-      </Container>
+            handleSubmit();
+            
+        }
 
-  );
+    }
+
+    return (
+
+        <Container>
+
+            <PasswordIcon />
+
+            <PasswordForm
+                type="password"
+                placeholder="Password"
+                onChange={(e) => handleChange(e)}
+                onKeyDown={onEnterDown}
+                value={stringState}
+            />
+
+        </Container>
+
+    );
 
 }
 

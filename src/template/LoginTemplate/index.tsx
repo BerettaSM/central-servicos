@@ -1,16 +1,18 @@
 import React from 'react';
-
-import GlobalStyles from '../../styles/GlobalStyles';
 import LoginScreenComponent from '../../components/LoginTemplateComponents/LoginScreenComponent';
 import { Layout, BottomBar } from './styles';
 
 const LoginTemplate: React.FC = () => {
 
+    const currentYear = () => {
+
+        return new Date().getFullYear();
+
+    }
+
     return (
 
         <>
-
-            <GlobalStyles />
 
             <Layout>
 
@@ -18,7 +20,7 @@ const LoginTemplate: React.FC = () => {
 
                 <BottomBar>
 
-                    <span>Desenvolvido com Amor pelo team XXX</span>
+                    <span>® {currentYear()}. Desenvolvido com Amor pelo team.</span>
 
                 </BottomBar>
 

@@ -1,7 +1,4 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import GlobalStyles from '../../styles/GlobalStyles';
 import LogoArea from '../../components/DefaultTemplateComponents/LogoArea';
 import SearchArea from '../../components/DefaultTemplateComponents/SearchArea';
 import SideBar from '../../components/DefaultTemplateComponents/SideBar';
@@ -13,9 +10,7 @@ const DefaultTemplate: React.FC = () => {
 
   return (
 
-    <BrowserRouter>
-
-      <GlobalStyles />
+    <>
 
       <Layout>
 
@@ -31,7 +26,7 @@ const DefaultTemplate: React.FC = () => {
 
       </Layout>
 
-    </BrowserRouter>
+    </>
 
   );
   

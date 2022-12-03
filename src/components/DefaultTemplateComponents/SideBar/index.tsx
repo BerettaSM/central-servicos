@@ -14,14 +14,16 @@ const SideBar: React.FC = () => {
   return (
 
     <Container>
+      
+      <a href="/"> {/* TODO: remove this later  */}
+        <SideBarOption>
 
-      <SideBarOption>
+          <HomeIcon />
 
-        <HomeIcon />
+          <span>Página Inicial</span>
 
-        <span>Página Inicial</span>
-
-      </SideBarOption>
+        </SideBarOption>
+      </a>
 
       <Link to={'/tickets'}>
 
