@@ -9,11 +9,23 @@ import {
   UserIcon
 } from './styles';
 
+import ClickableSpan from '../../shared/ClickableSpan';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../auth/UserProvider';
+
 const SearchArea: React.FC = () => {
 
-  const {
-    REACT_APP_MOCK_USER_NAME
-  } = process.env;
+  const user = useUser();
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+
+    user.setJwt("");
+
+    navigate("/login");
+
+  }
 
   return (
 
@@ -29,9 +41,11 @@ const SearchArea: React.FC = () => {
 
       <UserSection>
 
-        <span>{REACT_APP_MOCK_USER_NAME}</span>
+        <span>{user.data.fullName}</span>
 
         <UserIcon />
+
+        <ClickableSpan onClick={logout} innerText='Deslogar' negativeColor={true} />
 
       </UserSection>
 

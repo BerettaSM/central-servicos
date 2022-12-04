@@ -7,7 +7,9 @@ export const Span = styled.span<IClickableSpan>`
     ${(p: IClickableSpan) => {
 
         const { isDisabled } = p;
-            
+        
+        const color = p.negativeColor ? 'white' : 'var(--THEME_COLOR_001)';
+
         if(isDisabled) {
 
             return `
@@ -17,7 +19,7 @@ export const Span = styled.span<IClickableSpan>`
         } else {
 
             return `
-                color: var(--THEME_COLOR_001);
+                color: ${color};
                 cursor: pointer;
             
                 transition: 500ms linear;

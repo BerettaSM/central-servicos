@@ -19,30 +19,35 @@ import {
 import { Api } from '../../../Api';
 
 import TicketData from '../../shared/Interfaces/TicketData';
+import { useUser } from '../../auth/UserProvider';
 
 const TicketArea: React.FC<TicketData> = ({ data, callback }) => {
+
+    const user = useUser();
 
     const currentAttendant = data?.responsibleUser?.fullName ?? 'Aguardando Atendimento';
     const priority = data?.priority;
     const ticketId = data?.ticketId;
     const ticketStatus = data?.status;
 
-    /* PARA TESTES ABAIXO */
-    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
-    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
-    /* PARA TESTES ACIMA */
-
-    const isAttendantAlreadyAssigned = data?.responsibleUser?.id === mockUserID;
+    const isAttendantAlreadyAssigned = data?.responsibleUser?.id === user.data.userId;
     const isTicketAlreadyClosedOrCancelled = ticketStatus === 4 || ticketStatus === 5;
     const isAssignDisabled = isAttendantAlreadyAssigned || isTicketAlreadyClosedOrCancelled;
 
     const updateResponsibleUser = async () => {
 
-        const url = "/api/ticket/assign-to-me";
+        await Api.get("/api/ticket/assign-to-me", { 
 
-        const attendantId = mockUserID;
+            params: { 
+                ticketId, 
+                attendantId: user.data.userId 
+            },
 
-        await Api.get(url, { params: { ticketId, attendantId } })
+            headers: {
+                'Authorization': `Bearer ${user.jwt}` 
+            } 
+
+        })
 
             .then(res => {
 
@@ -66,7 +71,7 @@ const TicketArea: React.FC<TicketData> = ({ data, callback }) => {
 
     const assignToMe = () => {
 
-        if(mockUserID === undefined || ticketId === undefined)
+        if(user.data.userId === undefined || ticketId === undefined)
 
             return window.alert('Não foi possível atribuir o ticket.');
 

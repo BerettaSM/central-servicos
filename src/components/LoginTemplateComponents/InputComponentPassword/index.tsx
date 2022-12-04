@@ -33,6 +33,7 @@ const InputComponentPassword: React.FC<CallbackAuth> = ({ stringState, callback,
 
             <PasswordForm
                 type="password"
+                name="password"
                 placeholder="Password"
                 onChange={(e) => handleChange(e)}
                 onKeyDown={onEnterDown}

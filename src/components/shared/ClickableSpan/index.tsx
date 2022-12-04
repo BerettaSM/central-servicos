@@ -4,14 +4,14 @@ import { Span } from './styles';
 
 import {default as IClickableSpan} from '../Interfaces/ClickableSpan';
 
-const ClickableSpan: React.FC<IClickableSpan> = ({onClick, innerText, isDisabled}) => {
+const ClickableSpan: React.FC<IClickableSpan> = ({onClick, innerText, isDisabled, negativeColor}) => {
 
 
     if(isDisabled) {
 
         return (
         
-            <Span isDisabled={isDisabled}>{innerText}</Span>
+            <Span isDisabled={isDisabled} negativeColor={negativeColor}>{innerText}</Span>
     
         );
 
@@ -19,7 +19,7 @@ const ClickableSpan: React.FC<IClickableSpan> = ({onClick, innerText, isDisabled
 
         return (
         
-            <Span onClick={onClick}>{innerText}</Span>
+            <Span onClick={onClick} negativeColor={negativeColor}>{innerText}</Span>
     
         );
 

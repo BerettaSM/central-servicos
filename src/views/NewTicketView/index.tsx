@@ -8,18 +8,17 @@ import ButtonsArea from '../../components/NewTicketViewComponents/ButtonsArea';
 import { Grid } from './styles';
 
 import TicketRequestDTO from '../../components/shared/Interfaces/TicketRequestDTO';
+import { useUser } from '../../components/auth/UserProvider';
 
 const NewTicketView: React.FC = () => {
 
-    const { REACT_APP_MOCK_USER_ID } = process.env;
-
-    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
+    const user = useUser();
 
     const [newTicket, setNewTicket] = useState<TicketRequestDTO>({
         title: '',
         description: '',
         priority: 'Baixa',
-        userId: mockUserID,
+        userId: user.data.userId,
         classificationId: 1,
         areaId: 1
     });

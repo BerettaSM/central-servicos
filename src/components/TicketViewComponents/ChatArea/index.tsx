@@ -15,14 +15,9 @@ import TicketData from '../../shared/Interfaces/TicketData';
 
 const ChatArea: React.FC<TicketData> = ({ data }) => {
 
-    /* PARA TESTES ABAIXO */
-    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
-    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
-    /* PARA TESTES ACIMA */
-
     const ticketId = data?.ticketId;
 
-    const [ messages, sendTicketMessage, chatConnected ] = useChat(ticketId, mockUserID);
+    const [ messages, sendTicketMessage, chatConnected ] = useChat(ticketId);
 
     const navigate = useNavigate();
 

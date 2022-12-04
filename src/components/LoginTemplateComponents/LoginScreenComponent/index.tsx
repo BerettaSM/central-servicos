@@ -42,6 +42,12 @@ const LoginScreenComponent: React.FC = () => {
 
                 })
 
+                .catch(err => {
+
+                    alert("Credenciais inválidas!");
+
+                })
+
         })()
 
     }
@@ -85,47 +91,3 @@ const LoginScreenComponent: React.FC = () => {
 }
 
 export default LoginScreenComponent;
-
-// useEffect(() => {
-
-//     if(user.jwt) navigate("/dashboard");
-
-// }, [user])
-
-// const sendLoginRequest = () => {
-
-//     const reqBody = { username, password };
-
-//     fetch('/api/auth/login', {
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         method: "POST",
-//         body: JSON.stringify(reqBody)
-//     })
-//     .then(response => {
-
-//         if(response.status === 200)
-//             return Promise.all([response.json(), response.headers]);
-        
-//         else return Promise.reject("Invalid login attempt");
-
-//     })
-//     .then(([body, headers]) => {
-
-//         user.setJwt(headers.get("authorization"))
-
-//         //updateUser()
-
-//         //setJwt();
-
-//         //window.location.href = "/dashboard";
-
-//     })
-//     .catch(message => {
-
-//         alert(message);
-
-//     });
-
-// }

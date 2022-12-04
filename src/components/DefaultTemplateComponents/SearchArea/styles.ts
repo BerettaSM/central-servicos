@@ -45,11 +45,11 @@ export const UserSection = styled.div`
 
     color: var(--THEME_COLOR_002);
     
-    margin-right: 30px;
     
-    > span {
-        margin-right: 13px;
+    > * {
+        margin: 13px;
     }
+    
 `;
 
 export const UserIcon = styled(User)`

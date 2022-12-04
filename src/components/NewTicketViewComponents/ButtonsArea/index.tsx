@@ -9,8 +9,11 @@ import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
 
 import { Api } from '../../../Api';
 import TicketRequestDTO from '../../shared/Interfaces/TicketRequestDTO';
+import { useUser } from '../../auth/UserProvider';
 
 const ButtonsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
+
+    const user = useUser();
 
     const navigate = useNavigate();
 
@@ -18,7 +21,7 @@ const ButtonsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
         let returnCode = -1;
 
-        await Api.post('/api/ticket', ticketToSave)
+        await Api.post('/api/ticket', ticketToSave, { headers: { 'Authorization': `Bearer ${user.jwt}` } })
             
             .then((res: any) => {
                 

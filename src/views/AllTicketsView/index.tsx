@@ -9,20 +9,22 @@ import { Layout } from './styles';
 
 import Filter from '../../components/shared/Interfaces/Filter';
 import { FindAllApiResponse } from '../../components/shared/Interfaces/FindAllApiResponse';
+import { useUser } from '../../components/auth/UserProvider';
 
 const AllTicketsView: React.FC<Filter> = ({ selectedFilter }) => {
 
+    const user = useUser();
+
     const [ currentPage, setCurrentPage ] = useState(0);
     const [ dataFound, setDataFound ] = useState<FindAllApiResponse>();
-
-
+    
     useEffect( () => {
 
-        const url = `/api/ticket?size=8&page=${currentPage}&status=${selectedFilter === 2 ? 3 : selectedFilter}`;
+        const url = `/api/ticket?size=8&page=${currentPage}&queryType=${selectedFilter}`;
 
         const searchTicketData = async () => {
 
-            await Api.get(url)
+            await Api.get(url, { headers: { 'Authorization': `Bearer ${user.jwt}` } })
 
                 .then( (res: any) => {
 
@@ -50,7 +52,7 @@ const AllTicketsView: React.FC<Filter> = ({ selectedFilter }) => {
 
         })()
 
-    }, [currentPage, selectedFilter]);
+    }, [currentPage, selectedFilter, user.jwt]);
 
     const data = dataFound?.content;
 

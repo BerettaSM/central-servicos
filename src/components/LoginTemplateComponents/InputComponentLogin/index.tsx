@@ -33,6 +33,7 @@ const InputComponentLogin: React.FC<Callback> = ({ stringState, callback, handle
 
             <LoginForm
                 type='text'
+                name='username'
                 placeholder='Login'
                 onChange={(e) => handleChange(e)}
                 onKeyDown={onEnterDown}

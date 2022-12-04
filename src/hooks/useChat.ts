@@ -3,11 +3,14 @@ import { Client, frameCallbackType, IFrame, StompSubscription, messageCallbackTy
 import TicketMessageRequestDTO from '../components/shared/Interfaces/TicketMessageRequestDTO';
 import TicketMessageResponseDTO from '../components/shared/Interfaces/TicketMessageResponseDTO';
 import { Api } from '../Api';
+import { useUser } from '../components/auth/UserProvider';
 
 
-const useChat = (ticketId: number | undefined, senderId: number): [TicketMessageResponseDTO[],
+const useChat = (ticketId: number | undefined): [TicketMessageResponseDTO[],
                                                                    (inputValue: string) => void,
                                                                    boolean] => {
+    
+    const user = useUser();
 
     let stompClient = useRef<Client | null>(null);
 
@@ -49,7 +52,7 @@ const useChat = (ticketId: number | undefined, senderId: number): [TicketMessage
 
     }, []);
 
-    const onError: frameCallbackType = useCallback( (frame: IFrame) => {
+    const onStompError: frameCallbackType = useCallback( (frame: IFrame) => {
 
         console.error("O Message Broker está reportando o seguinte erro: " + frame.headers['message']);
 
@@ -79,7 +82,7 @@ const useChat = (ticketId: number | undefined, senderId: number): [TicketMessage
         const payload: TicketMessageRequestDTO = {
             message: message,
             ticketId: ticketId,
-            senderId: senderId
+            senderId: user.data.userId
         }
 
         sendMessage(payload, `/app/message/${ticketId}`);
@@ -105,21 +108,26 @@ const useChat = (ticketId: number | undefined, senderId: number): [TicketMessage
 
     const setUpConnection = useCallback(() => {
 
-        stompClient.current = new Client({ brokerURL: 'ws://localhost:8080/ws' });
-
-        stompClient.current.onConnect = onConnect;
-
-        stompClient.current.onStompError = onError;
+        stompClient.current = new Client({ 
+            brokerURL: 'ws://localhost:8080/ws',
+            onConnect,
+            onStompError
+        });
 
         stompClient.current.activate();
 
-    }, [onConnect, onError]);
+    }, [onConnect, onStompError]);
 
     useEffect(() => {
 
         const getTicketMessages = async () => {
         
-            await Api.get(`/api/ticket-message?ticketId=${ticketId}`)
+            await Api.get(`/api/ticket-message?ticketId=${ticketId}`,
+                          { 
+                            headers: { 
+                                'Authorization': `Bearer ${user.jwt}` 
+                            } 
+                          })
     
                 .then((res: any) => {
     
@@ -153,7 +161,7 @@ const useChat = (ticketId: number | undefined, senderId: number): [TicketMessage
 
         }
         
-    }, [messages, setMessages, messagesWereFetched, ticketId])
+    }, [messages, setMessages, messagesWereFetched, ticketId, user.jwt])
 
     useEffect(() => {
 
