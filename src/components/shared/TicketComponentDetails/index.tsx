@@ -17,7 +17,7 @@ const TicketComponentDetails: React.FC<TicketData> = ({ data }) => {
 
     const ticketId = data?.ticketId;
 
-    const descStatus = data?.descStatus;
+    const statusDescription = data?.statusDescription;
 
     const title = data?.title;
 
@@ -35,7 +35,7 @@ const TicketComponentDetails: React.FC<TicketData> = ({ data }) => {
 
                 <span>#{ticketId}</span>
 
-                <span>{descStatus}</span>
+                <span>{statusDescription}</span>
 
             </UpperWrapper>
 

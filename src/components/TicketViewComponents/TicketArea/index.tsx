@@ -29,6 +29,7 @@ const TicketArea: React.FC<TicketData> = ({ data, callback }) => {
     const priority = data?.priority;
     const ticketId = data?.ticketId;
     const ticketStatus = data?.status;
+    const description = data?.description;
 
     const isAttendantAlreadyAssigned = data?.responsibleUser?.id === user.data.userId;
     const isTicketAlreadyClosedOrCancelled = ticketStatus === 4 || ticketStatus === 5;
@@ -125,6 +126,14 @@ const TicketArea: React.FC<TicketData> = ({ data, callback }) => {
                     <ColorBar priorityStatus={priority}/>
 
                     <span>{priority}</span>
+
+                </BottomInnerWrapper>
+
+                <BottomInnerWrapper style={{ marginTop: '40px' }}>
+
+                    <span style={{fontWeight: 'bolder'}}>Descrição: </span>
+
+                    <span>{description}</span>
 
                 </BottomInnerWrapper>
 
