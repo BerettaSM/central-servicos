@@ -10,8 +10,11 @@ import { Api } from '../../../Api';
 import NewTicketOptions from '../../shared/Interfaces/NewTicketOptions';
 
 import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
+import { useUser } from '../../auth/UserProvider';
 
 const OptionsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
+
+    const user = useUser();
 
     const [data, setData] = useState<NewTicketOptions>();
     
@@ -26,7 +29,7 @@ const OptionsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
                 if(endpoint !== 'classification' && endpoint !== 'area')
                     throw new Error(`${endpoint} não é um endpoint válido.`);
 
-                await Api.get(`/api/${endpoint}`)
+                await Api.get(`/api/${endpoint}`, { headers: { 'Authorization': `Bearer ${user.jwt}` } })
 
                     .then((res: any) => {
 
@@ -56,7 +59,7 @@ const OptionsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 
         })()
 
-    }, [])
+    }, [user.jwt])
 
     const prioritiesArray = [
         {id: null, description: 'Baixa'},

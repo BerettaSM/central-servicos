@@ -5,8 +5,11 @@ import { Layout } from './styles';
 import ChatArea from '../../components/TicketViewComponents/ChatArea';
 import TicketArea from '../../components/TicketViewComponents/TicketArea';
 import TicketDTO from '../../components/shared/Interfaces/TicketDTO';
+import { useUser } from '../../components/auth/UserProvider';
 
 const TicketView: React.FC = () => {
+
+    const user = useUser();
 
     const { _id } = useParams();
 
@@ -18,7 +21,7 @@ const TicketView: React.FC = () => {
         
         const searchTicketFromId = async () => {
 
-            await Api.get(url)
+            await Api.get(url, { headers: { 'Authorization': `Bearer ${user.jwt}` } })
     
                 .then((res: any) => {
     
@@ -46,7 +49,7 @@ const TicketView: React.FC = () => {
 
         })()
 
-    }, [_id]);
+    }, [_id, user.jwt]);
 
 
     return (

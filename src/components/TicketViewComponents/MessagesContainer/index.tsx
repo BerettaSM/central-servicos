@@ -5,13 +5,11 @@ import { Container } from './styles';
 import MessageTemplate from '../MessageTemplate';
 
 import TicketMessagesState from '../../shared/Interfaces/TicketMessagesState';
+import { useUser } from '../../auth/UserProvider';
 
 const MessagesContainer: React.FC<TicketMessagesState> = ({ messages }) => {
 
-    /* PARA TESTES ABAIXO */
-    const { REACT_APP_MOCK_USER_ID } = process.env; // Imitar um usuário logado.
-    const mockUserID = REACT_APP_MOCK_USER_ID ? Number(REACT_APP_MOCK_USER_ID) : 1; // Imitar um usuário logado.
-    /* PARA TESTES ACIMA */
+    const user = useUser();
 
     const bottomRef = useRef<HTMLDivElement | null>(null);
 
@@ -35,7 +33,7 @@ const MessagesContainer: React.FC<TicketMessagesState> = ({ messages }) => {
 
                 messages.map( (message, idx) => (
 
-                        <MessageTemplate key={idx} data={message} outgoing={message.senderId === mockUserID} />
+                        <MessageTemplate key={idx} data={message} outgoing={message.senderId === user.data.userId} />
 
                 ))
 

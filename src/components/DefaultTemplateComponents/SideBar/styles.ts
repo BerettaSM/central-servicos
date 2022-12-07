@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { Home } from 'styled-icons/open-iconic';
 import { Chat, HeadsetMic } from 'styled-icons/material';
+import { GraphUp } from 'styled-icons/bootstrap';
 
 export const Container = styled.div`
     grid-area: SB;
@@ -51,6 +52,11 @@ export const TicketsIcon = styled(HeadsetMic)`
 `;
 
 export const AnnouncementsIcon = styled(Chat)`
+    width: 17px;
+    margin-left: 12px;
+`;
+
+export const GraphIcon = styled(GraphUp)`
     width: 17px;
     margin-left: 12px;
 `;

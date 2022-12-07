@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import AllTicketsView from '../AllTicketsView';
 import NewTicketView from '../NewTicketView';
+import StatisticsView from '../StatisticsView';
 import TicketView from '../TicketView';
 
 const ViewsRoutes: React.FC = () => {
@@ -34,6 +35,11 @@ const ViewsRoutes: React.FC = () => {
             <Route
                 path='/tickets/my-closed-tickets'
                 element={<AllTicketsView selectedFilter={4} />}
+            />
+
+            <Route
+                path='/statistics'
+                element={<StatisticsView />}
             />
 
             <Route

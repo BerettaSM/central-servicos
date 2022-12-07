@@ -6,7 +6,7 @@ export const Container = styled.div`
 
     grid-row: 2 / 3;
     grid-column: 2 / 3;
-
+    
     background: var(--THEME_COLOR_002);   
     border-radius: 8px;
     height: 100%;

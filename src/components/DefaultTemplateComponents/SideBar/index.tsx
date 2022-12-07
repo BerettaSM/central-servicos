@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   AnnouncementsIcon,
   Container,
+  GraphIcon,
   HomeIcon,
   SideBarOption,
   TicketsIcon
@@ -14,14 +15,16 @@ const SideBar: React.FC = () => {
   return (
 
     <Container>
+      
+      <a href="/"> {/* TODO: remove this later  */}
+        <SideBarOption>
 
-      <SideBarOption>
+          <HomeIcon />
 
-        <HomeIcon />
+          <span>Página Inicial</span>
 
-        <span>Página Inicial</span>
-
-      </SideBarOption>
+        </SideBarOption>
+      </a>
 
       <Link to={'/tickets'}>
 
@@ -42,6 +45,18 @@ const SideBar: React.FC = () => {
         <span>Mural De Avisos</span>
 
       </SideBarOption>
+
+      <Link to={'/statistics'}>
+
+        <SideBarOption>
+
+          <GraphIcon />
+
+          <span>Estatísticas</span>
+
+        </SideBarOption>
+
+      </Link>
 
     </Container>
 
