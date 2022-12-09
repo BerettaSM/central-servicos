@@ -5,7 +5,7 @@ import { Layout } from './styles';
 import ChatArea from '../../components/TicketViewComponents/ChatArea';
 import TicketArea from '../../components/TicketViewComponents/TicketArea';
 import TicketDTO from '../../components/shared/Interfaces/TicketDTO';
-import { useUser } from '../../components/auth/UserProvider';
+import { useUser } from '../../auth';
 
 const TicketView: React.FC = () => {
 

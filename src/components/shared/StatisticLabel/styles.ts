@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const Label = styled.h3`
+export const Label = styled.span`
+    display: block;
     font-weight: normal;
     margin-bottom: 1rem;
 
@@ -9,7 +10,6 @@ export const Label = styled.h3`
     }
 
     > :nth-child(2) {
-        font-size: 20px;
         color: rgb(50, 50, 50);
     }
 `;

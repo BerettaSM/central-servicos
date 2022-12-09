@@ -3,12 +3,10 @@ import { Client, frameCallbackType, IFrame, StompSubscription, messageCallbackTy
 import TicketMessageRequestDTO from '../components/shared/Interfaces/TicketMessageRequestDTO';
 import TicketMessageResponseDTO from '../components/shared/Interfaces/TicketMessageResponseDTO';
 import { Api } from '../Api';
-import { useUser } from '../components/auth/UserProvider';
+import { useUser } from '../auth';
 
 
-const useChat = (ticketId: number | undefined): [TicketMessageResponseDTO[],
-                                                                   (inputValue: string) => void,
-                                                                   boolean] => {
+const useChat = (ticketId: number | undefined): [TicketMessageResponseDTO[], (inputValue: string) => void, boolean] => {
     
     const user = useUser();
 

@@ -9,7 +9,7 @@ import { Layout } from './styles';
 
 import Filter from '../../components/shared/Interfaces/Filter';
 import { FindAllApiResponse } from '../../components/shared/Interfaces/FindAllApiResponse';
-import { useUser } from '../../components/auth/UserProvider';
+import { useUser } from '../../auth';
 
 const AllTicketsView: React.FC<Filter> = ({ selectedFilter }) => {
 

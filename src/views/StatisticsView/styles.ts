@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-// DA - Data Area
+// OA - Options Area
 // CA - Chart Area
+// DA - Data Area
 
 export const Grid = styled.div`
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 10% 65% 25%;
     grid-template-areas: 
+        "OA"
         "CA"
         "DA";
 
@@ -15,6 +17,17 @@ export const Grid = styled.div`
     border-radius: 8px;
     height: 100%;
     padding: 12px;
+
+    * {
+        font-size: 20px;
+    }
+
+    > span {
+        align-self: center;
+        justify-self: center;
+        color: var(--PRIORITY_URGENT);
+    }
+
 `;
 
 export const Container = styled.div`
@@ -23,6 +36,15 @@ export const Container = styled.div`
     height: 100%;
     width: 100%;
     border-radius: 8px;
+`;
+
+export const OptionsArea = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+    grid-area: "OA";
 `;
 
 export const DataArea = styled.div`
@@ -34,4 +56,22 @@ export const ChartArea = styled.div`
     grid-area: "CA";
     margin: 0 50px;
     padding: 25px;
+`;
+
+export const RadiobuttonGrouper = styled.div`
+    
+`;
+
+export const Grouper = styled.div`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > span:first-child {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
 `;

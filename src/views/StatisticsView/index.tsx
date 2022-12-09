@@ -1,29 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import useStatistics from '../../hooks/useStatistics';
 import Spinner from '../../components/shared/Spinner';
 import StatisticLabel from '../../components/shared/StatisticLabel';
 import LargeButton from '../../components/shared/LargeButton';
+import Radiobutton from '../../components/shared/Radiobutton';
+import NumberInput from '../../components/shared/NumberInput';
 
 import {
     Grid,
     Container,
+    OptionsArea,
     DataArea,
-    ChartArea
+    ChartArea,
+    RadiobuttonGrouper,
+    Grouper
 } from './styles';
-
-
 
 const StatisticsView: React.FC = () => {
 
-    const [data, loading, error, retry] = useStatistics();
+    const [days, setDays] = useState(30);
+
+    const [graph, setGraph] = useState('line');
+
+    const [data, loading, error, reload] = useStatistics(days, graph);
 
     useEffect(() => {
 
-        if(data?.chart_html.scripts)
+        if(data?.chart?.scripts)
             // eslint-disable-next-line
-            data?.chart_html.scripts.forEach(script => eval(script));
+            data?.chart.scripts.forEach(script => eval(script));
 
     },[data])
+
+    const handleGraphChange = (graphType: string) => {
+
+        setGraph(graphType);
+
+        reload();
+
+    }
+
+    const chartHtml = data?.chart?.html ?? "";
 
     return (
 
@@ -41,50 +58,89 @@ const StatisticsView: React.FC = () => {
 
                 ) : error ? (
 
-                    <div style={{
-                        height: '100%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                        }}
-                    >
+                    <Grouper>
 
-                        <h3 style={{marginBottom: '20px'}}>Não foi possível alcançar o servidor de estatísticas.</h3>
-                        
+                        <span>Não foi possível alcançar o servidor de estatísticas.</span>
                         
                         <LargeButton
                             innerText='Tentar novamente'
-                            onClick={() => retry()}
+                            onClick={() => {
+                                setDays(30);
+                                reload();
+                            }}
                         />
                     
-
-                    </div>
+                    </Grouper>
 
                 ) : (
 
                     <Grid>
-                    
-                        <ChartArea dangerouslySetInnerHTML={{ __html: data?.chart_html.html?? "" }}>
+                        
+                        <OptionsArea>
 
-                        </ChartArea>
+                                <RadiobuttonGrouper>
 
+                                    <Radiobutton
+                                        value='line'
+                                        label='Gráfico de Linhas'
+                                        handleChange={handleGraphChange}
+                                        isChecked={graph === 'line'}
+                                    />
+
+                                    <Radiobutton
+                                        value='scatter'
+                                        label='Gráfico de Espalhamento'
+                                        handleChange={handleGraphChange}
+                                        isChecked={graph === 'scatter'}
+                                    />
+
+                                </RadiobuttonGrouper>
+
+                                <NumberInput 
+                                    value={days}
+                                    setValue={(n: number) => {
+                                        setDays(n);
+                                        reload();
+                                    }}
+                                    min={1}
+                                    max={150}
+                                    beforeLabel='Últimos '
+                                    afterLabel=' dias'
+                                />
+
+                        </OptionsArea>
+
+
+                        {
+
+                            chartHtml !== "" ? (
+
+                                <ChartArea dangerouslySetInnerHTML={{ __html: chartHtml }} />
+
+                            ) : (
+
+                                <span>Sem dados o suficiente para gerar um gráfico.</span>
+
+                            )
+
+                        }
+                        
                         <DataArea>
 
                             <StatisticLabel
-                                label='Total de tickets urgentes no momento'
+                                label='Total de tickets urgentes no momento(Prioridade alta/altíssima)'
                                 data={`${data?.total_urgent_tickets}`}
                                 dataColor='var(--PRIORITY_URGENT)'
                             />
 
                             <StatisticLabel
-                                label='Total de tickets resolvidos'
+                                label={`Total de tickets resolvidos`}
                                 data={`${data?.total_solved_tickets}`}
                                 dataColor='var(--PRIORITY_LOW)'
                             />
 
                             <StatisticLabel
-                                label='Tickets abertos em atraso'
+                                label='Tickets em atraso'
                                 data={`${data?.late_tickets_data.late_tickets}
                                     (${data?.late_tickets_data.percentage_late.toFixed(2)}%)`}
                                 dataColor='var(--PRIORITY_HIGH)'

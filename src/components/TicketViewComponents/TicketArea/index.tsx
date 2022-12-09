@@ -19,7 +19,7 @@ import {
 import { Api } from '../../../Api';
 
 import TicketData from '../../shared/Interfaces/TicketData';
-import { useUser } from '../../auth/UserProvider';
+import { useUser } from '../../../auth';
 
 const TicketArea: React.FC<TicketData> = ({ data, callback }) => {
 

@@ -5,7 +5,7 @@ import { Container } from './styles';
 import MessageTemplate from '../MessageTemplate';
 
 import TicketMessagesState from '../../shared/Interfaces/TicketMessagesState';
-import { useUser } from '../../auth/UserProvider';
+import { useUser } from '../../../auth';
 
 const MessagesContainer: React.FC<TicketMessagesState> = ({ messages }) => {
 

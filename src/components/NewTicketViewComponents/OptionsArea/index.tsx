@@ -10,7 +10,7 @@ import { Api } from '../../../Api';
 import NewTicketOptions from '../../shared/Interfaces/NewTicketOptions';
 
 import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
-import { useUser } from '../../auth/UserProvider';
+import { useUser } from '../../../auth';
 
 const OptionsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 

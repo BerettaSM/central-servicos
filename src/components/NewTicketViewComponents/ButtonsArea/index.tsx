@@ -9,7 +9,7 @@ import UpdateNewTicket from '../../shared/Interfaces/UpdateNewTicket';
 
 import { Api } from '../../../Api';
 import TicketRequestDTO from '../../shared/Interfaces/TicketRequestDTO';
-import { useUser } from '../../auth/UserProvider';
+import { useUser } from '../../../auth';
 
 const ButtonsArea: React.FC<UpdateNewTicket> = ({ newTicketState }) => {
 

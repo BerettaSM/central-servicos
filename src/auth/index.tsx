@@ -1,20 +1,11 @@
 import React, { useContext } from 'react';
 import jwt_decode from 'jwt-decode';
-import { useLocalStorage } from '../../../hooks/useLocalStorage';
-import ComponentWrapper from '../../shared/Interfaces/ComponentWrapper';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import ComponentWrapper from '../components/shared/Interfaces/ComponentWrapper';
+import { IJwt, UserData } from '../components/shared/Interfaces/IJwt'
 
-interface UserData {
-    fullName: string;
-    userId: number;
-}
 
-interface JWT {
-    jwt: string;
-    setJwt: React.Dispatch<any>;
-    data: UserData;
-}
-
-const UserContext = React.createContext<JWT | undefined>(undefined);
+const UserContext = React.createContext<IJwt | undefined>(undefined);
 
 const getDecodedUser = (jwt: string): UserData => {
 

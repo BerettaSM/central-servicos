@@ -4,7 +4,7 @@ import LargeButton from '../../shared/LargeButton';
 import InputComponentLogin from '../InputComponentLogin';
 import InputComponentPassword from '../InputComponentPassword';
 import ClickableSpan from '../../shared/ClickableSpan';
-import { useUser } from '../../auth/UserProvider';
+import { useUser } from '../../../auth';
 import { Api } from '../../../Api';
 import {
     Container,

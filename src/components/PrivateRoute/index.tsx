@@ -1,7 +1,7 @@
 import React, {  useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Api } from '../../Api';
-import { useUser } from '../auth/UserProvider';
+import { useUser } from '../../auth';
 import Spinner from '../shared/Spinner';
 import ComponentWrapper from '../shared/Interfaces/ComponentWrapper';
 

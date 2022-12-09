@@ -5,7 +5,7 @@ import PrivateRoute from './components/PrivateRoute';
 import DefaultTemplate from './template/DefaultTemplate';
 import LoginTemplate from './template/LoginTemplate';
 
-import { UserProvider } from './components/auth/UserProvider';
+import { UserProvider } from './auth';
 
 const App: React.FC = () => {
 

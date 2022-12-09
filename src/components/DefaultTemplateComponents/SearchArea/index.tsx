@@ -11,7 +11,7 @@ import {
 
 import ClickableSpan from '../../shared/ClickableSpan';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../auth/UserProvider';
+import { useUser } from '../../../auth';
 
 const SearchArea: React.FC = () => {
 

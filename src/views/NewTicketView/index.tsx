@@ -8,7 +8,7 @@ import ButtonsArea from '../../components/NewTicketViewComponents/ButtonsArea';
 import { Grid } from './styles';
 
 import TicketRequestDTO from '../../components/shared/Interfaces/TicketRequestDTO';
-import { useUser } from '../../components/auth/UserProvider';
+import { useUser } from '../../auth';
 
 const NewTicketView: React.FC = () => {
 
